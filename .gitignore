@@ -1,0 +1,10 @@
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+target/
+bin/classes/
+bin/generated-sources/
+bin/maven-archiver/
+bin/maven-status/
