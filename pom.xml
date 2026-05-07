@@ -1,23 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>it.uninsubria</groupId>
+
+  <groupId>it.unifi.cinemax</groupId>
   <artifactId>CineMax</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
+
   <properties>
     <maven.compiler.source>25</maven.compiler.source>
     <maven.compiler.target>25</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <directory>bin</directory>
+    <outputDirectory>bin/classes</outputDirectory>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.3.0</version>
+        <version>3.4.2</version>
         <configuration>
-          <outputDirectory>${project.basedir}/bin</outputDirectory>
+          <outputDirectory>bin</outputDirectory>
           <archive>
             <manifest>
               <mainClass>cinemax.CineMax</mainClass>
