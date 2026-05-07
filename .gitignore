@@ -8,3 +8,4 @@ bin/classes/
 bin/generated-sources/
 bin/maven-archiver/
 bin/maven-status/
+/bin/
