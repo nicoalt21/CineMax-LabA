@@ -8,8 +8,8 @@ import java.util.Map;
 public class GestoreDati {
 
     private Map<String, Utente> mappaUtenti;
-    //private Map<String, Proiezione> mappaProeizioni;
-    //private List<Prenotazione> listaPrenotazioni;
+    private Map<String, Proiezione> mappaProeizioni;
+    private List<Prenotazione> listaPrenotazioni;
 
     private static final int CAPIENZA_MASSIMA = 200;
     //private static final String PERCORSO_UTENTI = ;
@@ -73,10 +73,10 @@ public class GestoreDati {
         return 0;
     }
 
-   // public boolean aggiungiProiezione(Proiezione p) {
-        // controllo sovrapposizione date/orari e aggiunta
-       // return false;
-    //}
+   public boolean aggiungiProiezione(Proiezione p) {
+        // controllo sovrapposizione date/orari e aggiunt
+       return false;
+    }
 
     public boolean modificaProiezione(String dataOraAttuale, String nuovaDataOra) {
         //  controllo su prenotazioni esistenti prima di modificare
@@ -88,22 +88,22 @@ public class GestoreDati {
         return false;
     }
 
-    //public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, double prezzoMax) {
+    public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, double prezzoMax) {
         // filtri di ricerca e i parametri testuali possono essere null o vuoti
-       // return new ArrayList<>();
-    //}
+        return new ArrayList<>();
+    }
 
 
 
-    // public String creaPrenotazione(Utente u, Proiezione p, int posti) {
+    public String creaPrenotazione(Utente u, Proiezione p, int posti) {
         // Verifica posti liberi, genera id e aggiunge alla lista
-       // return null;
-    //}
+       return null;
+    }
 
-    //public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
+    public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
         // Filtra listaPrenotazioni per username
-    //    return new ArrayList<>();
-    //}
+        return new ArrayList<>();
+    }
 
     public boolean modificaPrenotazione(String codice, String nuovaDataOra) {
         // controllo date (entrambe successive a oggi) e aggiornamento
@@ -115,8 +115,8 @@ public class GestoreDati {
         return false;
     }
 
-    //public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente, String titoloFilm, String dataInizio, String dataFine) {
+    public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente, String titoloFilm, String dataInizio, String dataFine) {
         // filtri di ricerca per il bigliettaio
-       // return new ArrayList<>();
-    //}
+       return new ArrayList<>();
+    }
 }
