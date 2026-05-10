@@ -14,7 +14,7 @@ public class Utente {
 
 		this.nome = nome;
     	this.cognome = cognome;
-    	this.username = username;
+    	this.username = username; // MATO: da aggiungere un controllo: (username != back), la parola back la uso in MenuPrinciaple per muovermi fra le pagine, quindi non è ammessa come username.
     	this.password = password;
     	this.dataNascita = dataNascita;
     	this.domicilio = domicilio;

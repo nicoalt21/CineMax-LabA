@@ -49,48 +49,90 @@ public class MenuPrincipale {
 
     // --- 1. LOGIN E SMISTAMENTO RUOLI ---
     private void login() {
-        System.out.println("\n--- LOGIN ---\n0. Per andare indietro");
-        System.out.print("Username: ");
-        String user = leggiInput();
-        System.out.print("Password: ");
-        String pswd = leggiInput();
+        System.out.println("\n--- LOGIN ---\n\nDigita 'back' per tornare al menù principale.\n");
 
-        // If(gestore.verificaLogin(user, pswd);) switch(utente.trova(user).ruolo;){
-        //      case "Cliente": menuCliente();
-        //      case "Proiezionista": menuProiezionista();
-        //      case "Bigliettaio" : menuBiglettaio();
-        // }
+        while(true) {
+            System.out.println("Username: ");
+            String username = leggiInput();
+            if(username.equals("back")){return;}
+            System.out.println("Password: ");
+            String password = leggiInput();
+            if(password.equals("back")){return;}
+
+            if(gestore.autenticaUtente(username, password) != null){
+                switch (gestore.autenticaUtente(username, password).getRuolo()){
+                    case CLIENTE: menuCliente(username); break;
+                    case BIGLIETTAIO: menuBigliettaio(username); break;
+                    case PROIEZIONISTA: menuProiezionista(username); break;
+                    default: System.out.println("Errore inaspettato: " + username + " ha un ruolo imprevisto.");
+                }
+            } else {
+                System.out.println("Username o Password non validi. Riprova.");
+            }
+        }
 
     }
 
     // --- REGISTRAZIONE ---
     private void registraCliente() {
-        System.out.println("\n--- REGISTRAZIONE NUOVO CLIENTE ---");
-        System.out.print("Nome: "); String nome = leggiInput();
-        System.out.print("Cognome: "); String cognome = leggiInput();
-        System.out.print("Username: "); String user = leggiInput();
-        System.out.print("Password: "); String pass = leggiInput();
-        System.out.print("Data di Nascita (opzionale): "); String dataNascita = leggiInput();
-        System.out.print("Luogo domicilio: "); String dom = leggiInput();
+        System.out.println("\n--- REGISTRAZIONE NUOVO CLIENTE ---\nI campi con il carattere * sono obbligatori.\nDigita 'back' per tornare al menù principale.\n");
 
-        // try{
-        //      gestore.registraCliente(nome, cognome, user, pass, dataNascita, dom);
-        // } catch (IOException e) {
-        //            System.out.println("\nErrore di lettura dell'input. Riprova.\n");
-        //            return "";
-        System.out.println("Registrazione completata con successo! Ora puoi effettuare il login.");
+        System.out.print("*Nome: "); String nome = leggiInput();
+        if(nome.equals("back")){return;}
+        System.out.print("*Cognome: "); String cognome = leggiInput();
+        if(cognome.equals("back")){return;}
+        System.out.print("*Username: "); String user = leggiInput();
+        if(user.equals("back")){return;}
+        System.out.print("*Password: "); String password = leggiInput();
+        if(password.equals("back")){return;}
+        System.out.print("Data di Nascita: "); String dataNascita = leggiInput();
+        if(dataNascita.equals("back")){return;}
+        System.out.print("*Luogo domicilio: "); String dom = leggiInput();
+        if(dom.equals("back")){return;}
+
+        try{
+            if(gestore.registraCliente(new Utente(nome, cognome, user, password, dataNascita, dom, Ruolo.CLIENTE)))
+                System.out.println("Registrazione effettuata con successo. Ora puoi effettuare il Login.\n1. login\n2. registra cliente\n3. menu princiaple\n\nSeleziona un'opzione: ");
+                String scelta = leggiInput();
+
+                switch (scelta) {
+                    case "1": login(); break;
+                    case "2": registraCliente(); break;
+                    case "3": avvia(); break;
+                }
+        } catch (Exception e) {
+            System.out.println("\nRegistrazione fallita: " + e.getMessage());
+            registraCliente();
+        }
     }
 
     // --- AREA GUEST ---
     private void menuGuest() {
         String scelta;
+
+        String titolo = null;
+        String genere = null;
+        String dataInizio = null;
+        String dataFine = null;
+        Double prezzoMin = null;
+        Double prezzoMax = null;
+
         do {
             System.out.println("\n--- MENU RICERCA PROIEZIONI ---");
-            System.out.println("1. Nuova ricerca per Titolo");
-            System.out.println("2. Filtra per Genere");
-            System.out.println("3. Filtra per Intervallo di Date");
-            System.out.println("4. Filtra per CostoSeleziona e Visualizza Dettagli Proiezione");
-            System.out.println("5. Visualizza Dettagli Proiezione");
+            System.out.println("Filtri attuali:");
+            System.out.println("- Titolo: " + (titolo != null ? titolo : "Qualsiasi"));
+            System.out.println("- Genere: " + (genere != null ? genere : "Qualsiasi"));
+            System.out.println("- Date: " + (dataInizio != null ? dataInizio : "Qualsiasi") + " -> " + (dataFine != null ? dataFine : "Qualsiasi"));
+            System.out.println("- Costo: " + (prezzoMin != null ? prezzoMin + "€" : "Qualsiasi") + " -> " + (prezzoMax != null ? prezzoMax + "€" : "Qualsiasi"));
+            System.out.println("-------------------------------");
+
+            System.out.println("1. Imposta/Modifica Titolo");
+            System.out.println("2. Imposta/Modifica Genere");
+            System.out.println("3. Imposta/Modifica Intervallo di Date");
+            System.out.println("4. Imposta/Modifica Costo del biglietto");
+            System.out.println("5. ---> ESEGUI RICERCA <---");
+            System.out.println("6. Azzera tutti i filtri");
+            System.out.println("7. Visualizza Dettagli Proiezione (per ID)");
             System.out.println("0. Torna al menu principale");
             System.out.print("Scelta: ");
 
@@ -98,35 +140,264 @@ public class MenuPrincipale {
 
             switch (scelta) {
                 case "1":
-                    System.out.print("Inserisci titolo: ");
-                    // gestore.cercaProiezionePerTitolo(leggiInput());
+                    System.out.print("Inserisci titolo (o premi Invio per rimuovere il filtro): ");
+                    String inputTitolo = leggiInput();
+                    titolo = inputTitolo.isEmpty() ? null : inputTitolo;
                     break;
                 case "2":
-                    System.out.print("Inserisci genere: ");
-                    // gestore.cercaProiezionePerGenere(leggiInput());
+                    System.out.print("Inserisci genere (o premi Invio per rimuovere il filtro): ");
+                    String inputGenere = leggiInput();
+                    genere = inputGenere.isEmpty() ? null : inputGenere;
                     break;
                 case "3":
-                    System.out.println("Funzionalità: Filtro Date (da implementare in GestoreDati)");
+                    System.out.print("Inserisci data di Inizio (es. 2026-05-15) o Invio per saltare: ");
+                    String inputInizio = leggiInput();
+                    dataInizio = inputInizio.isEmpty() ? null : inputInizio;
+
+                    System.out.print("Inserisci data fine (es. 2026-05-29) o Invio per saltare: ");
+                    String inputFine = leggiInput();
+                    dataFine = inputFine.isEmpty() ? null : inputFine;
                     break;
                 case "4":
-                    System.out.println("Funzionalità: Filtro Costo (da implementare in GestoreDati)");
+                    System.out.print("Inserire costo Minimo o Invio per saltare: ");
+                    String inputMin = leggiInput();
+                    prezzoMin = inputMin.isEmpty() ? null : Double.parseDouble(inputMin);
+
+                    System.out.print("Inserire costo Massimo o Invio per saltare: ");
+                    String inputMax = leggiInput();
+                    prezzoMax = inputMax.isEmpty() ? null : Double.parseDouble(inputMax);
                     break;
                 case "5":
-                    System.out.print("Inserisci l'ID o il nome della proiezione da visualizzare: ");
-                    // gestore.visualizzaProiezione(leggiInput());
+                    System.out.println("\nEsecuzione ricerca in corso...\n");
+                    gestore.cercaProiezione(titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
                     break;
-                case "0": break;
+                case "6":
+                    titolo = null; genere = null; dataInizio = null; dataFine = null; prezzoMin = null; prezzoMax = null;
+                    System.out.println("Filtri azzerati!");
+                    break;
+                case "7":
+                    System.out.print("Inserisci l'ID o il nome della proiezione da visualizzare: ");
+                    String idProiezione = leggiInput();
+                    visualizzaDettagli(Integer.parseInt(idProiezione));
+                    break;
+
+                case "0":
+                    break;
+
+                default:
+                    System.out.println("Opzione non valida.");
+            }
+        } while (!scelta.equals("0"));
+    }
+
+    private void visualizzaDettagli(int idProiezione) {
+        System.out.println("\nRicerca dettagli in corso per: " + idProiezione + "...");
+
+        try {
+            Proiezione p = p= gestore.ottieniProiezione(idProiezione); // ottieniProiezione() non ancora implementato in GestoreDati
+
+            if (p != null) {
+                System.out.println("\n=================================");
+                System.out.println("      DETTAGLI PROIEZIONE        ");
+                System.out.println("=================================");
+                System.out.println("ID Proiezione   : " + p.getId());
+                System.out.println("Titolo Film     : " + p.getTitolo());
+                System.out.println("Genere          : " + p.getGenere());
+                System.out.println("Data e Ora      : " + p.getDataOra());
+                System.out.println("Costo Biglietto : " + p.getPrezzo() + " €");
+                System.out.println("Posti liberi    : " + p.getPostiDisponibili());
+                System.out.println("=================================\n");
+            } else {
+                System.out.println("\nNessuna proiezione trovata con identificativo: " + idProiezione);
+            }
+        } catch (Exception e) {
+            System.out.println("\nSi è verificato un errore durante la ricerca: " + e.getMessage());
+        }
+    }
+
+    // --- MENU CLIENTE ---
+    private void menuCliente(String username) {
+        String scelta;
+        do {
+            System.out.println("\n--- AREA PERSONALE CLIENTE: " + username + " ---");
+            System.out.println("1. Inserisci una prenotazione [creaPrenotazione()]");
+            System.out.println("2. Visualizza le tue prenotazioni [visualizzaPrenotazione()]");
+            System.out.println("3. Modifica data prenotazione [modificaPrenotazione()]");
+            System.out.println("4. Cancella una prenotazione [eliminaPrenotazione()]");
+            System.out.println("0. Logout");
+            System.out.print("Scelta: ");
+
+            scelta = leggiInput();
+
+            switch (scelta) {
+                case "1":
+                    System.out.println("Inserimento prenotazione in corso...");
+                    // gestore.creaPrenotazione();
+                    break;
+                case "2":
+                    System.out.println("Elenco prenotazioni:");
+                    // gestore.visualizzaPrenotazione(username);
+                    break;
+                case "3":
+                    System.out.println("Modifica data prenotazione:");
+                    // gestore.modificaPrenotazione();
+                    break;
+                case "4":
+                    System.out.println("Cancellazione prenotazione:");
+                    // gestore.eliminaPrenotazione();
+                    break;
+                case "0": System.out.println("Logout effettuato."); break;
                 default: System.out.println("Opzione non valida.");
             }
         } while (!scelta.equals("0"));
     }
-    // --- MENU CLIENTE ---
-    private void menuCliente(String username) {}
 
     // --- MENU PROIEZIONISTA ---
-    private void menuProiezionista() {}
+    private void menuProiezionista() {
+        String scelta;
+        do {
+            System.out.println("\n--- PANNELLO DI CONTROLLO PROIEZIONISTA ---");
+            System.out.println("1. Inserisci Film e Proiezione");
+            System.out.println("2. Modifica data proiezione");
+            System.out.println("3. Elimina proiezione");
+            System.out.println("0. Logout");
+            System.out.print("Scelta: ");
+
+            scelta = leggiInput();
+
+            switch (scelta) {
+                case "1":
+                    System.out.println("\n--- Inserimento Nuova Proiezione ---");
+
+                    System.out.print("Titolo del film: ");
+                    String titolo = leggiInput();
+                    System.out.print("Genere: ");
+                    String genere = leggiInput();
+                    System.out.print("Regista: ");
+                    String regista = leggiInput();
+                    System.out.print("Anno di uscita: ");
+                    String anno = leggiInput();
+                    System.out.print("Durata (minuti): ");
+                    String durata = leggiInput();
+                    System.out.print("Età minima pubblico: ");
+                    String etaMinima = leggiInput();
+
+                    System.out.print("Data e ora (es. 2026-05-20 21:00): ");
+                    String dataOra = leggiInput();
+                    System.out.print("Costo del biglietto (€): ");
+                    String costo = leggiInput();
+
+                    System.out.println("Salvataggio in corso...");
+
+                    /* Va creato l'oggetto Proiezione e bisogna passarlo al gestoreDati.
+                    Proiezione p = new Proiezione(titolo, genere, regista, anno, durata, etaMinima, dataOra, costo);
+                    gestore.aggiungiProiezione(p);
+                    */
+                    break;
+                case "2":
+                    System.out.println("\n--- Modifica Data Proiezione ---");
+
+                    System.out.print("Inserisci la data/ora attuale della proiezione da modificare: ");
+                    String dataOraAttuale = leggiInput();
+                    System.out.print("Inserisci la NUOVA data e ora: ");
+                    String nuovaDataOra = leggiInput();
+
+                    System.out.println("Verifica prenotazioni e modifica in corso...");
+                    // gestore.modificaProiezione(dataOraAttuale, nuovaDataOra);
+                    break;
+                case "3":
+                    System.out.println("\n--- Eliminazione Proiezione ---");
+                    System.out.print("Inserisci l'ID o la data della proiezione da eliminare: ");
+                    String idElimina = leggiInput();
+
+                    System.out.println("Eliminazione in corso...");
+                    // gestore.eliminaProiezione(idElimina);
+                    break;
+
+                case "0":
+                    System.out.println("Logout effettuato.");
+                    break;
+
+                default:
+                    System.out.println("Opzione errata.");
+            }
+        } while (!scelta.equals("0"));
+    }
 
     // --- MENU BIGLIETTAIO ---
-    private void menuBigliettaio() {    }
+    private void menuBigliettaio() {
+        String scelta;
+        do {
+            System.out.println("\n--- TERMINALE BIGLIETTERIA ---");
+            System.out.println("1. Visualizza prenotazioni odierne");
+            System.out.println("2. Cerca prenotazione");
+            System.out.println("0. Logout");
+            System.out.print("Scelta: ");
 
+            scelta = leggiInput();
+
+            switch (scelta) {
+                case "1":
+                    System.out.println("\n--- Prenotazioni Odierne ---");
+                    System.out.println("Recupero dati in corso...");
+                    // gestore.visualizzaPrenotazioniOggi();
+                    break;
+                case "2":
+                    System.out.println("\n--- Ricerca Prenotazione ---");
+                    System.out.println("Scegli il criterio di ricerca:");
+                    System.out.println("1. Per codice prenotazione");
+                    System.out.println("2. Per nome e cognome del cliente");
+                    System.out.println("3. Per titolo (anche parziale) del film");
+                    System.out.println("4. Per intervallo di date");
+                    System.out.print("Criterio scelto: ");
+
+                    String criterio = leggiInput();
+
+                    switch (criterio) {
+                        case "1":
+                            System.out.print("Inserisci il codice univoco della prenotazione: ");
+                            String codice = leggiInput();
+                            // gestore.cercaPrenotazionePerCodice(codice);
+                            break;
+                        case "2":
+                            System.out.print("Inserisci il nome del cliente: ");
+                            String nomeCliente = leggiInput();
+                            System.out.print("Inserisci il cognome del cliente: ");
+                            String cognomeCliente = leggiInput();
+                            // gestore.cercaPrenotazionePerCliente(nomeCliente, cognomeCliente);
+                            break;
+                        case "3":
+                            System.out.print("Inserisci il titolo (anche parziale) del film: ");
+                            String titolo = leggiInput();
+                            // gestore.cercaPrenotazionePerTitolo(titolo);
+                            break;
+                        case "4":
+                            System.out.print("Inserisci la data di inizio (es. 2026-05-20): ");
+                            String dataInizio = leggiInput();
+                            System.out.print("Inserisci la data di fine (es. 2026-05-29): ");
+                            String dataFine = leggiInput();
+                            // gestore.cercaPrenotazionePerDate(dataInizio, dataFine);
+                            break;
+                        default:
+                            System.out.println("Criterio di ricerca non valido.");
+                    }
+
+                    System.out.print("\nVuoi selezionare e visualizzare i dettagli di una prenotazione? (Y/N): ");
+                    String risposta = leggiInput();
+                    if (risposta.equalsIgnoreCase("Y")) {
+                        System.out.print("Inserisci il codice della prenotazione da visualizzare: ");
+                        String codPrenotazione = leggiInput();
+                        System.out.println("Caricamento dettagli completi...");
+                        // gestore.visualizzaPrenotazione(codPrenotazione);
+                    }
+                    break;
+                case "0":
+                    System.out.println("Logout effettuato.");
+                    break;
+                default:
+                    System.out.println("Opzione non valida.");
+            }
+        } while (!scelta.equals("0"));
+    }
+    }
 }
