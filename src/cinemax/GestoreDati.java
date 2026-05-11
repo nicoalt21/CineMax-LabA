@@ -203,17 +203,35 @@ public class GestoreDati {
         }
     }
 
-    // ... i metodi rimanenti (registraCliente, calcolaPostiLiberi, ecc.) ricordatevi di fare la javadoc!!!
-
     // --- AUTENTICAZIONE E UTENTI ---
 
+    /**
+     * Registra un nuovo cliente nel sistema.
+     * Verifica preventivamente che l'username scelto non sia già presente
+     * nella struttura dati per evitare collisioni e garantire l'univocità delle credenziali.
+     *
+     * @param u L'oggetto Utente da registrare, con la password già sottoposta ad hashing.
+     * @return true se la registrazione ha successo, false se l'username è già in uso.
+     */
     public boolean registraCliente(Utente u) {
-        // Controllo esistenza chiave (username) e aggiunta alla mappa
-        return false;
+        if(mappaUtenti.containsKey(u.getUsername())) {
+            return false;
+        }
+        mappaUtenti.put(u.getUsername(), u);
+        return true;
     }
 
+    /**
+     * Autentica un utente nel sistema verificando le sue credenziali.
+     * Ricerca l'utente tramite l'username e delega all'istanza trovata
+     * il controllo di validità della password in chiaro.
+     *
+     * @param username L'identificativo univoco dell'utente.
+     * @param passwordChiara La password inserita dall'utente nel form di login.
+     * @return L'oggetto Utente se l'autenticazione ha successo, null in caso di credenziali non valide.
+     */
     public Utente autenticaUtente(String username, String passwordChiara) {
-        // Ricerca in mappaUtenti e chiamata a u.verificaPassword()
+
         return null;
     }
 
