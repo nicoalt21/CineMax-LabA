@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class GestoreDati {
 
@@ -12,108 +13,89 @@ public class GestoreDati {
     private List<Prenotazione> listaPrenotazioni;
 
     private static final int CAPIENZA_MASSIMA = 200;
-    //private static final String PERCORSO_UTENTI = ;
-    //private static final String PATH_PROIEZIONI = ;
-    //private static final String PATH_PRENOTAZIONI = ;
+    private static final String PERCORSO_UTENTI = "data/utenti.csv";
+    private static final String PERCORSO_PROIEZIONI = "data/proiezioni.csv";
+    private static final String PERCORSO_PRENOTAZIONI = "data/prenotazioni.csv";
 
     public GestoreDati() {
-
         this.mappaUtenti = new HashMap<>();
-        //this.mappaProiezioni = new HashMap<>();
-        //this.listaPrenotazioni = new ArrayList<>();
+        // TreeMap mantiene automaticamente le proiezioni in ordine cronologico basandosi sulla stringa dataOra
+        this.mappaProiezioni = new TreeMap<>();
+        this.listaPrenotazioni = new ArrayList<>();
     }
+
+    // --- I/O FILE (Da implementare) ---
 
     public void caricaDati() {
-
+        // Invocherà i tre metodi privati sottostanti
     }
 
-    private void caricaUtenti() {
-
-    }
-
-    private void caricaProiezioni() {
-
-    }
-
-    private void caricaPrenotazioni() {
-
-    }
+    private void caricaUtenti() {}
+    private void caricaProiezioni() {}
+    private void caricaPrenotazioni() {}
 
     public void salvaDati() {
-
+        // Invocherà i tre metodi privati sottostanti
     }
 
-    private void salvaUtenti() {
+    private void salvaUtenti() {}
+    private void salvaProiezioni() {}
+    private void salvaPrenotazioni() {}
 
-    }
-
-    private void salvaProiezioni() {
-
-    }
-
-    private void salvaPrenotazioni() {
-
-    }
-
+    // --- AUTENTICAZIONE E UTENTI ---
 
     public boolean registraCliente(Utente u) {
-        // controllo esistenza e aggiunta alla mappa
+        // Controllo esistenza chiave (username) e aggiunta alla mappa
         return false;
     }
 
-    //qua lho messo ma bisgona vedere come gestiamo l'hashing per la pw
-
     public Utente autenticaUtente(String username, String passwordChiara) {
-        // ricerca per username e verifica hash password
-
-        // MATO: Se l'utente NON viene autenticato mi aspetto un null di output, in caso di cambiamenti tenere in considerazione, l'if nel metodo login della classe MenuPrinciaple.java
+        // Ricerca in mappaUtenti e chiamata a u.verificaPassword()
         return null;
     }
 
-    /* MATO: Questo metodo lo inserirei in Proiezione, invocandolo con Proiezione.getPostiLiberi();
-    public int getPostiLiberi(String dataOra) {
-        // Calcola posti occupati iterando sulle prenotazioni e sottrai a CAPIENZA_MASSIMA
-        return 0;
-    }*/
+    // --- GESTIONE PROIEZIONI ---
 
-   public boolean aggiungiProiezione(Proiezione p) {
-        // controllo sovrapposizione date/orari e aggiunt
-       return false;
+    public int calcolaPostiLiberi(String dataOra) {
+        int postiOccupati = 0;
+        for (Prenotazione p : listaPrenotazioni) {
+            if (p.getProiezione().getDataOra().equals(dataOra)) {
+                postiOccupati += p.getNumeroPosti();
+            }
+        }
+        return CAPIENZA_MASSIMA - postiOccupati;
+    }
+
+    public boolean aggiungiProiezione(Proiezione p) {
+        // Controllo sovrapposizione chiavi (dataOra) e inserimento
+        return false;
     }
 
     public boolean modificaProiezione(String dataOraAttuale, String nuovaDataOra) {
-        //  controllo su prenotazioni esistenti prima di modificare
+        // Controllo su listaPrenotazioni prima di modificare e aggiornamento chiave in mappa
         return false;
     }
 
     public boolean eliminaProiezione(String dataOra) {
-        //  controllo su prenotazioni esistenti prima di eliminare
+        // Controllo su listaPrenotazioni prima di eliminare e rimozione dalla mappa
         return false;
     }
 
-    public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, double prezzoMax, double prezzoMin) {
-        // filtri di ricerca e i parametri testuali possono essere null o vuoti
+    // Usato Double invece di double per permettere parametri nulli dal menu in caso di assenza di filtri
+    public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, Double prezzoMin, Double prezzoMax) {
         return new ArrayList<>();
     }
 
-    /* le Proiezionni, secondo me, conviene gestirle tramite una Lista non tramite una Map
-    public Proiezione ottieniProiezione(String id) {
-        // se esiste, restituisce tutte le informazioni su una Proiezione, trovata in base alla PK id
-
-        for (Proiezione p : listaProiezioni) {
-            if (p.getId() == Integer.parseInt(id) || p.getTitolo().equalsIgnoreCaeqse(id)) {
-                return p;
-            }
-            return null;
-        }
-
+    public Proiezione ottieniProiezione(String dataOra) {
+        // Ricerca diretta sulla mappa tramite la chiave primaria logica
         return null;
     }
-     */
+
+    // --- GESTIONE PRENOTAZIONI ---
 
     public String creaPrenotazione(Utente u, Proiezione p, int posti) {
-        // Verifica posti liberi, genera id e aggiunge alla lista
-       return null;
+        // Verifica posti liberi, genera codice univoco, crea oggetto e aggiunge alla lista
+        return null;
     }
 
     public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
@@ -122,17 +104,17 @@ public class GestoreDati {
     }
 
     public boolean modificaPrenotazione(String codice, String nuovaDataOra) {
-        // controllo date (entrambe successive a oggi) e aggiornamento
+        // Controllo date (entrambe successive a oggi) e aggiornamento riferimento proiezione
         return false;
     }
 
     public boolean eliminaPrenotazione(String codice) {
-        // controllo data proiezione (deve essere futura) e rimozione
+        // Controllo data proiezione (deve essere futura) e rimozione da lista
         return false;
     }
 
     public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente, String titoloFilm, String dataInizio, String dataFine) {
-        // filtri di ricerca per il bigliettaio
-       return new ArrayList<>();
+        // Filtri di ricerca per il terminale biglietteria
+        return new ArrayList<>();
     }
 }
