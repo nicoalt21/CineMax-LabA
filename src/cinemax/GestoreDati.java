@@ -256,20 +256,50 @@ public class GestoreDati {
         }
         return CAPIENZA_MASSIMA - postiOccupati;
     }
+    
+    /**
+     * Inserisce una nuova proiezione nel sistema.
+     * L'inserimento avviene solo se non esiste già una proiezione associata alla stessa data e ora.
+     *
+     * @param p la proiezione da inserire
+     * @return true se l'inserimento è avvenuto con successo, false altrimenti
+     */
 
     public boolean aggiungiProiezione(Proiezione p) {
-        // Controllo sovrapposizione chiavi (dataOra) e inserimento
-        return false;
+        if (mappaProiezioni.containsKey(p.getDataOra())) {
+        	return false;
+        }
+        
+        mappaProiezioni.put(p.getDataOra(), p);
+        return true;
     }
 
     public boolean modificaProiezione(String dataOraAttuale, String nuovaDataOra) {
         // Controllo su listaPrenotazioni prima di modificare e aggiornamento chiave in mappa
         return false;
     }
+    
+    /**
+     * Elimina una proiezione dal sistema.
+     * L'eliminazione è consentita solo se non esistono prenotazioni associate alla proiezione.
+     *
+     * @param dataOra la data e ora della proiezione da eliminare
+     * @return true se la proiezione è stata eliminata, false altrimenti
+     */
 
     public boolean eliminaProiezione(String dataOra) {
-        // Controllo su listaPrenotazioni prima di eliminare e rimozione dalla mappa
-        return false;
+    	if (!mappaProiezioni.containsKey(dataOra)) {
+            return false;
+        }
+    	for (Prenotazione p : listaPrenotazioni) {
+
+            if (p.getProiezione().getDataOra().equals(dataOra)) {
+                return false;
+            }
+        }
+    	mappaProiezioni.remove(dataOra);
+
+        return true;
     }
 
     // Usato Double invece di double per permettere parametri nulli dal menu in caso di assenza di filtri
@@ -288,10 +318,25 @@ public class GestoreDati {
         // Verifica posti liberi, genera codice univoco, crea oggetto e aggiunge alla lista
         return null;
     }
-
+    
+    /**
+     * Restituisce l'elenco delle prenotazioni appartenenti a un determinato utente.
+     * Il metodo scorre la lista globale delle prenotazioni e seleziona
+     * solamente quelle associate all'username del cliente specificato.
+     *
+     * @param u l'utente di cui visualizzare le prenotazioni
+     * @return lista delle prenotazioni dell'utente
+     */
+    
     public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
-        // Filtra listaPrenotazioni per username
-        return new ArrayList<>();
+    	List<Prenotazione> prenotazioniUtente = new ArrayList<>();
+    	
+    	for (Prenotazione p : listaPrenotazioni) {
+    		if (p.getCliente().getUsername().equals(u.getUsername())) {
+    			prenotazioniUtente.add(p);
+    		}
+    	}
+    	return prenotazioniUtente;
     }
 
     public boolean modificaPrenotazione(String codice, String nuovaDataOra) {
