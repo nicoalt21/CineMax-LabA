@@ -1,5 +1,9 @@
 package cinemax;
 
+/**
+ * Rappresenta una singola proiezione cinematografica all'interno del palinsesto.
+ * Identificata univocamente dalla data e ora della proiezione.
+ */
 public class Proiezione {
 
     private String dataOra;
@@ -11,8 +15,19 @@ public class Proiezione {
     private int etaMinima;
     private double prezzo;
 
+    /**
+     * Costruisce una nuova proiezione.
+     *
+     * @param dataOra La data e l'ora della proiezione (chiave logica).
+     * @param titolo Il titolo del film.
+     * @param genere Il genere cinematografico.
+     * @param regista Il regista del film.
+     * @param anno L'anno di uscita del film.
+     * @param durata La durata in minuti.
+     * @param etaMinima L'età minima richiesta per la visione.
+     * @param prezzo Il costo del biglietto.
+     */
     public Proiezione(String dataOra, String titolo, String genere, String regista, int anno, int durata, int etaMinima, double prezzo) {
-
         this.dataOra = dataOra;
         this.titolo = titolo;
         this.genere = genere;
@@ -32,6 +47,15 @@ public class Proiezione {
     public int getEtaMinima() { return etaMinima; }
     public double getPrezzo() { return prezzo; }
 
+    /**
+     * Aggiorna la data e l'ora della proiezione in caso di rinvio.
+     * @param dataOra La nuova stringa contenente data e ora.
+     */
     public void setDataOra(String dataOra) { this.dataOra = dataOra; }
+
+    /**
+     * Aggiorna il prezzo del biglietto.
+     * @param prezzo Il nuovo costo del biglietto.
+     */
     public void setPrezzo(double prezzo) { this.prezzo = prezzo; }
 }

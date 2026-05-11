@@ -1,15 +1,28 @@
 package cinemax;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Classe centrale per la gestione dei dati del sistema CineMax.
+ * Si occupa del caricamento, salvataggio e manipolazione in memoria delle
+ * informazioni relative a utenti, proiezioni e prenotazioni.
+ */
 public class GestoreDati {
 
+    /** Mappa degli utenti registrati, indicizzati per username. */
     private Map<String, Utente> mappaUtenti;
+    /** Mappa delle proiezioni, ordinata cronologicamente per data e ora. */
     private Map<String, Proiezione> mappaProiezioni;
+    /** Lista di tutte le prenotazioni effettuate nel sistema. */
     private List<Prenotazione> listaPrenotazioni;
 
     private static final int CAPIENZA_MASSIMA = 200;
@@ -17,30 +30,180 @@ public class GestoreDati {
     private static final String PERCORSO_PROIEZIONI = "data/proiezioni.csv";
     private static final String PERCORSO_PRENOTAZIONI = "data/prenotazioni.csv";
 
+    /**
+     * Inizializza il gestore dati creando le strutture per la memorizzazione in RAM.
+     */
     public GestoreDati() {
         this.mappaUtenti = new HashMap<>();
-        // TreeMap mantiene automaticamente le proiezioni in ordine cronologico basandosi sulla stringa dataOra
         this.mappaProiezioni = new TreeMap<>();
         this.listaPrenotazioni = new ArrayList<>();
     }
 
-    // --- I/O FILE (Da implementare) ---
+    // --- I/O FILE ---
 
+    /**
+     * Carica tutti i dati dai file CSV nelle strutture in memoria.
+     * L'ordine di caricamento (Utenti -> Proiezioni -> Prenotazioni) è fondamentale
+     * per mantenere l'integrità dei riferimenti.
+     */
     public void caricaDati() {
-        // Invocherà i tre metodi privati sottostanti
+        caricaUtenti();
+        caricaProiezioni();
+        caricaPrenotazioni();
     }
 
-    private void caricaUtenti() {}
-    private void caricaProiezioni() {}
-    private void caricaPrenotazioni() {}
+    /**
+     * Legge gli utenti dal file CSV.
+     * Le password vengono caricate come hash senza subire nuovamente la cifratura.
+     */
+    private void caricaUtenti() {
+        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_UTENTI))) {
+            String riga;
+            boolean isIntestazione = true;
 
+            while ((riga = lettore.readLine()) != null) {
+                if (isIntestazione) {
+                    isIntestazione = false;
+                    continue;
+                }
+
+                String[] campi = riga.split(",");
+                if (campi.length >= 7) {
+                    Utente u = new Utente(campi[0], campi[1], campi[2], campi[3], campi[4], campi[5], Ruolo.valueOf(campi[6].toUpperCase()), false);
+                    mappaUtenti.put(u.getUsername(), u);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Errore I/O in caricaUtenti: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Legge le proiezioni dal file CSV e le inserisce nella mappa ordinata.
+     */
+    private void caricaProiezioni() {
+        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_PROIEZIONI))) {
+            String riga;
+            boolean isIntestazione = true;
+
+            while ((riga = lettore.readLine()) != null) {
+                if (isIntestazione) {
+                    isIntestazione = false;
+                    continue;
+                }
+
+                String[] campi = riga.split(",");
+                if (campi.length >= 8) {
+                    Proiezione p = new Proiezione(campi[0], campi[1], campi[2], campi[3],
+                            Integer.parseInt(campi[4]), Integer.parseInt(campi[5]),
+                            Integer.parseInt(campi[6]), Double.parseDouble(campi[7]));
+                    mappaProiezioni.put(p.getDataOra(), p);
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Errore in caricaProiezioni: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Legge le prenotazioni dal file CSV.
+     * Collega ogni prenotazione alle istanze esistenti di Utente e Proiezione.
+     */
+    private void caricaPrenotazioni() {
+        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_PRENOTAZIONI))) {
+            String riga;
+            boolean isIntestazione = true;
+
+            while ((riga = lettore.readLine()) != null) {
+                if (isIntestazione) {
+                    isIntestazione = false;
+                    continue;
+                }
+
+                String[] campi = riga.split(",");
+                if (campi.length >= 4) {
+                    String codice = campi[0];
+                    String username = campi[1];
+                    String dataOraProiezione = campi[2];
+                    int numeroPosti = Integer.parseInt(campi[3]);
+
+                    Utente cliente = mappaUtenti.get(username);
+                    Proiezione proiezione = mappaProiezioni.get(dataOraProiezione);
+
+                    if (cliente != null && proiezione != null) {
+                        Prenotazione pren = new Prenotazione(codice, cliente, proiezione, numeroPosti);
+                        listaPrenotazioni.add(pren);
+                    } else {
+                        System.out.println("Errore integrità dati: impossibile caricare prenotazione " + codice);
+                    }
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Errore in caricaPrenotazioni: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Salva lo stato attuale delle strutture dati sui file CSV.
+     */
     public void salvaDati() {
-        // Invocherà i tre metodi privati sottostanti
+        salvaUtenti();
+        salvaProiezioni();
+        salvaPrenotazioni();
     }
 
-    private void salvaUtenti() {}
-    private void salvaProiezioni() {}
-    private void salvaPrenotazioni() {}
+    /**
+     * Scrive gli utenti presenti in memoria nel relativo file CSV.
+     */
+    private void salvaUtenti() {
+        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_UTENTI))) {
+            scrittore.write("nome,cognome,username,password,data_nascita,domicilio,ruolo\n");
+            for (Utente u : mappaUtenti.values()) {
+                String riga = u.getNome() + "," + u.getCognome() + "," + u.getUsername() + "," +
+                        u.getPasswordCifrata() + "," + u.getDataNascita() + "," +
+                        u.getDomicilio() + "," + u.getRuolo().name();
+                scrittore.write(riga + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Errore I/O in salvaUtenti: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Scrive le proiezioni presenti in memoria nel relativo file CSV.
+     */
+    private void salvaProiezioni() {
+        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_PROIEZIONI))) {
+            scrittore.write("data_ora,titolo,genere,regista,anno,durata,eta_minima,prezzo\n");
+            for (Proiezione p : mappaProiezioni.values()) {
+                String riga = p.getDataOra() + "," + p.getTitolo() + "," + p.getGenere() + "," +
+                        p.getRegista() + "," + p.getAnno() + "," + p.getDurata() + "," +
+                        p.getEtaMinima() + "," + p.getPrezzo();
+                scrittore.write(riga + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Errore I/O in salvaProiezioni: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Scrive le prenotazioni presenti in memoria nel relativo file CSV.
+     */
+    private void salvaPrenotazioni() {
+        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_PRENOTAZIONI))) {
+            scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti,costo_totale\n");
+            for (Prenotazione p : listaPrenotazioni) {
+                String riga = p.getCodiceUnivoco() + "," + p.getCliente().getUsername() + "," +
+                        p.getProiezione().getDataOra() + "," + p.getNumeroPosti() + "," +
+                        p.getCostoTotale();
+                scrittore.write(riga + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Errore I/O in salvaPrenotazioni: " + e.getMessage());
+        }
+    }
+
+    // ... i metodi rimanenti (registraCliente, calcolaPostiLiberi, ecc.) ricordatevi di fare la javadoc!!!
 
     // --- AUTENTICAZIONE E UTENTI ---
 
