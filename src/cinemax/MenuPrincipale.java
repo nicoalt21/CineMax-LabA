@@ -92,7 +92,7 @@ public class MenuPrincipale {
         if(dom.equals("back")){return;}
 
         try {
-            // Aggiunto il parametro 'true' per la cifratura della password
+            // quando crei Cifrario va cambiata la riga sotto
             Utente nuovoUtente = new Utente(nome, cognome, user, password, dataNascita, dom, Ruolo.CLIENTE, true);
 
             if(gestore.registraCliente(nuovoUtente)) {
@@ -299,7 +299,7 @@ public class MenuPrincipale {
                         Proiezione p = new Proiezione(
                                 dataOra, titolo, genere, regista,
                                 Integer.parseInt(anno), Integer.parseInt(durata),
-                                Integer.parseInt(etaMinima), Double.parseDouble(costo)
+                                Integer.parseInt(etaMinima), Double.parseDouble(costo.replace(",", "."))
                         );
                         // gestore.aggiungiProiezione(p);
                     } catch (NumberFormatException e) {
@@ -364,26 +364,34 @@ public class MenuPrincipale {
 
                     String criterio = leggiInput();
 
+                    // Dichiarazione variabili fuori dallo switch per renderle visibili al metodo di ricerca successivo
+                    String codice = null;
+                    String nomeCliente = null;
+                    String cognomeCliente = null;
+                    String titolo = null;
+                    String dataInizio = null;
+                    String dataFine = null;
+
                     switch (criterio) {
                         case "1":
                             System.out.print("Inserisci il codice univoco della prenotazione: ");
-                            String codice = leggiInput();
+                            codice = leggiInput();
                             break;
                         case "2":
                             System.out.print("Inserisci il nome del cliente: ");
-                            String nomeCliente = leggiInput();
+                            nomeCliente = leggiInput();
                             System.out.print("Inserisci il cognome del cliente: ");
-                            String cognomeCliente = leggiInput();
+                            cognomeCliente = leggiInput();
                             break;
                         case "3":
                             System.out.print("Inserisci il titolo (anche parziale) del film: ");
-                            String titolo = leggiInput();
+                            titolo = leggiInput();
                             break;
                         case "4":
                             System.out.print("Inserisci la data di inizio (es. 2026-05-20): ");
-                            String dataInizio = leggiInput();
+                            dataInizio = leggiInput();
                             System.out.print("Inserisci la data di fine (es. 2026-05-29): ");
-                            String dataFine = leggiInput();
+                            dataFine = leggiInput();
                             break;
                         default:
                             System.out.println("Criterio di ricerca non valido.");

@@ -191,11 +191,10 @@ public class GestoreDati {
      */
     private void salvaPrenotazioni() {
         try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_PRENOTAZIONI))) {
-            scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti,costo_totale\n");
+            scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti\n");
             for (Prenotazione p : listaPrenotazioni) {
                 String riga = p.getCodiceUnivoco() + "," + p.getCliente().getUsername() + "," +
-                        p.getProiezione().getDataOra() + "," + p.getNumeroPosti() + "," +
-                        p.getCostoTotale();
+                        p.getProiezione().getDataOra() + "," + p.getNumeroPosti();
                 scrittore.write(riga + "\n");
             }
         } catch (IOException e) {
@@ -231,12 +230,23 @@ public class GestoreDati {
      * @return L'oggetto Utente se l'autenticazione ha successo, null in caso di credenziali non valide.
      */
     public Utente autenticaUtente(String username, String passwordChiara) {
-
+        Utente u = mappaUtenti.get(username);
+        if (u != null && u.verificaPassword(passwordChiara)) {
+            return u;
+        }
         return null;
     }
 
     // --- GESTIONE PROIEZIONI ---
 
+    /**
+     * Calcola dinamicamente il numero di posti ancora disponibili per una specifica proiezione.
+     * Iterando sulla lista delle prenotazioni globali, somma i posti già assegnati
+     * e li sottrae alla capacità massima della sala.
+     *
+     * @param dataOra La stringa che identifica univocamente la proiezione (chiave primaria).
+     * @return Il numero di posti liberi rimasti.
+     */
     public int calcolaPostiLiberi(String dataOra) {
         int postiOccupati = 0;
         for (Prenotazione p : listaPrenotazioni) {
