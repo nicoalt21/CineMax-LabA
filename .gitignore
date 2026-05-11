@@ -10,3 +10,4 @@ bin/maven-archiver/
 bin/maven-status/
 /bin/*
 !/bin/*.jar
+/bin/
