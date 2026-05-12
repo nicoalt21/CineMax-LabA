@@ -7,6 +7,10 @@ import java.security.NoSuchAlgorithmException;
  * Rappresenta un utente registrato nel sistema CineMax.
  * Gestisce le informazioni anagrafiche, il ruolo e la sicurezza della password
  * tramite l'algoritmo di hashing SHA-256.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class Utente {
 

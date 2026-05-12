@@ -3,6 +3,10 @@ package cinemax;
 /**
  * Rappresenta una singola proiezione cinematografica all'interno del palinsesto.
  * Identificata univocamente dalla data e ora della proiezione.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class Proiezione {
 

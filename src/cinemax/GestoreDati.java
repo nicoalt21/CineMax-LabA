@@ -15,6 +15,10 @@ import java.util.TreeMap;
  * Classe centrale per la gestione dei dati del sistema CineMax.
  * Si occupa del caricamento, salvataggio e manipolazione in memoria delle
  * informazioni relative a utenti, proiezioni e prenotazioni.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class GestoreDati {
 
@@ -302,21 +306,78 @@ public class GestoreDati {
         return true;
     }
 
-    // Usato Double invece di double per permettere parametri nulli dal menu in caso di assenza di filtri
+    /**
+     * Filtra le proiezioni in base ai parametri forniti.
+     * Se un parametro è null, il filtro relativo viene ignorato.
+     */
     public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, Double prezzoMin, Double prezzoMax) {
-        return new ArrayList<>();
+        List<Proiezione> risultati = new ArrayList<>();
+
+        for (Proiezione p : mappaProiezioni.values()) {
+            boolean corrisponde = true;
+
+            if (titolo != null && !p.getTitolo().toLowerCase().contains(titolo.toLowerCase())) {
+                corrisponde = false;
+            }
+            if (genere != null && !p.getGenere().equalsIgnoreCase(genere)) {
+                corrisponde = false;
+            }
+            if (dataInizio != null && p.getDataOra().compareTo(dataInizio) < 0) {
+                corrisponde = false;
+            }
+            // Aggiungiamo il suffisso per coprire l'intera giornata della data di fine
+            if (dataFine != null && p.getDataOra().compareTo(dataFine + " 23:59:59") > 0) {
+                corrisponde = false;
+            }
+            if (prezzoMin != null && p.getPrezzo() < prezzoMin) {
+                corrisponde = false;
+            }
+            if (prezzoMax != null && p.getPrezzo() > prezzoMax) {
+                corrisponde = false;
+            }
+
+            if (corrisponde) {
+                risultati.add(p);
+            }
+        }
+        return risultati;
     }
 
+    /**
+     * Recupera una proiezione specifica tramite la sua chiave univoca.
+     * * @param dataOra La stringa data_ora da cercare.
+     * @return L'oggetto Proiezione trovato o null se inesistente.
+     */
     public Proiezione ottieniProiezione(String dataOra) {
-        // Ricerca diretta sulla mappa tramite la chiave primaria logica
-        return null;
+        return mappaProiezioni.get(dataOra);
     }
 
     // --- GESTIONE PRENOTAZIONI ---
 
+    /**
+     * Crea una nuova prenotazione nel sistema.
+     * Verifica la disponibilità dei posti e genera un codice identificativo univoco.
+     *
+     * @param u L'utente che effettua l'acquisto.
+     * @param p La proiezione desiderata.
+     * @param posti Il numero di biglietti da riservare.
+     * @return Il codice alfanumerico della prenotazione se avvenuta con successo, null in caso di posti insufficienti o input non validi.
+     */
     public String creaPrenotazione(Utente u, Proiezione p, int posti) {
-        // Verifica posti liberi, genera codice univoco, crea oggetto e aggiunge alla lista
-        return null;
+        if (posti <= 0) {
+            return null;
+        }
+
+        if (calcolaPostiLiberi(p.getDataOra()) < posti) {
+            return null;
+        }
+
+        String codice = java.util.UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
+        Prenotazione prenotazione = new Prenotazione(codice, u, p, posti);
+        listaPrenotazioni.add(prenotazione);
+
+        return codice;
     }
     
     /**
@@ -339,18 +400,101 @@ public class GestoreDati {
     	return prenotazioniUtente;
     }
 
+    /**
+     * Modifica l'orario di una prenotazione esistente spostandola su una nuova proiezione.
+     *
+     * @param codice L'identificativo univoco della prenotazione da alterare.
+     * @param nuovaDataOra La data e ora della nuova proiezione desiderata.
+     * @return true se la modifica ha successo, false se la prenotazione o la nuova proiezione non esistono, oppure in caso di capienza insufficiente.
+     */
     public boolean modificaPrenotazione(String codice, String nuovaDataOra) {
-        // Controllo date (entrambe successive a oggi) e aggiornamento riferimento proiezione
-        return false;
+        Prenotazione daModificare = null;
+        for (Prenotazione p : listaPrenotazioni) {
+            if (p.getCodiceUnivoco().equals(codice)) {
+                daModificare = p;
+                break;
+            }
+        }
+
+        if (daModificare == null) {
+            return false;
+        }
+
+        Proiezione nuovaProiezione = mappaProiezioni.get(nuovaDataOra);
+        if (nuovaProiezione == null) {
+            return false;
+        }
+
+        if (calcolaPostiLiberi(nuovaDataOra) < daModificare.getNumeroPosti()) {
+            return false;
+        }
+
+        daModificare.setProiezione(nuovaProiezione);
+        return true;
     }
+
+    /**
+     * Elimina fisicamente una prenotazione dal sistema.
+     *
+     * @param codice L'identificativo alfanumerico della prenotazione da rimuovere.
+     * @return true se la cancellazione è avvenuta correttamente, false se il codice non è stato trovato nella lista.
+     */
 
     public boolean eliminaPrenotazione(String codice) {
-        // Controllo data proiezione (deve essere futura) e rimozione da lista
+        for (int i = 0; i < listaPrenotazioni.size(); i++) {
+            if (listaPrenotazioni.get(i).getCodiceUnivoco().equals(codice)) {
+                listaPrenotazioni.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
+    /**
+     * Filtra le prenotazioni globali applicando criteri multipli a cascata.
+     * Se un parametro viene passato come null, il relativo filtro viene ignorato.
+     *
+     * @param codice Filtro esatto sul codice della prenotazione.
+     * @param nomeCliente Filtro parziale (case-insensitive) sulla concatenazione di nome e cognome.
+     * @param titoloFilm Filtro parziale (case-insensitive) sul titolo della proiezione associata.
+     * @param dataInizio Limite inferiore temporale per la ricerca.
+     * @param dataFine Limite superiore temporale (inclusa l'intera giornata).
+     * @return Una lista contenente esclusivamente le prenotazioni che soddisfano tutti i criteri impostati.
+     */
+
     public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente, String titoloFilm, String dataInizio, String dataFine) {
-        // Filtri di ricerca per il terminale biglietteria
-        return new ArrayList<>();
+        List<Prenotazione> risultati = new ArrayList<>();
+
+        for (Prenotazione p : listaPrenotazioni) {
+            boolean corrisponde = true;
+
+            if (codice != null && !p.getCodiceUnivoco().equalsIgnoreCase(codice)) {
+                corrisponde = false;
+            }
+
+            if (nomeCliente != null) {
+                String nomeCompleto = p.getCliente().getNome() + " " + p.getCliente().getCognome();
+                if (!nomeCompleto.toLowerCase().contains(nomeCliente.toLowerCase())) {
+                    corrisponde = false;
+                }
+            }
+
+            if (titoloFilm != null && !p.getProiezione().getTitolo().toLowerCase().contains(titoloFilm.toLowerCase())) {
+                corrisponde = false;
+            }
+
+            if (dataInizio != null && p.getProiezione().getDataOra().compareTo(dataInizio) < 0) {
+                corrisponde = false;
+            }
+
+            if (dataFine != null && p.getProiezione().getDataOra().compareTo(dataFine + " 23:59:59") > 0) {
+                corrisponde = false;
+            }
+
+            if (corrisponde) {
+                risultati.add(p);
+            }
+        }
+        return risultati;
     }
 }

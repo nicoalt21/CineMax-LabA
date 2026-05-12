@@ -3,6 +3,10 @@ package cinemax;
 /**
  * Rappresenta la transazione di acquisto di uno o più biglietti per una proiezione.
  * Agisce come classe di associazione mettendo in relazione un Utente e una Proiezione.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class Prenotazione {
 

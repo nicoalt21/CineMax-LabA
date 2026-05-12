@@ -3,6 +3,10 @@ package cinemax;
 /**
  * Classe entry point del sistema CineMax.
  * Gestisce l'inizializzazione del gestore dati, l'avvio dell'interfaccia utente e il salvataggio finale.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class CineMax {
 
