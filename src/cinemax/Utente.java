@@ -27,26 +27,20 @@ public class Utente {
 	 * * @param nome Nome dell'utente.
 	 * @param cognome Cognome dell'utente.
 	 * @param username Identificativo univoco per il login.
-	 * @param password Password in chiaro (da cifrare) o hash già esistente.
+	 * @param passwordCifrata Hash della password già calcolato tramite la classe Cifrario.
 	 * @param dataNascita Data di nascita dell'utente.
 	 * @param domicilio Indirizzo o città di residenza.
 	 * @param ruolo Livello di accesso (CLIENTE, BIGLIETTAIO, PROIEZIONISTA).
-	 * @param daCifrare Se true, la password viene passata all'algoritmo di hash.
 	 * Se false, viene salvata direttamente (uso per lettura da file).
 	 */
-	public Utente(String nome, String cognome, String username, String password, String dataNascita, String domicilio, Ruolo ruolo, boolean daCifrare) {
+	public Utente(String nome, String cognome, String username, String passwordCifrata, String dataNascita, String domicilio, Ruolo ruolo) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.username = username;
+        this.passwordCifrata = passwordCifrata;
 		this.dataNascita = dataNascita;
 		this.domicilio = domicilio;
 		this.ruolo = ruolo;
-
-		if (daCifrare) {
-			this.passwordCifrata = eseguiHashing(password);
-		} else {
-			this.passwordCifrata = password;
-		}
 	}
 
 	public String getNome() { return nome; }
@@ -59,31 +53,11 @@ public class Utente {
 
 	/**
 	 * Verifica se una password fornita in input corrisponde a quella salvata.
-	 * * @param passwordChiara La password inserita nel form di login.
-	 * @return true se l'hash dell'input coincide con l'hash memorizzato, false altrimenti.
+	 * * @param password : la password inserita nel form di login.
+	 * @return true : se l'hash dell'input coincide con l'hash memorizzato, : false altrimenti.
 	 */
-	public boolean verificaPassword(String passwordChiara) {
-		return this.passwordCifrata.equals(eseguiHashing(passwordChiara));
-	}
+    public boolean verificaPassword(String password) {
+        return this.passwordCifrata.equals(Cifrario.cifraPassword(password));
+    }
 
-	/**
-	 * Genera l'hash SHA-256 di una stringa.
-	 * * @param input La stringa da cifrare.
-	 * @return La rappresentazione esadecimale dell'hash.
-	 */
-	private String eseguiHashing(String input) {
-		try {
-			MessageDigest digest = MessageDigest.getInstance("SHA-256");
-			byte[] hashBytes = digest.digest(input.getBytes());
-			StringBuilder hexString = new StringBuilder();
-			for (byte b : hashBytes) {
-				String hex = Integer.toHexString(0xff & b);
-				if (hex.length() == 1) hexString.append('0');
-				hexString.append(hex);
-			}
-			return hexString.toString();
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException("Errore critico: algoritmo di hashing non trovato.", e);
-		}
-	}
 }

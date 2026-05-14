@@ -46,7 +46,7 @@ public class MenuPrincipale {
         } while (!scelta.equals("0"));
     }
 
-    // --- 1. LOGIN E SMISTAMENTO RUOLI ---
+    // Login e smistamento ruoli
     private void login() {
         System.out.println("\n--- LOGIN ---\n\nDigita 'back' per tornare al menù principale.\n");
 
@@ -54,6 +54,7 @@ public class MenuPrincipale {
             System.out.print("Username: ");
             String username = leggiInput();
             if(username.equals("back")){return;}
+
             System.out.print("Password: ");
             String password = leggiInput();
             if(password.equals("back")){return;}
@@ -74,7 +75,7 @@ public class MenuPrincipale {
         }
     }
 
-    // --- REGISTRAZIONE ---
+    // Registrazione
     private void registraCliente() {
         System.out.println("\n--- REGISTRAZIONE NUOVO CLIENTE ---\nI campi con il carattere * sono obbligatori.\nDigita 'back' per tornare al menù principale.\n");
 
@@ -82,18 +83,17 @@ public class MenuPrincipale {
         if(nome.equals("back")){return;}
         System.out.print("*Cognome: "); String cognome = leggiInput();
         if(cognome.equals("back")){return;}
-        System.out.print("*Username: "); String user = leggiInput();
-        if(user.equals("back")){return;}
-        System.out.print("*Password: "); String password = leggiInput();
-        if(password.equals("back")){return;}
         System.out.print("Data di Nascita: "); String dataNascita = leggiInput();
         if(dataNascita.equals("back")){return;}
         System.out.print("*Luogo domicilio: "); String dom = leggiInput();
         if(dom.equals("back")){return;}
+        System.out.print("*Username: "); String user = leggiInput();
+        if(user.equals("back")){return;}
+        System.out.print("*Password: "); String passwordInChiaro = leggiInput(); // MATO: qua vorrei tanto mettere un Cifraio.cifraPassword(leggiInput()); così che la password in chiaro non sia MAI salvata come variabile, neanche durante la registrazione o il login...
+        if(passwordInChiaro.equals("back")){return;}
 
         try {
-            // quando crei Cifrario va cambiata la riga sotto
-            Utente nuovoUtente = new Utente(nome, cognome, user, password, dataNascita, dom, Ruolo.CLIENTE, true);
+            Utente nuovoUtente = new Utente(nome, cognome, user, Cifrario.cifraPassword(passwordInChiaro), dataNascita, dom, Ruolo.CLIENTE);
 
             if(gestore.registraCliente(nuovoUtente)) {
                 System.out.println("Registrazione effettuata con successo. Ora puoi effettuare il Login.\n1. login\n2. registra cliente\n3. menu principale\n\nSeleziona un'opzione: ");
@@ -103,6 +103,7 @@ public class MenuPrincipale {
                     case "1": login(); break;
                     case "2": registraCliente(); break;
                     case "3": return;
+                    default: return;
                 }
             } else {
                 System.out.println("Errore: Username già in uso.");
@@ -113,7 +114,7 @@ public class MenuPrincipale {
         }
     }
 
-    // --- AREA GUEST ---
+    // Area Guest
     private void menuGuest() {
         String scelta;
 
@@ -225,7 +226,7 @@ public class MenuPrincipale {
         }
     }
 
-    // --- MENU CLIENTE ---
+    // Menu Cliente
     private void menuCliente(String username) {
         String scelta;
         do {
@@ -258,7 +259,7 @@ public class MenuPrincipale {
         } while (!scelta.equals("0"));
     }
 
-    // --- MENU PROIEZIONISTA ---
+    // Menu Proiezionista
     private void menuProiezionista(String username) {
         String scelta;
         do {
@@ -336,7 +337,7 @@ public class MenuPrincipale {
         } while (!scelta.equals("0"));
     }
 
-    // --- MENU BIGLIETTAIO ---
+    // Menu Bigliettaio
     private void menuBigliettaio(String username) {
         String scelta;
         do {
