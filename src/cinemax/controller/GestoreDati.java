@@ -16,6 +16,8 @@ import java.util.TreeMap;
 
 /**
  * Classe centrale per la gestione dei dati in memoria e della logica applicativa.
+ * Coordina le operazioni su utenti, proiezioni e prenotazioni garantendo
+ * il rispetto dei vincoli definiti dalle specifiche.
  *
  * @author Alt Niccolò Jacopo, 762605, VA
  * @author Soldo Mateo, 760762, VA
@@ -50,6 +52,8 @@ public class GestoreDati {
 
     /**
      * Delega al GestoreCSV il salvataggio dei dati correnti dalle collezioni in RAM ai file fisici.
+     * Invariante: deve essere chiamato sempre dopo qualsiasi modifica alle proiezioni
+     * per garantire la consistenza delle chiavi di join nel CSV delle prenotazioni.
      */
     public void salvaDati() {
         GestoreCSV.salvaUtenti(mappaUtenti);
@@ -158,7 +162,7 @@ public class GestoreDati {
      * @param dataFine   Limite temporale superiore (formato yyyy-MM-dd).
      * @param prezzoMin  Costo minimo del biglietto.
      * @param prezzoMax  Costo massimo del biglietto.
-     * @return Lista delle proiezioni che soddisfano i criteri.
+     * @return Lista delle proiezioni che soddisfano i criteri, mai null.
      */
     public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio,
                                             String dataFine, Double prezzoMin, Double prezzoMax) {
@@ -211,13 +215,26 @@ public class GestoreDati {
     }
 
     /**
+     * Recupera una singola prenotazione tramite il suo codice univoco.
+     *
+     * @param codiceUnivoco Il codice alfanumerico della prenotazione.
+     * @return L'oggetto Prenotazione trovato o null se inesistente.
+     */
+    public Prenotazione ottieniPrenotazione(String codiceUnivoco) {
+        for (Prenotazione p : listaPrenotazioni) {
+            if (p.getCodiceUnivoco().equalsIgnoreCase(codiceUnivoco)) return p;
+        }
+        return null;
+    }
+
+    /**
      * Registra una nuova prenotazione scalando i posti disponibili.
      *
      * @param u     L'utente acquirente.
      * @param p     La proiezione selezionata.
      * @param posti Il numero di posti da riservare.
      * @return Il codice alfanumerico della prenotazione o null se i posti sono insufficienti,
-     *         l'input errato o il cliente non ha l'età minima richiesta.
+     *         il numero non è valido o il cliente non soddisfa l'età minima richiesta.
      */
     public String creaPrenotazione(Utente u, Proiezione p, int posti) {
         if (posti <= 0 || calcolaPostiLiberi(p.getDataOra()) < posti) return null;
@@ -234,7 +251,7 @@ public class GestoreDati {
      * Restituisce lo storico delle prenotazioni di un singolo utente.
      *
      * @param u L'utente di cui visualizzare le prenotazioni.
-     * @return Lista delle prenotazioni associate all'utente.
+     * @return Lista delle prenotazioni associate all'utente, mai null.
      */
     public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
         List<Prenotazione> risultato = new ArrayList<>();
@@ -313,7 +330,7 @@ public class GestoreDati {
      * @param titoloFilm  Titolo (parziale) del film.
      * @param dataInizio  Limite temporale inferiore (formato yyyy-MM-dd).
      * @param dataFine    Limite temporale superiore (formato yyyy-MM-dd).
-     * @return Lista delle prenotazioni che soddisfano i criteri.
+     * @return Lista delle prenotazioni che soddisfano i criteri, mai null.
      */
     public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente,
                                                 String titoloFilm, String dataInizio, String dataFine) {
@@ -363,7 +380,7 @@ public class GestoreDati {
     /**
      * Restituisce tutte le prenotazioni con proiezione nella data odierna.
      *
-     * @return Lista delle prenotazioni odierne.
+     * @return Lista delle prenotazioni odierne, mai null.
      */
     public List<Prenotazione> ottieniPrenotazioniOggi() {
         List<Prenotazione> risultati = new ArrayList<>();
@@ -381,12 +398,5 @@ public class GestoreDati {
             }
         }
         return risultati;
-    }
-
-    public Prenotazione ottieniPrenotazione(String codiceUnivoco){
-        for (Prenotazione p : listaPrenotazioni) {
-            if(p.getCodiceUnivoco().equalsIgnoreCase(codiceUnivoco)){return p;}
-        }
-        return null;
     }
 }
