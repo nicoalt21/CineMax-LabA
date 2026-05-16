@@ -1,4 +1,4 @@
-package cinemax;
+package cinemax.objects;
 
 /**
  * Rappresenta la transazione di acquisto di uno o più biglietti per una proiezione.

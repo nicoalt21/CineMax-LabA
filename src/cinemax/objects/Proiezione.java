@@ -1,4 +1,4 @@
-package cinemax;
+package cinemax.objects;
 
 /**
  * Rappresenta una singola proiezione cinematografica all'interno del palinsesto.

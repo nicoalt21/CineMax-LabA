@@ -1,5 +1,8 @@
 package cinemax;
 
+import cinemax.controller.GestoreDati;
+import cinemax.ui.MenuPrincipale;
+
 /**
  * Classe entry point del sistema CineMax.
  * Gestisce l'inizializzazione del gestore dati, l'avvio dell'interfaccia utente e il salvataggio finale.

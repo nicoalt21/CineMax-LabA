@@ -1,4 +1,4 @@
-package cinemax;
+package cinemax.objects;
 
 /**
  * Definisce i livelli di autorizzazione e i permessi degli utenti nel sistema CineMax.

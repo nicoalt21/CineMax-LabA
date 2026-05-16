@@ -1,4 +1,9 @@
-package cinemax;
+package cinemax.controller;
+
+import cinemax.objects.Prenotazione;
+import cinemax.objects.Proiezione;
+import cinemax.objects.Ruolo;
+import cinemax.objects.Utente;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

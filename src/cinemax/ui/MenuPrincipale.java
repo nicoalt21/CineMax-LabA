@@ -1,4 +1,10 @@
-package cinemax;
+package cinemax.ui;
+
+import cinemax.controller.Cifrario;
+import cinemax.controller.GestoreDati;
+import cinemax.objects.Proiezione;
+import cinemax.objects.Ruolo;
+import cinemax.objects.Utente;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

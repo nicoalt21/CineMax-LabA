@@ -1,4 +1,6 @@
-package cinemax;
+package cinemax.objects;
+
+import cinemax.controller.Cifrario;
 
 import java.time.LocalDate;
 import java.time.Period;

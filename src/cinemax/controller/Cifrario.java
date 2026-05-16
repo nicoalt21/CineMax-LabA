@@ -1,4 +1,4 @@
-package cinemax;
+package cinemax.controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
