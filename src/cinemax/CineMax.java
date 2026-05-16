@@ -31,3 +31,7 @@ public class CineMax {
         }
     }
 }
+
+
+
+//vi dico gia che cè qualche problema con la logica, succedono cose strane quando si fanno determinate ricerche, lunedi guardo se non lo fa prima qualcuno
