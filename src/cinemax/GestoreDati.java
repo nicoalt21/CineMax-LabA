@@ -1,5 +1,9 @@
 package cinemax;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +24,7 @@ public class GestoreDati {
     private List<Prenotazione> listaPrenotazioni;
 
     private static final int CAPIENZA_MASSIMA = 200;
+    static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
      * Inizializza le strutture dati in memoria per utenti, proiezioni e prenotazioni.
@@ -55,9 +60,7 @@ public class GestoreDati {
      * @return true se l'inserimento ha successo, false se l'username è già presente.
      */
     public boolean registraCliente(Utente u) {
-        if(mappaUtenti.containsKey(u.getUsername())) {
-            return false;
-        }
+        if (mappaUtenti.containsKey(u.getUsername())) return false;
         mappaUtenti.put(u.getUsername(), u);
         return true;
     }
@@ -65,15 +68,13 @@ public class GestoreDati {
     /**
      * Verifica le credenziali di accesso di un utente.
      *
-     * @param username L'identificativo dell'utente.
+     * @param username       L'identificativo dell'utente.
      * @param passwordChiara La password inserita in chiaro.
      * @return L'istanza dell'Utente se le credenziali sono corrette, null altrimenti.
      */
     public Utente autenticaUtente(String username, String passwordChiara) {
         Utente u = mappaUtenti.get(username);
-        if (u != null && u.verificaPassword(passwordChiara)) {
-            return u;
-        }
+        if (u != null && u.verificaPassword(passwordChiara)) return u;
         return null;
     }
 
@@ -100,49 +101,44 @@ public class GestoreDati {
      * @return true se l'inserimento ha successo, false se esiste già una proiezione per quella data e ora.
      */
     public boolean aggiungiProiezione(Proiezione p) {
-        if (mappaProiezioni.containsKey(p.getDataOra())) {
-            return false;
-        }
+        if (mappaProiezioni.containsKey(p.getDataOra())) return false;
         mappaProiezioni.put(p.getDataOra(), p);
         return true;
     }
 
     /**
      * Modifica la data e l'ora di una proiezione esistente.
+     * La modifica è consentita solo se non ci sono prenotazioni attive per quella proiezione.
      *
      * @param dataOraAttuale La chiave di ricerca attuale.
-     * @param nuovaDataOra La nuova stringa data e ora da assegnare.
-     * @return true se la modifica ha successo, false se la proiezione originale non esiste o il nuovo orario è già occupato.
+     * @param nuovaDataOra   La nuova stringa data e ora da assegnare.
+     * @return true se la modifica ha successo, false altrimenti.
      */
     public boolean modificaProiezione(String dataOraAttuale, String nuovaDataOra) {
-        if (!mappaProiezioni.containsKey(dataOraAttuale)) {
-            return false;
-        }
-        if (mappaProiezioni.containsKey(nuovaDataOra)) {
-            return false;
+        if (!mappaProiezioni.containsKey(dataOraAttuale)) return false;
+        if (mappaProiezioni.containsKey(nuovaDataOra)) return false;
+
+        for (Prenotazione p : listaPrenotazioni) {
+            if (p.getProiezione().getDataOra().equals(dataOraAttuale)) return false;
         }
 
         Proiezione p = mappaProiezioni.remove(dataOraAttuale);
         p.setDataOra(nuovaDataOra);
         mappaProiezioni.put(nuovaDataOra, p);
-
         return true;
     }
 
     /**
      * Elimina una proiezione dal palinsesto.
+     * La cancellazione è consentita solo se non ci sono prenotazioni attive associate.
      *
      * @param dataOra L'identificativo della proiezione da rimuovere.
-     * @return true se l'eliminazione ha successo, false se non esiste o se ci sono prenotazioni attive associate.
+     * @return true se l'eliminazione ha successo, false altrimenti.
      */
     public boolean eliminaProiezione(String dataOra) {
-        if (!mappaProiezioni.containsKey(dataOra)) {
-            return false;
-        }
+        if (!mappaProiezioni.containsKey(dataOra)) return false;
         for (Prenotazione p : listaPrenotazioni) {
-            if (p.getProiezione().getDataOra().equals(dataOra)) {
-                return false;
-            }
+            if (p.getProiezione().getDataOra().equals(dataOra)) return false;
         }
         mappaProiezioni.remove(dataOra);
         return true;
@@ -150,25 +146,48 @@ public class GestoreDati {
 
     /**
      * Filtra le proiezioni in base a parametri di ricerca multipli.
-     * Se un parametro è null, il filtro corrispondente viene ignorato.
+     * I parametri null vengono ignorati.
      *
-     * @param titolo Titolo parziale o completo.
-     * @param genere Genere cinematografico.
-     * @param dataInizio Limite temporale inferiore.
-     * @param dataFine Limite temporale superiore.
-     * @param prezzoMin Costo minimo del biglietto.
-     * @param prezzoMax Costo massimo del biglietto.
+     * @param titolo     Titolo parziale o completo.
+     * @param genere     Genere cinematografico.
+     * @param dataInizio Limite temporale inferiore (formato yyyy-MM-dd).
+     * @param dataFine   Limite temporale superiore (formato yyyy-MM-dd).
+     * @param prezzoMin  Costo minimo del biglietto.
+     * @param prezzoMax  Costo massimo del biglietto.
      * @return Lista delle proiezioni che soddisfano i criteri.
      */
-    public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio, String dataFine, Double prezzoMin, Double prezzoMax) {
+    public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio,
+                                            String dataFine, Double prezzoMin, Double prezzoMax) {
         List<Proiezione> risultati = new ArrayList<>();
+
+        LocalDateTime inizio = null;
+        LocalDateTime fine = null;
+
+        try {
+            if (dataInizio != null) inizio = LocalDate.parse(dataInizio).atStartOfDay();
+            if (dataFine != null) fine = LocalDate.parse(dataFine).atTime(23, 59, 59);
+        } catch (DateTimeParseException e) {
+            System.err.println("Formato data non valido: " + e.getMessage());
+            return risultati;
+        }
+
         for (Proiezione p : mappaProiezioni.values()) {
             boolean corrisponde = true;
 
-            if (titolo != null && !p.getTitolo().toLowerCase().contains(titolo.toLowerCase())) corrisponde = false;
-            if (genere != null && !p.getGenere().equalsIgnoreCase(genere)) corrisponde = false;
-            if (dataInizio != null && p.getDataOra().compareTo(dataInizio) < 0) corrisponde = false;
-            if (dataFine != null && p.getDataOra().compareTo(dataFine + " 23:59:59") > 0) corrisponde = false;
+            if (titolo != null && !p.getTitolo().toLowerCase().contains(titolo.toLowerCase()))
+                corrisponde = false;
+            if (genere != null && !p.getGenere().equalsIgnoreCase(genere))
+                corrisponde = false;
+
+            try {
+                LocalDateTime dataP = LocalDateTime.parse(p.getDataOra(), FORMATO_DATA);
+                if (inizio != null && dataP.isBefore(inizio)) corrisponde = false;
+                if (fine != null && dataP.isAfter(fine)) corrisponde = false;
+            } catch (DateTimeParseException e) {
+                System.err.println("dataOra non valida per proiezione: " + p.getDataOra());
+                corrisponde = false;
+            }
+
             if (prezzoMin != null && p.getPrezzo() < prezzoMin) corrisponde = false;
             if (prezzoMax != null && p.getPrezzo() > prezzoMax) corrisponde = false;
 
@@ -190,18 +209,20 @@ public class GestoreDati {
     /**
      * Registra una nuova prenotazione scalando i posti disponibili.
      *
-     * @param u L'utente acquirente.
-     * @param p La proiezione selezionata.
+     * @param u     L'utente acquirente.
+     * @param p     La proiezione selezionata.
      * @param posti Il numero di posti da riservare.
-     * @return Il codice alfanumerico della prenotazione o null se i posti sono insufficienti o l'input errato.
+     * @return Il codice alfanumerico della prenotazione o null se i posti sono insufficienti,
+     *         l'input errato o il cliente non ha l'età minima richiesta.
      */
     public String creaPrenotazione(Utente u, Proiezione p, int posti) {
-        if (posti <= 0 || calcolaPostiLiberi(p.getDataOra()) < posti) {
-            return null;
-        }
+        if (posti <= 0 || calcolaPostiLiberi(p.getDataOra()) < posti) return null;
+
+        int eta = u.calcolaEta();
+        if (eta != -1 && eta < p.getEtaMinima()) return null;
+
         String codice = java.util.UUID.randomUUID().toString().substring(0, 8).toUpperCase();
-        Prenotazione prenotazione = new Prenotazione(codice, u, p, posti);
-        listaPrenotazioni.add(prenotazione);
+        listaPrenotazioni.add(new Prenotazione(codice, u, p, posti));
         return codice;
     }
 
@@ -212,37 +233,42 @@ public class GestoreDati {
      * @return Lista delle prenotazioni associate all'utente.
      */
     public List<Prenotazione> visualizzaPrenotazioni(Utente u) {
-        List<Prenotazione> prenotazioniUtente = new ArrayList<>();
+        List<Prenotazione> risultato = new ArrayList<>();
         for (Prenotazione p : listaPrenotazioni) {
-            if (p.getCliente().getUsername().equals(u.getUsername())) {
-                prenotazioniUtente.add(p);
-            }
+            if (p.getCliente().getUsername().equals(u.getUsername())) risultato.add(p);
         }
-        return prenotazioniUtente;
+        return risultato;
     }
 
     /**
-     * Sposta una prenotazione su una diversa proiezione, previa verifica della disponibilità.
+     * Sposta una prenotazione su una diversa proiezione.
+     * La modifica è consentita solo se sia la vecchia che la nuova data sono successive a oggi.
      *
-     * @param codice Il codice univoco della prenotazione.
+     * @param codice       Il codice univoco della prenotazione.
      * @param nuovaDataOra L'orario della nuova proiezione.
-     * @return true se la modifica ha successo, false in caso di errori o indisponibilità di posti.
+     * @return true se la modifica ha successo, false altrimenti.
      */
     public boolean modificaPrenotazione(String codice, String nuovaDataOra) {
         Prenotazione daModificare = null;
         for (Prenotazione p : listaPrenotazioni) {
-            if (p.getCodiceUnivoco().equals(codice)) {
-                daModificare = p;
-                break;
-            }
+            if (p.getCodiceUnivoco().equals(codice)) { daModificare = p; break; }
         }
-
         if (daModificare == null) return false;
 
-        Proiezione nuovaProiezione = mappaProiezioni.get(nuovaDataOra);
-        if (nuovaProiezione == null || calcolaPostiLiberi(nuovaDataOra) < daModificare.getNumeroPosti()) {
+        try {
+            LocalDateTime ora = LocalDateTime.now();
+            LocalDateTime dataVecchia = LocalDateTime.parse(daModificare.getProiezione().getDataOra(), FORMATO_DATA);
+            LocalDateTime dataNuova = LocalDateTime.parse(nuovaDataOra, FORMATO_DATA);
+
+            if (!dataVecchia.isAfter(ora) || !dataNuova.isAfter(ora)) return false;
+        } catch (DateTimeParseException e) {
+            System.err.println("Formato data non valido in modificaPrenotazione: " + e.getMessage());
             return false;
         }
+
+        Proiezione nuovaProiezione = mappaProiezioni.get(nuovaDataOra);
+        if (nuovaProiezione == null || calcolaPostiLiberi(nuovaDataOra) < daModificare.getNumeroPosti())
+            return false;
 
         daModificare.setProiezione(nuovaProiezione);
         return true;
@@ -250,13 +276,23 @@ public class GestoreDati {
 
     /**
      * Cancella una prenotazione dal sistema.
+     * La cancellazione è consentita solo se la data di proiezione è successiva a oggi.
      *
      * @param codice Il codice della prenotazione da eliminare.
-     * @return true se l'eliminazione va a buon fine, false se il codice non esiste.
+     * @return true se l'eliminazione va a buon fine, false altrimenti.
      */
     public boolean eliminaPrenotazione(String codice) {
+        LocalDateTime ora = LocalDateTime.now();
         for (int i = 0; i < listaPrenotazioni.size(); i++) {
-            if (listaPrenotazioni.get(i).getCodiceUnivoco().equals(codice)) {
+            Prenotazione p = listaPrenotazioni.get(i);
+            if (p.getCodiceUnivoco().equals(codice)) {
+                try {
+                    LocalDateTime dataProiezione = LocalDateTime.parse(p.getProiezione().getDataOra(), FORMATO_DATA);
+                    if (!dataProiezione.isAfter(ora)) return false;
+                } catch (DateTimeParseException e) {
+                    System.err.println("Formato data non valido in eliminaPrenotazione: " + e.getMessage());
+                    return false;
+                }
                 listaPrenotazioni.remove(i);
                 return true;
             }
@@ -266,31 +302,79 @@ public class GestoreDati {
 
     /**
      * Ricerca prenotazioni nel sistema tramite filtri multipli.
+     * I parametri null vengono ignorati.
      *
-     * @param codice Identificativo esatto della prenotazione.
+     * @param codice      Identificativo esatto della prenotazione.
      * @param nomeCliente Nome o cognome (parziale) del cliente.
-     * @param titoloFilm Titolo (parziale) del film.
-     * @param dataInizio Limite temporale inferiore.
-     * @param dataFine Limite temporale superiore.
+     * @param titoloFilm  Titolo (parziale) del film.
+     * @param dataInizio  Limite temporale inferiore (formato yyyy-MM-dd).
+     * @param dataFine    Limite temporale superiore (formato yyyy-MM-dd).
      * @return Lista delle prenotazioni che soddisfano i criteri.
      */
-    public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente, String titoloFilm, String dataInizio, String dataFine) {
+    public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente,
+                                                String titoloFilm, String dataInizio, String dataFine) {
         List<Prenotazione> risultati = new ArrayList<>();
+
+        LocalDateTime inizio = null;
+        LocalDateTime fine = null;
+
+        try {
+            if (dataInizio != null) inizio = LocalDate.parse(dataInizio).atStartOfDay();
+            if (dataFine != null) fine = LocalDate.parse(dataFine).atTime(23, 59, 59);
+        } catch (DateTimeParseException e) {
+            System.err.println("Formato data non valido in cercaPrenotazione: " + e.getMessage());
+            return risultati;
+        }
+
         for (Prenotazione p : listaPrenotazioni) {
             boolean corrisponde = true;
 
-            if (codice != null && !p.getCodiceUnivoco().equalsIgnoreCase(codice)) corrisponde = false;
+            if (codice != null && !p.getCodiceUnivoco().equalsIgnoreCase(codice))
+                corrisponde = false;
 
             if (nomeCliente != null) {
                 String nomeCompleto = p.getCliente().getNome() + " " + p.getCliente().getCognome();
-                if (!nomeCompleto.toLowerCase().contains(nomeCliente.toLowerCase())) corrisponde = false;
+                if (!nomeCompleto.toLowerCase().contains(nomeCliente.toLowerCase()))
+                    corrisponde = false;
             }
 
-            if (titoloFilm != null && !p.getProiezione().getTitolo().toLowerCase().contains(titoloFilm.toLowerCase())) corrisponde = false;
-            if (dataInizio != null && p.getProiezione().getDataOra().compareTo(dataInizio) < 0) corrisponde = false;
-            if (dataFine != null && p.getProiezione().getDataOra().compareTo(dataFine + " 23:59:59") > 0) corrisponde = false;
+            if (titoloFilm != null && !p.getProiezione().getTitolo().toLowerCase()
+                    .contains(titoloFilm.toLowerCase()))
+                corrisponde = false;
+
+            try {
+                LocalDateTime dataP = LocalDateTime.parse(p.getProiezione().getDataOra(), FORMATO_DATA);
+                if (inizio != null && dataP.isBefore(inizio)) corrisponde = false;
+                if (fine != null && dataP.isAfter(fine)) corrisponde = false;
+            } catch (DateTimeParseException e) {
+                System.err.println("dataOra non valida per prenotazione: " + p.getCodiceUnivoco());
+                corrisponde = false;
+            }
 
             if (corrisponde) risultati.add(p);
+        }
+        return risultati;
+    }
+
+    /**
+     * Restituisce tutte le prenotazioni con proiezione nella data odierna.
+     *
+     * @return Lista delle prenotazioni odierne.
+     */
+    public List<Prenotazione> ottieniPrenotazioniOggi() {
+        List<Prenotazione> risultati = new ArrayList<>();
+        LocalDateTime inizioGiornata = LocalDate.now().atStartOfDay();
+        LocalDateTime fineGiornata = LocalDate.now().atTime(23, 59, 59);
+
+        for (Prenotazione p : listaPrenotazioni) {
+            try {
+                LocalDateTime data = LocalDateTime.parse(p.getProiezione().getDataOra(), FORMATO_DATA);
+                if (!data.isBefore(inizioGiornata) && !data.isAfter(fineGiornata)) {
+                    risultati.add(p);
+                }
+            } catch (DateTimeParseException e) {
+                System.err.println("dataOra non valida in ottieniPrenotazioniOggi: " + p.getProiezione().getDataOra());
+            }
         }
         return risultati;
     }

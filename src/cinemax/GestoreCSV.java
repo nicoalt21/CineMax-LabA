@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  * Classe dedicata all'I/O sui file CSV.
  * Garantisce la compatibilità multipiattaforma tramite java.nio.file.
+ * Separatore di campo: punto e virgola (;) per evitare conflitti con virgole nei dati.
  *
  * @author Alt Niccolò Jacopo, 762605, VA
  * @author Soldo Mateo, 760762, VA
@@ -20,150 +21,204 @@ import java.util.Map;
  */
 public class GestoreCSV {
 
-    private static final Path PERCORSO_UTENTI = Paths.get("data", "utenti.csv");
-    private static final Path PERCORSO_PROIEZIONI = Paths.get("data", "proiezioni.csv");
+    private static final Path PERCORSO_UTENTI      = Paths.get("data", "utenti.csv");
+    private static final Path PERCORSO_PROIEZIONI  = Paths.get("data", "proiezioni.csv");
     private static final Path PERCORSO_PRENOTAZIONI = Paths.get("data", "prenotazioni.csv");
 
-    // --- CARICAMENTO DATI ---
+    private static final String SEPARATORE = ";";
 
+    // --- CARICAMENTO ---
+
+    /**
+     * Carica gli utenti dal file CSV nella mappa fornita.
+     *
+     * @param mappaUtenti La mappa da popolare, indicizzata per username.
+     */
     public static void caricaUtenti(Map<String, Utente> mappaUtenti) {
         if (!Files.exists(PERCORSO_UTENTI)) return;
 
+        String riga = null;
         try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_UTENTI, StandardCharsets.UTF_8)) {
-            String riga;
-            boolean isIntestazione = true;
-
+            boolean intestazione = true;
             while ((riga = lettore.readLine()) != null) {
-                if (isIntestazione) {
-                    isIntestazione = false;
-                    continue;
-                }
+                if (intestazione) { intestazione = false; continue; }
 
-                String[] campi = riga.split(",");
+                String[] campi = riga.split(SEPARATORE, -1);
                 if (campi.length >= 7) {
-                    Utente u = new Utente(campi[0], campi[1], campi[2], campi[3], campi[4], campi[5], Ruolo.valueOf(campi[6].toUpperCase()));
+                    Ruolo ruolo = Ruolo.valueOf(campi[6].trim().toUpperCase());
+                    Utente u = new Utente(
+                            campi[0].trim(), campi[1].trim(), campi[2].trim(),
+                            campi[3].trim(), campi[4].trim(), campi[5].trim(), ruolo
+                    );
                     mappaUtenti.put(u.getUsername(), u);
                 }
             }
-        } catch (IOException e) {
-            System.out.println("Errore I/O in caricaUtenti: " + e.getMessage());
+        } catch (IOException | IllegalArgumentException e) {
+            System.err.println("Errore in caricaUtenti (riga: \"" + riga + "\"): " + e.getMessage());
         }
     }
 
+    /**
+     * Carica le proiezioni dal file CSV nella mappa fornita.
+     *
+     * @param mappaProiezioni La mappa da popolare, indicizzata per dataOra.
+     */
     public static void caricaProiezioni(Map<String, Proiezione> mappaProiezioni) {
         if (!Files.exists(PERCORSO_PROIEZIONI)) return;
 
+        String riga = null;
         try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_PROIEZIONI, StandardCharsets.UTF_8)) {
-            String riga;
-            boolean isIntestazione = true;
-
+            boolean intestazione = true;
             while ((riga = lettore.readLine()) != null) {
-                if (isIntestazione) {
-                    isIntestazione = false;
-                    continue;
-                }
-                String[] campi = riga.split(",");
+                if (intestazione) { intestazione = false; continue; }
+
+                String[] campi = riga.split(SEPARATORE, -1);
                 if (campi.length >= 8) {
-                    Proiezione p = new Proiezione(campi[0], campi[1], campi[2], campi[3],
-                            Integer.parseInt(campi[4]), Integer.parseInt(campi[5]),
-                            Integer.parseInt(campi[6]), Double.parseDouble(campi[7]));
+                    if (mappaProiezioni.containsKey(campi[0].trim())) {
+                        System.err.println("ATTENZIONE: proiezione duplicata per dataOra=" + campi[0].trim() + ", sovrascritta.");
+                    }
+                    Proiezione p = new Proiezione(
+                            campi[0].trim(), campi[1].trim(), campi[2].trim(), campi[3].trim(),
+                            Integer.parseInt(campi[4].trim()),
+                            Integer.parseInt(campi[5].trim()),
+                            Integer.parseInt(campi[6].trim()),
+                            Double.parseDouble(campi[7].trim())
+                    );
                     mappaProiezioni.put(p.getDataOra(), p);
                 }
             }
-        } catch (IOException | NumberFormatException e) {
-            System.out.println("Errore in caricaProiezioni: " + e.getMessage());
+        } catch (IOException | IllegalArgumentException e) {
+            System.err.println("Errore in caricaProiezioni (riga: \"" + riga + "\"): " + e.getMessage());
         }
     }
 
-    public static void caricaPrenotazioni(List<Prenotazione> listaPrenotazioni, Map<String, Utente> mappaUtenti, Map<String, Proiezione> mappaProiezioni) {
+    /**
+     * Carica le prenotazioni dal file CSV nella lista fornita.
+     * Risolve i riferimenti a Utente e Proiezione tramite le mappe già caricate.
+     *
+     * @param listaPrenotazioni La lista da popolare.
+     * @param mappaUtenti       Mappa degli utenti per la risoluzione del riferimento cliente.
+     * @param mappaProiezioni   Mappa delle proiezioni per la risoluzione del riferimento proiezione.
+     */
+    public static void caricaPrenotazioni(List<Prenotazione> listaPrenotazioni,
+                                          Map<String, Utente> mappaUtenti,
+                                          Map<String, Proiezione> mappaProiezioni) {
         if (!Files.exists(PERCORSO_PRENOTAZIONI)) return;
 
+        String riga = null;
         try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_PRENOTAZIONI, StandardCharsets.UTF_8)) {
-            String riga;
-            boolean isIntestazione = true;
-
+            boolean intestazione = true;
             while ((riga = lettore.readLine()) != null) {
-                if (isIntestazione) {
-                    isIntestazione = false;
-                    continue;
-                }
-                String[] campi = riga.split(",");
-                if (campi.length >= 4) {
-                    String codice = campi[0];
-                    String username = campi[1];
-                    String dataOraProiezione = campi[2];
-                    int numeroPosti = Integer.parseInt(campi[3]);
+                if (intestazione) { intestazione = false; continue; }
 
-                    Utente cliente = mappaUtenti.get(username);
+                String[] campi = riga.split(SEPARATORE, -1);
+                if (campi.length >= 4) {
+                    String codice           = campi[0].trim();
+                    String username         = campi[1].trim();
+                    String dataOraProiezione = campi[2].trim();
+                    int numeroPosti         = Integer.parseInt(campi[3].trim());
+
+                    Utente cliente      = mappaUtenti.get(username);
                     Proiezione proiezione = mappaProiezioni.get(dataOraProiezione);
-                    if (cliente != null && proiezione != null) {
-                        Prenotazione pren = new Prenotazione(codice, cliente, proiezione, numeroPosti);
-                        listaPrenotazioni.add(pren);
+
+                    if (cliente == null) {
+                        System.err.println("Errore integrità: utente '" + username + "' non trovato per prenotazione " + codice);
+                    } else if (proiezione == null) {
+                        System.err.println("Errore integrità: proiezione '" + dataOraProiezione + "' non trovata per prenotazione " + codice);
                     } else {
-                        System.out.println("Errore integrità dati: impossibile caricare prenotazione " + codice);
+                        listaPrenotazioni.add(new Prenotazione(codice, cliente, proiezione, numeroPosti));
                     }
                 }
             }
         } catch (IOException | NumberFormatException e) {
-            System.out.println("Errore in caricaPrenotazioni: " + e.getMessage());
+            System.err.println("Errore in caricaPrenotazioni (riga: \"" + riga + "\"): " + e.getMessage());
         }
     }
 
-    // --- SALVATAGGIO DATI ---
+    // --- SALVATAGGIO ---
 
+    /**
+     * Serializza la mappa degli utenti sul file CSV.
+     *
+     * @param mappaUtenti La mappa da serializzare.
+     */
     public static void salvaUtenti(Map<String, Utente> mappaUtenti) {
         try {
             Files.createDirectories(PERCORSO_UTENTI.getParent());
             try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_UTENTI, StandardCharsets.UTF_8)) {
-                scrittore.write("nome,cognome,username,password,data_nascita,domicilio,ruolo");
+                scrittore.write("nome;cognome;username;password;data_nascita;domicilio;ruolo");
                 scrittore.newLine();
                 for (Utente u : mappaUtenti.values()) {
-                    String riga = u.getNome() + "," + u.getCognome() + "," + u.getUsername() + "," +
-                            u.getPasswordCifrata() + "," + u.getDataNascita() + "," +
-                            u.getDomicilio() + "," + u.getRuolo().name();
-                    scrittore.write(riga);
+                    scrittore.write(
+                            u.getNome()             + SEPARATORE +
+                                    u.getCognome()          + SEPARATORE +
+                                    u.getUsername()         + SEPARATORE +
+                                    u.getPasswordCifrata()  + SEPARATORE +
+                                    u.getDataNascita()      + SEPARATORE +
+                                    u.getDomicilio()        + SEPARATORE +
+                                    u.getRuolo().name()
+                    );
                     scrittore.newLine();
                 }
             }
         } catch (IOException e) {
-            System.out.println("Errore I/O in salvaUtenti: " + e.getMessage());
+            System.err.println("Errore I/O in salvaUtenti: " + e.getMessage());
         }
     }
 
+    /**
+     * Serializza la mappa delle proiezioni sul file CSV.
+     *
+     * @param mappaProiezioni La mappa da serializzare.
+     */
     public static void salvaProiezioni(Map<String, Proiezione> mappaProiezioni) {
         try {
             Files.createDirectories(PERCORSO_PROIEZIONI.getParent());
             try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_PROIEZIONI, StandardCharsets.UTF_8)) {
-                scrittore.write("data_ora,titolo,genere,regista,anno,durata,eta_minima,prezzo");
+                scrittore.write("data_ora;titolo;genere;regista;anno;durata_minuti;eta_minima;prezzo_biglietto");
                 scrittore.newLine();
                 for (Proiezione p : mappaProiezioni.values()) {
-                    String riga = p.getDataOra() + "," + p.getTitolo() + "," + p.getGenere() + "," +
-                            p.getRegista() + "," + p.getAnno() + "," + p.getDurata() + "," +
-                            p.getEtaMinima() + "," + p.getPrezzo();
-                    scrittore.write(riga);
+                    scrittore.write(
+                            p.getDataOra()  + SEPARATORE +
+                                    p.getTitolo()   + SEPARATORE +
+                                    p.getGenere()   + SEPARATORE +
+                                    p.getRegista()  + SEPARATORE +
+                                    p.getAnno()     + SEPARATORE +
+                                    p.getDurata()   + SEPARATORE +
+                                    p.getEtaMinima() + SEPARATORE +
+                                    p.getPrezzo()
+                    );
                     scrittore.newLine();
                 }
             }
         } catch (IOException e) {
-            System.out.println("Errore I/O in salvaProiezioni: " + e.getMessage());
+            System.err.println("Errore I/O in salvaProiezioni: " + e.getMessage());
         }
     }
 
+    /**
+     * Serializza la lista delle prenotazioni sul file CSV.
+     *
+     * @param listaPrenotazioni La lista da serializzare.
+     */
     public static void salvaPrenotazioni(List<Prenotazione> listaPrenotazioni) {
         try {
             Files.createDirectories(PERCORSO_PRENOTAZIONI.getParent());
             try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_PRENOTAZIONI, StandardCharsets.UTF_8)) {
-                scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti");
+                scrittore.write("codice_univoco;username_cliente;data_ora_proiezione;numero_posti");
                 scrittore.newLine();
                 for (Prenotazione p : listaPrenotazioni) {
-                    String riga = p.getCodiceUnivoco() + "," + p.getCliente().getUsername() + "," +
-                            p.getProiezione().getDataOra() + "," + p.getNumeroPosti();
-                    scrittore.write(riga);
+                    scrittore.write(
+                            p.getCodiceUnivoco()            + SEPARATORE +
+                                    p.getCliente().getUsername()    + SEPARATORE +
+                                    p.getProiezione().getDataOra()  + SEPARATORE +
+                                    p.getNumeroPosti()
+                    );
                     scrittore.newLine();
                 }
             }
         } catch (IOException e) {
-            System.out.println("Errore I/O in salvaPrenotazioni: " + e.getMessage());
+            System.err.println("Errore I/O in salvaPrenotazioni: " + e.getMessage());
         }
     }
 }

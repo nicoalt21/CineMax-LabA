@@ -19,14 +19,12 @@ public class CineMax {
         GestoreDati gestore = new GestoreDati();
         gestore.caricaDati();
 
-        MenuPrincipale menu = new MenuPrincipale(gestore);
-        menu.avvia();
-
-        gestore.salvaDati();
-        System.out.println("Sistema CineMax chiuso correttamente. Dati salvati.");
+        try {
+            MenuPrincipale menu = new MenuPrincipale(gestore);
+            menu.avvia();
+        } finally {
+            gestore.salvaDati();
+            System.out.println("Sistema CineMax chiuso. Dati salvati.");
+        }
     }
 }
-
-
-
-//-----------!!!!!!!!!!!!!!!!!!!!!! NON AVVIATE PER IL MOMENTO !!!!!!!!!!!!!!!!!!!!!!!!!!!!------------------------------
