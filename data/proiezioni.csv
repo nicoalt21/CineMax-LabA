@@ -5,7 +5,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-12-29 10:00:00";"To Have and Have Not";Adventure;"Howard Hawks";1944;100;6;8.00
 "2027-12-28 15:30:00";"Blue Velvet";Drama;"David Lynch";1986;120;12;7.50
 "2027-12-28 13:00:00";"The Philadelphia Story";Comedy;"George Cukor";1940;112;12;8.50
-"2027-12-28 10:00:00";"Good Will Hunting";Drama;"Gus Van Sant";1997;126;0;6.50
+"2027-12-28 10:00:00";Good Will Hunting;Drama;"Gus Van Sant";1997;126;0;6.50
 "2027-12-27 14:00:00";"The Blues Brothers";Action;"John Landis";1980;133;0;8.50
 "2027-12-27 10:30:00";"The Bridge on the River Kwai";Adventure;"David Lean";1957;161;6;7.50
 "2027-12-26 19:30:00";"Good Will Hunting";Drama;"Gus Van Sant";1997;126;0;10.00
@@ -94,7 +94,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-11-24 13:30:00";"Cape Fear";Drama;"J. Lee Thompson";1962;106;12;7.50
 "2027-11-24 10:30:00";Aliens;Action;"James Cameron";1986;137;0;8.00
 "2027-11-23 12:30:00";"The Others";Horror;"Alejandro Amenábar";2001;101;12;6.50
-"2027-11-23 10:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;6.50
+"2027-11-23 10:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;6.50
 "2027-11-22 10:30:00";"Jûbê ninpûchô";Animation;"Yoshiaki Kawajiri";1993;94;12;7.50
 "2027-11-21 16:00:00";"The Hurricane";Biography;"Norman Jewison";1999;146;16;8.00
 "2027-11-21 13:00:00";Platoon;Drama;"Oliver Stone";1986;120;12;8.50
@@ -109,7 +109,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-11-16 16:00:00";"The Hurricane";Biography;"Norman Jewison";1999;146;16;7.00
 "2027-11-16 13:00:00";"Butch Cassidy and the Sundance Kid";Biography;"George Roy Hill";1969;110;6;7.50
 "2027-11-16 10:30:00";"The Others";Horror;"Alejandro Amenábar";2001;101;12;8.00
-"2027-11-15 17:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;8.00
+"2027-11-15 17:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;8.00
 "2027-11-15 14:00:00";"The Long Goodbye";Comedy;"Robert Altman";1973;112;12;7.00
 "2027-11-15 10:30:00";"Fight Club";Drama;"David Fincher";1999;139;12;8.00
 "2027-11-14 15:30:00";Platoon;Drama;"Oliver Stone";1986;120;12;7.00
@@ -141,11 +141,11 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-11-02 13:30:00";Papurika;Animation;"Satoshi Kon";2006;90;0;6.50
 "2027-11-02 10:30:00";"Enemy at the Gates";Drama;"Jean-Jacques Annaud";2001;131;12;7.00
 "2027-11-01 13:00:00";"The Ladykillers";Comedy;"Alexander Mackendrick";1955;91;12;8.00
-"2027-11-01 10:30:00";"4 luni; 3 saptamâni si 2 zile";Drama;"Cristian Mungiu";2007;113;12;8.50
+"2027-11-01 10:30:00";"4 luni, 3 saptamâni si 2 zile";Drama;"Cristian Mungiu";2007;113;12;8.50
 "2027-10-31 17:00:00";"Sherlock Jr.";Action;"Buster Keaton";1924;45;12;6.50
 "2027-10-31 14:00:00";"Back to the Future Part II";Adventure;"Robert Zemeckis";1989;108;0;6.50
 "2027-10-31 10:30:00";"Scent of a Woman";Drama;"Martin Brest";1992;156;12;6.50
-"2027-10-30 17:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;8.00
+"2027-10-30 17:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;8.00
 "2027-10-30 14:00:00";Blow;Biography;"Ted Demme";2001;124;16;8.50
 "2027-10-30 10:30:00";"The Best Years of Our Lives";Drama;"William Wyler";1946;170;12;7.50
 "2027-10-29 10:30:00";"Annie Hall";Comedy;"Woody Allen";1977;93;12;7.50
@@ -167,7 +167,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-10-21 10:00:00";Adaptation.;Comedy;"Spike Jonze";2002;115;16;7.50
 "2027-10-20 13:30:00";Chinatown;Drama;"Roman Polanski";1974;130;12;8.00
 "2027-10-20 10:00:00";Aliens;Action;"James Cameron";1986;137;0;6.50
-"2027-10-19 13:30:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;7.00
+"2027-10-19 13:30:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;7.00
 "2027-10-19 10:30:00";Aliens;Action;"James Cameron";1986;137;0;8.50
 "2027-10-18 10:30:00";"The Best Years of Our Lives";Drama;"William Wyler";1946;170;12;8.50
 "2027-10-17 16:00:00";"Close Encounters of the Third Kind";Drama;"Steven Spielberg";1977;138;0;8.00
@@ -200,7 +200,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-10-05 14:00:00";"Back to the Future Part II";Adventure;"Robert Zemeckis";1989;108;0;8.50
 "2027-10-05 10:30:00";"Black Hawk Down";Drama;"Ridley Scott";2001;144;12;8.00
 "2027-10-04 10:30:00";"Close Encounters of the Third Kind";Drama;"Steven Spielberg";1977;138;0;6.50
-"2027-10-03 17:00:00";"4 luni; 3 saptamâni si 2 zile";Drama;"Cristian Mungiu";2007;113;12;7.00
+"2027-10-03 17:00:00";"4 luni, 3 saptamâni si 2 zile";Drama;"Cristian Mungiu";2007;113;12;7.00
 "2027-10-03 14:00:00";"Falling Down";Action;"Joel Schumacher";1993;113;16;7.00
 "2027-10-03 10:30:00";"As Good as It Gets";Comedy;"James L. Brooks";1997;139;12;8.00
 "2027-10-02 19:30:00";Persona;Drama;"Ingmar Bergman";1966;85;12;9.00
@@ -262,7 +262,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-09-09 13:30:00";Sholay;Action;"Ramesh Sippy";1975;204;0;8.50
 "2027-09-09 10:30:00";"The Treasure of the Sierra Madre";Adventure;"John Huston";1948;126;12;8.00
 "2027-09-08 17:00:00";Sleepers;Crime;"Barry Levinson";1996;147;12;8.00
-"2027-09-08 13:00:00";"Swades: We; the People";Drama;"Ashutosh Gowariker";2004;210;0;7.00
+"2027-09-08 13:00:00";"Swades: We, the People";Drama;"Ashutosh Gowariker";2004;210;0;7.00
 "2027-09-08 10:30:00";"Toki o kakeru shôjo";Animation;"Mamoru Hosoda";2006;98;0;7.00
 "2027-09-07 15:30:00";"Toki o kakeru shôjo";Animation;"Mamoru Hosoda";2006;98;0;6.50
 "2027-09-07 12:30:00";"Star Wars: Episode VI - Return of the Jedi";Action;"Richard Marquand";1983;131;0;8.00
@@ -276,7 +276,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-09-04 17:00:00";"The Killing Fields";Biography;"Roland Joffé";1984;141;12;8.50
 "2027-09-04 13:30:00";Fitzcarraldo;Adventure;"Werner Herzog";1982;158;16;8.50
 "2027-09-04 10:30:00";"All That Jazz";Drama;"Bob Fosse";1979;123;12;8.00
-"2027-09-03 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;6.50
+"2027-09-03 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;6.50
 "2027-09-03 13:30:00";"All That Jazz";Drama;"Bob Fosse";1979;123;12;6.50
 "2027-09-03 10:30:00";"The Illusionist";Drama;"Neil Burger";2006;110;0;7.00
 "2027-09-02 10:30:00";Sholay;Action;"Ramesh Sippy";1975;204;0;8.50
@@ -305,7 +305,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-08-22 16:30:00";Sholay;Action;"Ramesh Sippy";1975;204;0;8.00
 "2027-08-22 14:00:00";"The Others";Horror;"Alejandro Amenábar";2001;101;12;7.50
 "2027-08-22 10:00:00";"Kal Ho Naa Ho";Comedy;"Nikkhil Advani";2003;186;0;8.50
-"2027-08-21 16:00:00";"Swades: We; the People";Drama;"Ashutosh Gowariker";2004;210;0;8.50
+"2027-08-21 16:00:00";"Swades: We, the People";Drama;"Ashutosh Gowariker";2004;210;0;8.50
 "2027-08-21 13:00:00";"All That Jazz";Drama;"Bob Fosse";1979;123;12;6.50
 "2027-08-21 10:00:00";"All That Jazz";Drama;"Bob Fosse";1979;123;12;7.50
 "2027-08-20 10:00:00";"Jeux d'enfants";Comedy;"Yann Samuell";2003;93;16;6.50
@@ -351,7 +351,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-08-03 13:30:00";"The Killing Fields";Biography;"Roland Joffé";1984;141;12;6.50
 "2027-08-03 10:30:00";"Indiana Jones and the Last Crusade";Action;"Steven Spielberg";1989;127;0;7.00
 "2027-08-02 10:30:00";"The Muppet Movie";Adventure;"James Frawley";1979;95;0;8.00
-"2027-08-01 18:00:00";"Swades: We; the People";Drama;"Ashutosh Gowariker";2004;210;0;9.00
+"2027-08-01 18:00:00";"Swades: We, the People";Drama;"Ashutosh Gowariker";2004;210;0;9.00
 "2027-08-01 15:00:00";"The Game";Action;"David Fincher";1997;129;12;7.00
 "2027-08-01 10:00:00";"Gone with the Wind";Drama;"Victor Fleming";1939;238;0;7.50
 "2027-07-31 19:30:00";"The Game";Action;"David Fincher";1997;129;12;9.00
@@ -404,7 +404,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-07-11 18:30:00";"The Great Dictator";Comedy;"Charles Chaplin";1940;125;12;10.00
 "2027-07-11 16:00:00";"Det sjunde inseglet";Drama;"Ingmar Bergman";1957;96;12;7.50
 "2027-07-11 13:00:00";"Rio Bravo";Action;"Howard Hawks";1959;141;12;8.50
-"2027-07-11 10:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
+"2027-07-11 10:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
 "2027-07-10 19:00:00";"The Birds";Drama;"Alfred Hitchcock";1963;119;12;9.50
 "2027-07-10 16:00:00";Fantasia;Animation;"James Algar";1940;125;0;8.00
 "2027-07-10 13:00:00";"Interstate 60: Episodes of the Road";Adventure;"Bob Gale";2002;116;16;7.00
@@ -476,7 +476,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-06-13 14:00:00";"The Muppet Christmas Carol";Comedy;"Brian Henson";1992;85;0;8.50
 "2027-06-13 10:00:00";"The Thin Red Line";Drama;"Terrence Malick";1998;170;12;8.50
 "2027-06-12 18:00:00";"The Illusionist";Drama;"Neil Burger";2006;110;0;9.50
-"2027-06-12 15:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
+"2027-06-12 15:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
 "2027-06-12 13:00:00";Gattaca;Drama;"Andrew Niccol";1997;106;12;8.00
 "2027-06-12 10:00:00";Rocky;Drama;"John G. Avildsen";1976;120;0;8.50
 "2027-06-11 10:30:00";"Enemy at the Gates";Drama;"Jean-Jacques Annaud";2001;131;12;8.50
@@ -855,7 +855,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-01-08 10:00:00";"Nueve reinas";Crime;"Fabián Bielinsky";2000;114;16;7.00
 "2027-01-07 15:30:00";"The 39 Steps";Crime;"Alfred Hitchcock";1935;86;12;7.00
 "2027-01-07 13:00:00";"Nueve reinas";Crime;"Fabián Bielinsky";2000;114;16;8.50
-"2027-01-07 10:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2027-01-07 10:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2027-01-06 10:30:00";"Det sjunde inseglet";Drama;"Ingmar Bergman";1957;96;12;7.50
 "2027-01-05 10:30:00";Fantasia;Animation;"James Algar";1940;125;0;6.50
 "2027-01-04 10:30:00";"Pirates of the Caribbean: The Curse of the Black Pearl";Action;"Gore Verbinski";2003;143;12;8.00
@@ -872,7 +872,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2027-01-01 10:30:00";"Breaking the Waves";Drama;"Lars von Trier";1996;159;16;7.00
 "2026-12-31 15:30:00";"The Killing Fields";Biography;"Roland Joffé";1984;141;12;8.50
 "2026-12-31 12:30:00";"Pirates of the Caribbean: The Curse of the Black Pearl";Action;"Gore Verbinski";2003;143;12;8.00
-"2026-12-31 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
+"2026-12-31 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
 "2026-12-30 17:00:00";"Pulp Fiction";Crime;"Quentin Tarantino";1994;154;12;7.50
 "2026-12-30 14:00:00";"One Flew Over the Cuckoo's Nest";Drama;"Milos Forman";1975;133;12;8.50
 "2026-12-30 10:30:00";"Breaking the Waves";Drama;"Lars von Trier";1996;159;16;8.50
@@ -887,9 +887,9 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-12-26 16:00:00";"Bringing Up Baby";Comedy;"Howard Hawks";1938;102;12;8.50
 "2026-12-26 13:00:00";"Rear Window";Mystery;"Alfred Hitchcock";1954;112;0;8.50
 "2026-12-26 10:30:00";"Harold and Maude";Comedy;"Hal Ashby";1971;91;6;7.00
-"2026-12-25 15:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
+"2026-12-25 15:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
 "2026-12-25 12:30:00";"The Fifth Element";Action;"Luc Besson";1997;126;12;6.50
-"2026-12-25 10:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
+"2026-12-25 10:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
 "2026-12-24 10:00:00";"The Little Mermaid";Animation;"Ron Clements";1989;83;0;7.50
 "2026-12-23 10:30:00";"Toy Story";Animation;"John Lasseter";1995;81;0;7.50
 "2026-12-22 10:30:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;6.50
@@ -942,11 +942,11 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-12-03 10:00:00";Smultronstället;Drama;"Ingmar Bergman";1957;91;0;7.00
 "2026-12-02 15:30:00";Notorious;Drama;"Alfred Hitchcock";1946;102;0;8.00
 "2026-12-02 12:30:00";"The Exorcist";Horror;"William Friedkin";1973;122;12;6.50
-"2026-12-02 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
+"2026-12-02 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
 "2026-12-01 12:30:00";"Stand by Me";Adventure;"Rob Reiner";1986;89;0;6.50
 "2026-12-01 10:00:00";Psycho;Horror;"Alfred Hitchcock";1960;109;12;6.50
 "2026-11-30 12:30:00";"Dawn of the Dead";Action;"George A. Romero";1978;127;12;8.00
-"2026-11-30 10:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.00
+"2026-11-30 10:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.00
 "2026-11-29 15:30:00";"The Lost Weekend";Drama;"Billy Wilder";1945;101;12;6.50
 "2026-11-29 13:00:00";"Le charme discret de la bourgeoisie";Comedy;"Luis Buñuel";1972;102;6;7.50
 "2026-11-29 10:30:00";"Office Space";Comedy;"Mike Judge";1999;89;16;6.50
@@ -1054,7 +1054,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-10-13 10:00:00";"All About Eve";Drama;"Joseph L. Mankiewicz";1950;138;12;7.50
 "2026-10-12 16:00:00";"What's Eating Gilbert Grape";Drama;"Lasse Hallström";1993;118;0;7.50
 "2026-10-12 13:00:00";"Dancer in the Dark";Crime;"Lars von Trier";2000;140;0;6.50
-"2026-10-12 10:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2026-10-12 10:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2026-10-11 18:30:00";"Efter brylluppet";Drama;"Susanne Bier";2006;120;16;8.50
 "2026-10-11 16:00:00";"The Shop Around the Corner";Comedy;"Ernst Lubitsch";1940;99;12;8.00
 "2026-10-11 13:30:00";"To Be or Not to Be";Comedy;"Ernst Lubitsch";1942;99;12;8.00
@@ -1065,9 +1065,9 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-10-10 10:00:00";"Annie Hall";Comedy;"Woody Allen";1977;93;12;8.50
 "2026-10-09 10:00:00";"Brokeback Mountain";Drama;"Ang Lee";2005;134;12;7.50
 "2026-10-08 12:30:00";"The Sting";Comedy;"George Roy Hill";1973;129;0;8.00
-"2026-10-08 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2026-10-08 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2026-10-07 15:30:00";"Secrets & Lies";Comedy;"Mike Leigh";1996;136;0;8.50
-"2026-10-07 13:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2026-10-07 13:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2026-10-07 10:00:00";"Secrets & Lies";Comedy;"Mike Leigh";1996;136;0;6.50
 "2026-10-06 14:30:00";"Efter brylluppet";Drama;"Susanne Bier";2006;120;16;7.00
 "2026-10-06 12:30:00";"Lola rennt";Crime;"Tom Tykwer";1998;81;12;7.00
@@ -1078,7 +1078,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-10-04 10:30:00";"To Be or Not to Be";Comedy;"Ernst Lubitsch";1942;99;12;6.50
 "2026-10-03 18:00:00";"The Sting";Comedy;"George Roy Hill";1973;129;0;9.00
 "2026-10-03 15:00:00";"Ed Wood";Biography;"Tim Burton";1994;127;0;8.50
-"2026-10-03 12:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2026-10-03 12:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2026-10-03 10:00:00";"Kung fu";Action;"Stephen Chow";2004;99;12;7.00
 "2026-10-02 12:30:00";"Brokeback Mountain";Drama;"Ang Lee";2005;134;12;7.50
 "2026-10-02 10:00:00";"The Night of the Hunter";Crime;"Charles Laughton";1955;92;12;8.50
@@ -1086,10 +1086,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-10-01 10:00:00";"La leggenda del pianista sull'oceano";Drama;"Giuseppe Tornatore";1998;169;0;8.00
 "2026-09-30 10:00:00";"Annie Hall";Comedy;"Woody Allen";1977;93;12;6.50
 "2026-09-29 15:30:00";"Die Hard";Action;"John McTiernan";1988;132;12;8.00
-"2026-09-29 13:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2026-09-29 13:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2026-09-29 10:00:00";"Guess Who's Coming to Dinner";Comedy;"Stanley Kramer";1967;108;12;7.00
-"2026-09-28 13:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
-"2026-09-28 10:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2026-09-28 13:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
+"2026-09-28 10:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2026-09-27 17:00:00";"Once Were Warriors";Crime;"Lee Tamahori";1994;102;12;8.00
 "2026-09-27 14:30:00";Laura;Drama;"Otto Preminger";1944;88;12;7.00
 "2026-09-27 12:30:00";"Lola rennt";Crime;"Tom Tykwer";1998;81;12;8.00
@@ -1110,7 +1110,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-09-21 10:00:00";"A Christmas Story";Comedy;"Bob Clark";1983;93;0;7.50
 "2026-09-20 19:30:00";"Funny Games";Crime;"Michael Haneke";1997;108;12;10.00
 "2026-09-20 17:00:00";"The Night of the Hunter";Crime;"Charles Laughton";1955;92;12;8.50
-"2026-09-20 13:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;8.50
+"2026-09-20 13:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;8.50
 "2026-09-20 10:30:00";"Efter brylluppet";Drama;"Susanne Bier";2006;120;16;7.00
 "2026-09-19 20:00:00";"Ed Wood";Biography;"Tim Burton";1994;127;0;8.50
 "2026-09-19 17:00:00";Anand;Drama;"Hrishikesh Mukherjee";1971;122;0;7.50
@@ -1136,10 +1136,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-09-12 13:00:00";"The Station Agent";Comedy;"Tom McCarthy";2003;89;16;8.50
 "2026-09-12 10:30:00";"Funny Games";Crime;"Michael Haneke";1997;108;12;7.00
 "2026-09-11 16:00:00";"The Exorcist";Horror;"William Friedkin";1973;122;12;7.50
-"2026-09-11 13:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
+"2026-09-11 13:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
 "2026-09-11 10:30:00";"Star Trek II: The Wrath of Khan";Action;"Nicholas Meyer";1982;113;0;8.50
 "2026-09-10 10:00:00";"Once Upon a Time in the West";Western;"Sergio Leone";1968;165;0;8.50
-"2026-09-09 13:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
+"2026-09-09 13:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
 "2026-09-09 10:00:00";"Lat sau san taam";Action;"John Woo";1992;128;16;7.50
 "2026-09-08 16:30:00";"Stalag 17";Comedy;"Billy Wilder";1953;120;12;8.50
 "2026-09-08 13:00:00";"Yeopgijeogin geunyeo";Comedy;"Jae-young Kwak";2001;137;12;6.50
@@ -1156,7 +1156,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-09-04 10:00:00";"Once Were Warriors";Crime;"Lee Tamahori";1994;102;12;8.50
 "2026-09-03 10:30:00";"What Ever Happened to Baby Jane?";Drama;"Robert Aldrich";1962;134;12;8.00
 "2026-09-02 10:00:00";"Once Were Warriors";Crime;"Lee Tamahori";1994;102;12;6.50
-"2026-09-01 10:00:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;8.50
+"2026-09-01 10:00:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;8.50
 "2026-08-31 12:00:00";Stalker;Drama;"Andrei Tarkovsky";1979;162;0;7.50
 "2026-08-31 10:00:00";"The Circus";Comedy;"Charles Chaplin";1928;72;12;7.50
 "2026-08-30 15:00:00";"V for Vendetta";Action;"James McTeigue";2005;132;12;8.00
@@ -1590,7 +1590,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2026-03-10 12:30:00";"The Kid";Comedy;"Charles Chaplin";1921;68;12;8.00
 "2026-03-10 10:00:00";"Citizen Kane";Drama;"Orson Welles";1941;119;12;6.50
 "2026-03-09 10:30:00";Sholay;Action;"Ramesh Sippy";1975;204;0;6.50
-"2026-03-08 17:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;6.50
+"2026-03-08 17:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;6.50
 "2026-03-08 14:00:00";"Star Wars: Episode VI - Return of the Jedi";Action;"Richard Marquand";1983;131;0;8.50
 "2026-03-08 10:00:00";"The Lord of the Rings: The Return of the King";Action;"Peter Jackson";2003;201;0;8.50
 "2026-03-07 14:30:00";"Road to Perdition";Crime;"Sam Mendes";2002;117;12;6.50
@@ -1823,14 +1823,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-12-02 12:30:00";Papillon;Biography;"Franklin J. Schaffner";1973;151;16;8.00
 "2025-12-02 10:00:00";"When Harry Met Sally...";Comedy;"Rob Reiner";1989;95;12;6.50
 "2025-12-01 10:00:00";"The Wild Bunch";Action;"Sam Peckinpah";1969;145;12;7.50
-"2025-11-30 21:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;10.00
+"2025-11-30 21:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;10.00
 "2025-11-30 16:30:00";"Malcolm X";Biography;"Spike Lee";1992;202;0;6.50
 "2025-11-30 13:30:00";"La battaglia di Algeri";Drama;"Gillo Pontecorvo";1966;121;12;7.50
 "2025-11-30 10:00:00";Stalker;Drama;"Andrei Tarkovsky";1979;162;0;8.50
 "2025-11-29 19:00:00";"La planète sauvage";Animation;"René Laloux";1973;72;0;10.00
 "2025-11-29 15:30:00";Scarface;Crime;"Brian De Palma";1983;170;12;8.00
 "2025-11-29 13:00:00";"Bom Yeoareum Gaeul Gyeoul Geurigo Bom";Drama;"Ki-duk Kim";2003;103;16;7.50
-"2025-11-29 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.50
+"2025-11-29 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.50
 "2025-11-28 10:00:00";"East of Eden";Drama;"Elia Kazan";1955;118;0;8.50
 "2025-11-27 17:00:00";"My Left Foot: The Story of Christy Brown";Biography;"Jim Sheridan";1989;103;0;8.50
 "2025-11-27 14:30:00";"American Psycho";Comedy;"Mary Harron";2000;101;12;7.00
@@ -1842,7 +1842,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-11-24 14:00:00";"East of Eden";Drama;"Elia Kazan";1955;118;0;8.00
 "2025-11-24 10:30:00";"Minority Report";Action;"Steven Spielberg";2002;145;12;7.00
 "2025-11-23 18:00:00";"The Machinist";Drama;"Brad Anderson";2004;101;16;8.50
-"2025-11-23 15:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.00
+"2025-11-23 15:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.00
 "2025-11-23 12:30:00";"Trois couleurs: Bleu";Drama;"Krzysztof Kieslowski";1993;94;0;8.50
 "2025-11-23 10:00:00";"Trois couleurs: Bleu";Drama;"Krzysztof Kieslowski";1993;94;0;6.50
 "2025-11-22 18:30:00";"Das Boot";Adventure;"Wolfgang Petersen";1981;149;16;8.50
@@ -2176,7 +2176,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-07-06 15:00:00";"The Bourne Supremacy";Action;"Paul Greengrass";2004;108;12;7.50
 "2025-07-06 13:00:00";"The Jungle Book";Animation;"Wolfgang Reitherman";1967;78;0;8.50
 "2025-07-06 10:00:00";"The Verdict";Drama;"Sidney Lumet";1982;129;0;6.50
-"2025-07-05 19:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;10.00
+"2025-07-05 19:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;10.00
 "2025-07-05 16:30:00";Vozvrashchenie;Drama;"Andrey Zvyagintsev";2003;110;12;7.50
 "2025-07-05 13:30:00";"Back to the Future";Adventure;"Robert Zemeckis";1985;116;0;7.50
 "2025-07-05 10:30:00";"Back to the Future";Adventure;"Robert Zemeckis";1985;116;0;7.50
@@ -2232,7 +2232,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-06-11 10:30:00";Airplane!;Comedy;"Jim Abrahams";1980;88;0;8.50
 "2025-06-10 14:00:00";"Ladri di biciclette";Drama;"Vittorio De Sica";1948;89;12;8.50
 "2025-06-10 10:30:00";"Andaz Apna Apna";Action;"Rajkumar Santoshi";1994;160;0;8.50
-"2025-06-09 13:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
+"2025-06-09 13:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
 "2025-06-09 10:00:00";"The Verdict";Drama;"Sidney Lumet";1982;129;0;8.50
 "2025-06-08 18:00:00";Eskiya;Crime;"Yavuz Turgul";1996;128;12;8.50
 "2025-06-08 15:30:00";"High Noon";Drama;"Fred Zinnemann";1952;85;6;7.50
@@ -2241,11 +2241,11 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-06-07 19:00:00";"High Noon";Drama;"Fred Zinnemann";1952;85;6;9.00
 "2025-06-07 15:30:00";Fitzcarraldo;Adventure;"Werner Herzog";1982;158;16;8.00
 "2025-06-07 12:30:00";"Ying xiong";Action;"Yimou Zhang";2002;120;12;8.50
-"2025-06-07 10:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
+"2025-06-07 10:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
 "2025-06-06 10:00:00";"Ladri di biciclette";Drama;"Vittorio De Sica";1948;89;12;6.50
-"2025-06-05 10:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
+"2025-06-05 10:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
 "2025-06-04 10:00:00";"Edward Scissorhands";Drama;"Tim Burton";1990;105;0;8.00
-"2025-06-03 10:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
+"2025-06-03 10:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
 "2025-06-02 13:00:00";"High Noon";Drama;"Fred Zinnemann";1952;85;6;6.50
 "2025-06-02 10:30:00";"Ladri di biciclette";Drama;"Vittorio De Sica";1948;89;12;6.50
 "2025-06-01 18:00:00";"Le samouraï";Crime;"Jean-Pierre Melville";1967;105;12;9.00
@@ -2264,7 +2264,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-05-26 14:00:00";"21 Grams";Crime;"Alejandro G. Iñárritu";2003;124;12;7.50
 "2025-05-26 10:30:00";Fitzcarraldo;Adventure;"Werner Herzog";1982;158;16;7.50
 "2025-05-25 17:30:00";Clerks;Comedy;"Kevin Smith";1994;92;16;7.00
-"2025-05-25 15:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2025-05-25 15:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2025-05-25 12:00:00";"Night on Earth";Comedy;"Jim Jarmusch";1991;129;16;7.00
 "2025-05-25 10:00:00";"Les triplettes de Belleville";Animation;"Sylvain Chomet";2003;80;12;8.50
 "2025-05-24 18:30:00";"The Iron Giant";Animation;"Brad Bird";1999;86;6;10.00
@@ -2535,7 +2535,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-02-04 10:00:00";"It Happened One Night";Comedy;"Frank Capra";1934;105;12;7.00
 "2025-02-03 15:00:00";Clerks;Comedy;"Kevin Smith";1994;92;16;8.50
 "2025-02-03 12:30:00";"Home Alone";Comedy;"Chris Columbus";1990;103;0;8.50
-"2025-02-03 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
+"2025-02-03 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
 "2025-02-02 16:00:00";"Training Day";Crime;"Antoine Fuqua";2001;122;12;6.50
 "2025-02-02 13:00:00";"Dog Day Afternoon";Biography;"Sidney Lumet";1975;125;0;7.00
 "2025-02-02 10:30:00";"Strangers on a Train";Crime;"Alfred Hitchcock";1951;101;12;7.50
@@ -2547,7 +2547,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-01-31 10:30:00";Clerks;Comedy;"Kevin Smith";1994;92;16;7.50
 "2025-01-30 10:30:00";"Au revoir les enfants";Drama;"Louis Malle";1987;104;0;6.50
 "2025-01-29 13:30:00";"Home Alone";Comedy;"Chris Columbus";1990;103;0;8.00
-"2025-01-29 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.50
+"2025-01-29 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.50
 "2025-01-28 10:00:00";"Arsenic and Old Lace";Comedy;"Frank Capra";1942;118;12;7.50
 "2025-01-27 16:30:00";"The Magnificent Seven";Action;"John Sturges";1960;128;12;8.50
 "2025-01-27 13:30:00";"Training Day";Crime;"Antoine Fuqua";2001;122;12;8.50
@@ -2572,7 +2572,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2025-01-20 13:30:00";Platoon;Drama;"Oliver Stone";1986;120;12;7.00
 "2025-01-20 10:30:00";"Twelve Monkeys";Mystery;"Terry Gilliam";1995;129;12;6.50
 "2025-01-19 18:00:00";"Gongdong gyeongbi guyeok JSA";Action;"Chan-wook Park";2000;110;12;8.50
-"2025-01-19 16:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
+"2025-01-19 16:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
 "2025-01-19 13:30:00";"Au revoir les enfants";Drama;"Louis Malle";1987;104;0;8.50
 "2025-01-19 10:30:00";Platoon;Drama;"Oliver Stone";1986;120;12;8.50
 "2025-01-18 18:00:00";"Barry Lyndon";Adventure;"Stanley Kubrick";1975;185;6;9.00
@@ -2630,7 +2630,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-12-28 19:00:00";"Harry Potter and the Prisoner of Azkaban";Adventure;"Alfonso Cuarón";2004;142;0;8.50
 "2024-12-28 16:00:00";"Harry Potter and the Prisoner of Azkaban";Adventure;"Alfonso Cuarón";2004;142;0;6.50
 "2024-12-28 12:30:00";"Anatomy of a Murder";Crime;"Otto Preminger";1959;161;12;7.00
-"2024-12-28 10:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2024-12-28 10:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
 "2024-12-27 13:00:00";"Finding Nemo";Animation;"Andrew Stanton";2003;100;0;6.50
 "2024-12-27 10:30:00";"Le samouraï";Crime;"Jean-Pierre Melville";1967;105;12;6.50
 "2024-12-26 16:00:00";"Midnight Cowboy";Drama;"John Schlesinger";1969;113;12;7.50
@@ -2705,7 +2705,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-11-26 10:00:00";"The Kid";Comedy;"Charles Chaplin";1921;68;12;7.50
 "2024-11-25 10:00:00";"The Last Samurai";Action;"Edward Zwick";2003;154;12;8.50
 "2024-11-24 18:00:00";"Fight Club";Drama;"David Fincher";1999;139;12;10.00
-"2024-11-24 15:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
+"2024-11-24 15:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
 "2024-11-24 13:00:00";"Il postino";Biography;"Michael Radford";1994;108;0;8.50
 "2024-11-24 10:00:00";"E.T. the Extra-Terrestrial";Family;"Steven Spielberg";1982;115;0;8.00
 "2024-11-23 16:00:00";"The Others";Horror;"Alejandro Amenábar";2001;101;12;8.50
@@ -2730,7 +2730,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-11-14 10:30:00";"Evil Dead II";Action;"Sam Raimi";1987;84;12;8.00
 "2024-11-13 16:00:00";"Jeux d'enfants";Comedy;"Yann Samuell";2003;93;16;7.50
 "2024-11-13 12:30:00";"The Last Samurai";Action;"Edward Zwick";2003;154;12;7.50
-"2024-11-13 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;6.50
+"2024-11-13 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;6.50
 "2024-11-12 13:00:00";"E.T. the Extra-Terrestrial";Family;"Steven Spielberg";1982;115;0;7.50
 "2024-11-12 10:00:00";"Sen to Chihiro no kamikakushi";Animation;"Hayao Miyazaki";2001;125;0;7.00
 "2024-11-11 10:30:00";"The Thin Man";Comedy;"W.S. Van Dyke";1934;91;12;7.00
@@ -2774,7 +2774,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-10-27 10:30:00";"Almost Famous";Adventure;"Cameron Crowe";2000;122;12;7.00
 "2024-10-26 15:30:00";"La vita è bella";Comedy;"Roberto Benigni";1997;116;0;8.00
 "2024-10-26 12:30:00";Alien;Horror;"Ridley Scott";1979;117;16;7.00
-"2024-10-26 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
+"2024-10-26 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
 "2024-10-25 13:00:00";"Almost Famous";Adventure;"Cameron Crowe";2000;122;12;8.00
 "2024-10-25 10:00:00";"Abre los ojos";Drama;"Alejandro Amenábar";1997;119;0;8.00
 "2024-10-24 17:30:00";Akira;Animation;"Katsuhiro Ôtomo";1988;124;12;7.00
@@ -2960,7 +2960,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-08-13 10:00:00";Saw;Horror;"James Wan";2004;103;12;8.50
 "2024-08-12 10:00:00";Magnolia;Drama;"Paul Thomas Anderson";1999;188;16;8.00
 "2024-08-11 20:00:00";"Paper Moon";Comedy;"Peter Bogdanovich";1973;102;0;10.00
-"2024-08-11 16:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.50
+"2024-08-11 16:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.50
 "2024-08-11 12:30:00";"Dilwale Dulhania Le Jayenge";Drama;"Aditya Chopra";1995;189;0;7.50
 "2024-08-11 10:00:00";"Glengarry Glen Ross";Crime;"James Foley";1992;100;16;8.50
 "2024-08-10 18:30:00";Akira;Animation;"Katsuhiro Ôtomo";1988;124;12;8.50
@@ -2984,7 +2984,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-08-03 17:00:00";Manhattan;Comedy;"Woody Allen";1979;96;16;8.50
 "2024-08-03 14:30:00";Festen;Drama;"Thomas Vinterberg";1998;105;16;6.50
 "2024-08-03 10:30:00";"Dilwale Dulhania Le Jayenge";Drama;"Aditya Chopra";1995;189;0;8.00
-"2024-08-02 13:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2024-08-02 13:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2024-08-02 10:30:00";"Willy Wonka & the Chocolate Factory";Family;"Mel Stuart";1971;100;0;6.50
 "2024-08-01 10:30:00";"Monty Python and the Holy Grail";Adventure;"Terry Gilliam";1975;91;6;7.00
 "2024-07-31 13:00:00";"Before Sunrise";Drama;"Richard Linklater";1995;101;16;7.50
@@ -3011,7 +3011,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-07-23 10:00:00";"The Jungle Book";Animation;"Wolfgang Reitherman";1967;78;0;6.50
 "2024-07-22 13:00:00";"Le dîner de cons";Comedy;"Francis Veber";1998;80;12;8.50
 "2024-07-22 10:30:00";"The Thin Man";Comedy;"W.S. Van Dyke";1934;91;12;6.50
-"2024-07-21 19:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;10.00
+"2024-07-21 19:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;10.00
 "2024-07-21 15:30:00";Magnolia;Drama;"Paul Thomas Anderson";1999;188;16;7.50
 "2024-07-21 13:00:00";"Y tu mamá también";Drama;"Alfonso Cuarón";2001;106;12;6.50
 "2024-07-21 10:00:00";"The Grapes of Wrath";Drama;"John Ford";1940;129;12;7.50
@@ -3041,7 +3041,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-07-12 10:00:00";"Before Sunrise";Drama;"Richard Linklater";1995;101;16;7.50
 "2024-07-11 16:00:00";"Hotel Rwanda";Biography;"Terry George";2004;121;12;7.00
 "2024-07-11 13:30:00";"Key Largo";Action;"John Huston";1948;100;12;7.50
-"2024-07-11 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.50
+"2024-07-11 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.50
 "2024-07-10 12:30:00";Fargo;Crime;"Joel Coen";1996;98;12;6.50
 "2024-07-10 10:00:00";"Annie Hall";Comedy;"Woody Allen";1977;93;12;6.50
 "2024-07-09 10:00:00";"Star Wars: Episode V - The Empire Strikes Back";Action;"Irvin Kershner";1980;124;12;7.50
@@ -3413,7 +3413,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2024-02-17 10:00:00";"October Sky";Biography;"Joe Johnston";1999;108;6;8.50
 "2024-02-16 12:30:00";Charade;Comedy;"Stanley Donen";1963;113;0;6.50
 "2024-02-16 10:00:00";"The Bourne Supremacy";Action;"Paul Greengrass";2004;108;12;7.50
-"2024-02-15 10:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
+"2024-02-15 10:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
 "2024-02-14 13:00:00";"October Sky";Biography;"Joe Johnston";1999;108;6;8.50
 "2024-02-14 10:00:00";"Apocalypse Now";Drama;"Francis Ford Coppola";1979;147;16;7.50
 "2024-02-13 10:30:00";"Gone with the Wind";Drama;"Victor Fleming";1939;238;0;8.50
@@ -3601,7 +3601,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-12-03 15:00:00";Amadeus;Biography;"Milos Forman";1984;160;16;8.00
 "2023-12-03 13:00:00";Rope;Crime;"Alfred Hitchcock";1948;80;12;7.50
 "2023-12-03 10:30:00";"My Left Foot: The Story of Christy Brown";Biography;"Jim Sheridan";1989;103;0;8.50
-"2023-12-02 18:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;9.00
+"2023-12-02 18:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;9.00
 "2023-12-02 15:30:00";Ondskan;Drama;"Mikael Håfström";2003;113;12;8.00
 "2023-12-02 13:00:00";"Per un pugno di dollari";Action;"Sergio Leone";1964;99;12;8.50
 "2023-12-02 10:00:00";"Lost Highway";Mystery;"David Lynch";1997;134;12;7.50
@@ -3610,7 +3610,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-11-30 12:30:00";"Dances with Wolves";Adventure;"Kevin Costner";1990;181;0;8.00
 "2023-11-30 10:00:00";"The African Queen";Adventure;"John Huston";1951;105;6;8.00
 "2023-11-29 15:00:00";Rebecca;Drama;"Alfred Hitchcock";1940;130;12;7.50
-"2023-11-29 12:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
+"2023-11-29 12:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
 "2023-11-29 10:30:00";Rope;Crime;"Alfred Hitchcock";1948;80;12;7.50
 "2023-11-28 13:00:00";Kumonosu-jô;Drama;"Akira Kurosawa";1957;110;12;8.50
 "2023-11-28 10:30:00";"A Night at the Opera";Comedy;"Sam Wood";1935;96;12;8.50
@@ -3723,7 +3723,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-10-14 15:00:00";"Duck Soup";Comedy;"Leo McCarey";1933;69;12;7.00
 "2023-10-14 12:30:00";"Planet of the Apes";Adventure;"Franklin J. Schaffner";1968;112;0;8.50
 "2023-10-14 10:30:00";"Duck Soup";Comedy;"Leo McCarey";1933;69;12;8.50
-"2023-10-13 15:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
+"2023-10-13 15:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
 "2023-10-13 12:30:00";"Donnie Darko";Drama;"Richard Kelly";2001;113;16;6.50
 "2023-10-13 10:00:00";"Boyz n the Hood";Crime;"John Singleton";1991;112;12;7.50
 "2023-10-12 12:30:00";"Les quatre cents coups";Crime;"François Truffaut";1959;99;12;6.50
@@ -3748,10 +3748,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-10-05 13:30:00";"Out of the Past";Crime;"Jacques Tourneur";1947;97;12;6.50
 "2023-10-05 10:30:00";"The Count of Monte Cristo";Action;"Kevin Reynolds";2002;131;12;7.50
 "2023-10-04 10:30:00";"Duck Soup";Comedy;"Leo McCarey";1933;69;12;7.50
-"2023-10-03 13:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
+"2023-10-03 13:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
 "2023-10-03 10:30:00";"Todo sobre mi madre";Drama;"Pedro Almodóvar";1999;101;16;7.00
 "2023-10-02 10:30:00";"Duck Soup";Comedy;"Leo McCarey";1933;69;12;6.50
-"2023-10-01 14:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2023-10-01 14:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2023-10-01 12:30:00";"Das Cabinet des Dr. Caligari";Fantasy;"Robert Wiene";1920;76;12;7.50
 "2023-10-01 10:00:00";"Do lok tin si";Comedy;"Kar-Wai Wong";1995;99;12;8.00
 "2023-09-30 17:30:00";"Das Cabinet des Dr. Caligari";Fantasy;"Robert Wiene";1920;76;12;8.50
@@ -3774,7 +3774,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-09-24 12:30:00";Yôjinbô;Action;"Akira Kurosawa";1961;110;12;7.00
 "2023-09-24 10:00:00";"Bringing Up Baby";Comedy;"Howard Hawks";1938;102;12;6.50
 "2023-09-23 14:30:00";"Giù la testa";Drama;"Sergio Leone";1971;157;6;8.50
-"2023-09-23 12:30:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
+"2023-09-23 12:30:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
 "2023-09-23 10:00:00";Yôjinbô;Action;"Akira Kurosawa";1961;110;12;8.50
 "2023-09-22 16:00:00";"Miracle on 34th Street";Comedy;"George Seaton";1947;96;12;6.50
 "2023-09-22 13:00:00";"Dead Man";Adventure;"Jim Jarmusch";1995;121;16;8.00
@@ -3787,7 +3787,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-09-19 12:30:00";"To Kill a Mockingbird";Crime;"Robert Mulligan";1962;129;0;7.00
 "2023-09-19 10:00:00";"Enter the Dragon";Action;"Robert Clouse";1973;102;12;7.50
 "2023-09-18 10:30:00";"Todo sobre mi madre";Drama;"Pedro Almodóvar";1999;101;16;6.50
-"2023-09-17 15:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2023-09-17 15:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2023-09-17 12:30:00";"Donnie Darko";Drama;"Richard Kelly";2001;113;16;7.50
 "2023-09-17 10:00:00";"Mad Max 2";Action;"George Miller";1981;96;12;7.00
 "2023-09-16 20:00:00";Yôjinbô;Action;"Akira Kurosawa";1961;110;12;9.00
@@ -3841,8 +3841,8 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-08-27 10:30:00";"Dial M for Murder";Crime;"Alfred Hitchcock";1954;105;12;6.50
 "2023-08-26 16:30:00";"Finding Nemo";Animation;"Andrew Stanton";2003;100;0;6.50
 "2023-08-26 13:00:00";"Das Boot";Adventure;"Wolfgang Petersen";1981;149;16;6.50
-"2023-08-26 10:00:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;7.00
-"2023-08-25 12:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;8.50
+"2023-08-26 10:00:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;7.00
+"2023-08-25 12:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;8.50
 "2023-08-25 10:00:00";"Miracle on 34th Street";Comedy;"George Seaton";1947;96;12;7.00
 "2023-08-24 10:00:00";"Down by Law";Comedy;"Jim Jarmusch";1986;107;16;8.50
 "2023-08-23 13:00:00";Papillon;Biography;"Franklin J. Schaffner";1973;151;16;7.50
@@ -3855,7 +3855,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-08-20 10:30:00";"Das Boot";Adventure;"Wolfgang Petersen";1981;149;16;8.50
 "2023-08-19 19:00:00";Ikiru;Drama;"Akira Kurosawa";1952;143;12;9.50
 "2023-08-19 16:00:00";"The Count of Monte Cristo";Action;"Kevin Reynolds";2002;131;12;7.00
-"2023-08-19 13:00:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;6.50
+"2023-08-19 13:00:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;6.50
 "2023-08-19 10:30:00";"Ladri di biciclette";Drama;"Vittorio De Sica";1948;89;12;6.50
 "2023-08-18 14:00:00";"Barry Lyndon";Adventure;"Stanley Kubrick";1975;185;6;7.00
 "2023-08-18 10:00:00";"Short Cuts";Comedy;"Robert Altman";1993;188;16;7.00
@@ -4075,7 +4075,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-05-18 10:30:00";Notorious;Drama;"Alfred Hitchcock";1946;102;0;8.50
 "2023-05-17 10:00:00";"The Magdalene Sisters";Drama;"Peter Mullan";2002;114;16;8.00
 "2023-05-16 17:00:00";"Ace in the Hole";Drama;"Billy Wilder";1951;111;12;8.00
-"2023-05-16 13:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;6.50
+"2023-05-16 13:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;6.50
 "2023-05-16 10:30:00";"Blue Velvet";Drama;"David Lynch";1986;120;12;6.50
 "2023-05-15 10:00:00";Seppuku;Action;"Masaki Kobayashi";1962;133;12;7.00
 "2023-05-14 16:30:00";"Citizen Kane";Drama;"Orson Welles";1941;119;12;8.50
@@ -4089,7 +4089,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-05-12 13:00:00";"La battaglia di Algeri";Drama;"Gillo Pontecorvo";1966;121;12;7.50
 "2023-05-12 10:00:00";"The Quiet Man";Comedy;"John Ford";1952;129;12;7.50
 "2023-05-11 13:30:00";"Giù la testa";Drama;"Sergio Leone";1971;157;6;8.50
-"2023-05-11 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2023-05-11 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2023-05-10 15:30:00";"The Thin Man";Comedy;"W.S. Van Dyke";1934;91;12;7.00
 "2023-05-10 13:00:00";"Out of the Past";Crime;"Jacques Tourneur";1947;97;12;8.00
 "2023-05-10 10:00:00";"La battaglia di Algeri";Drama;"Gillo Pontecorvo";1966;121;12;8.50
@@ -4119,14 +4119,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-04-30 16:30:00";"The African Queen";Adventure;"John Huston";1951;105;6;7.50
 "2023-04-30 12:30:00";"Kal Ho Naa Ho";Comedy;"Nikkhil Advani";2003;186;0;8.00
 "2023-04-30 10:00:00";"Out of the Past";Crime;"Jacques Tourneur";1947;97;12;7.00
-"2023-04-29 16:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.50
+"2023-04-29 16:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.50
 "2023-04-29 13:30:00";"Shadow of a Doubt";Film-Noir;"Alfred Hitchcock";1943;108;6;7.50
 "2023-04-29 10:30:00";"True Romance";Crime;"Tony Scott";1993;119;16;7.00
 "2023-04-28 13:30:00";"Kal Ho Naa Ho";Comedy;"Nikkhil Advani";2003;186;0;8.50
 "2023-04-28 10:30:00";"Boksuneun naui geot";Crime;"Chan-wook Park";2002;129;16;8.00
 "2023-04-27 17:00:00";"Lola rennt";Crime;"Tom Tykwer";1998;81;12;7.00
-"2023-04-27 13:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.00
-"2023-04-27 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;6.50
+"2023-04-27 13:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.00
+"2023-04-27 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;6.50
 "2023-04-26 13:30:00";"Giù la testa";Drama;"Sergio Leone";1971;157;6;7.00
 "2023-04-26 10:00:00";Casino;Crime;"Martin Scorsese";1995;178;12;7.50
 "2023-04-25 10:00:00";"Out of the Past";Crime;"Jacques Tourneur";1947;97;12;8.00
@@ -4174,7 +4174,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-04-09 14:00:00";"Interstate 60: Episodes of the Road";Adventure;"Bob Gale";2002;116;16;7.50
 "2023-04-09 10:30:00";"Hera Pheri";Action;Priyadarshan;2000;156;0;8.00
 "2023-04-08 19:00:00";"Interstate 60: Episodes of the Road";Adventure;"Bob Gale";2002;116;16;10.00
-"2023-04-08 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;6.50
+"2023-04-08 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;6.50
 "2023-04-08 13:00:00";"Empire of the Sun";Action;"Steven Spielberg";1987;153;0;7.00
 "2023-04-08 10:00:00";"La battaglia di Algeri";Drama;"Gillo Pontecorvo";1966;121;12;6.50
 "2023-04-07 13:30:00";"La Strada";Drama;"Federico Fellini";1954;108;12;7.00
@@ -4182,7 +4182,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-04-06 13:30:00";Shine;Biography;"Scott Hicks";1996;105;0;7.00
 "2023-04-06 10:30:00";"Interstate 60: Episodes of the Road";Adventure;"Bob Gale";2002;116;16;8.50
 "2023-04-05 14:30:00";"Kal Ho Naa Ho";Comedy;"Nikkhil Advani";2003;186;0;6.50
-"2023-04-05 12:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
+"2023-04-05 12:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
 "2023-04-05 10:00:00";"King Kong";Adventure;"Merian C. Cooper";1933;100;12;7.00
 "2023-04-04 10:00:00";"A Hard Day's Night";Comedy;"Richard Lester";1964;87;0;8.00
 "2023-04-03 16:00:00";"The Last Samurai";Action;"Edward Zwick";2003;154;12;7.50
@@ -4246,7 +4246,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-03-12 16:00:00";"It's a Wonderful Life";Drama;"Frank Capra";1946;130;6;7.00
 "2023-03-12 13:30:00";"La montaña sagrada";Adventure;"Alejandro Jodorowsky";1973;114;16;8.00
 "2023-03-12 10:30:00";"Mystic River";Crime;"Clint Eastwood";2003;138;12;6.50
-"2023-03-11 20:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;9.50
+"2023-03-11 20:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;9.50
 "2023-03-11 17:00:00";"Hera Pheri";Action;Priyadarshan;2000;156;0;7.50
 "2023-03-11 14:00:00";"Tenkû no shiro Rapyuta";Animation;"Hayao Miyazaki";1986;125;0;8.50
 "2023-03-11 10:30:00";Ran;Action;"Akira Kurosawa";1985;162;0;7.50
@@ -4304,14 +4304,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2023-02-16 10:30:00";"American Psycho";Comedy;"Mary Harron";2000;101;12;8.00
 "2023-02-15 13:30:00";Amadeus;Biography;"Milos Forman";1984;160;16;7.00
 "2023-02-15 10:30:00";Happiness;Comedy;"Todd Solondz";1998;134;12;7.00
-"2023-02-14 16:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
+"2023-02-14 16:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
 "2023-02-14 13:00:00";"The Color Purple";Drama;"Steven Spielberg";1985;154;0;7.50
 "2023-02-14 10:30:00";"Mimi wo sumaseba";Animation;"Yoshifumi Kondô";1995;111;0;7.50
 "2023-02-13 16:00:00";"On Golden Pond";Drama;"Mark Rydell";1981;109;12;7.00
 "2023-02-13 13:30:00";Airplane!;Comedy;"Jim Abrahams";1980;88;0;7.50
 "2023-02-13 10:00:00";"The Color Purple";Drama;"Steven Spielberg";1985;154;0;7.00
 "2023-02-12 20:30:00";Kagemusha;Drama;"Akira Kurosawa";1980;180;0;8.50
-"2023-02-12 18:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2023-02-12 18:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2023-02-12 14:00:00";Kagemusha;Drama;"Akira Kurosawa";1980;180;0;7.50
 "2023-02-12 10:30:00";"Catch Me If You Can";Biography;"Steven Spielberg";2002;141;12;8.50
 "2023-02-11 16:00:00";"Tenkû no shiro Rapyuta";Animation;"Hayao Miyazaki";1986;125;0;6.50
@@ -4568,7 +4568,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-11-04 10:30:00";Gladiator;Action;"Ridley Scott";2000;155;12;7.00
 "2022-11-03 13:00:00";"City Lights";Comedy;"Charles Chaplin";1931;87;0;8.00
 "2022-11-03 10:30:00";Fargo;Crime;"Joel Coen";1996;98;12;8.50
-"2022-11-02 10:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
+"2022-11-02 10:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;6.50
 "2022-11-01 10:00:00";"Falling Down";Action;"Joel Schumacher";1993;113;16;8.50
 "2022-10-31 16:30:00";"Do lok tin si";Comedy;"Kar-Wai Wong";1995;99;12;7.50
 "2022-10-31 14:00:00";Jungfrukällan;Drama;"Ingmar Bergman";1960;89;12;7.50
@@ -4583,14 +4583,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-10-28 10:00:00";"His Girl Friday";Comedy;"Howard Hawks";1940;92;12;6.50
 "2022-10-27 10:00:00";"Cast Away";Adventure;"Robert Zemeckis";2000;143;12;7.00
 "2022-10-26 13:00:00";"The Hustler";Drama;"Robert Rossen";1961;134;12;8.00
-"2022-10-26 10:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
+"2022-10-26 10:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
 "2022-10-25 13:00:00";"A Streetcar Named Desire";Drama;"Elia Kazan";1951;122;12;6.50
 "2022-10-25 10:00:00";"Miller's Crossing";Crime;"Joel Coen";1990;115;16;7.50
-"2022-10-24 12:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
+"2022-10-24 12:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
 "2022-10-24 10:00:00";"Kôkaku Kidôtai";Animation;"Mamoru Oshii";1995;83;12;7.00
 "2022-10-23 18:00:00";"Kind Hearts and Coronets";Comedy;"Robert Hamer";1949;106;0;9.50
 "2022-10-23 15:30:00";"City Lights";Comedy;"Charles Chaplin";1931;87;0;8.00
-"2022-10-23 13:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2022-10-23 13:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2022-10-23 10:30:00";"Dark City";Mystery;"Alex Proyas";1998;100;12;7.50
 "2022-10-22 17:00:00";Gladiator;Action;"Ridley Scott";2000;155;12;8.00
 "2022-10-22 13:00:00";"Judgment at Nuremberg";Drama;"Stanley Kramer";1961;179;12;7.50
@@ -4605,10 +4605,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-10-18 10:00:00";Gladiator;Action;"Ridley Scott";2000;155;12;8.00
 "2022-10-17 10:30:00";"Sense and Sensibility";Drama;"Ang Lee";1995;136;0;7.50
 "2022-10-16 15:00:00";"Kind Hearts and Coronets";Comedy;"Robert Hamer";1949;106;0;8.00
-"2022-10-16 12:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
+"2022-10-16 12:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.00
 "2022-10-16 10:00:00";Fargo;Crime;"Joel Coen";1996;98;12;7.00
 "2022-10-15 18:30:00";"The Hustler";Drama;"Robert Rossen";1961;134;12;9.00
-"2022-10-15 16:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2022-10-15 16:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2022-10-15 13:00:00";"The Hustler";Drama;"Robert Rossen";1961;134;12;8.00
 "2022-10-15 10:00:00";"Miller's Crossing";Crime;"Joel Coen";1990;115;16;6.50
 "2022-10-14 13:00:00";Fargo;Crime;"Joel Coen";1996;98;12;8.50
@@ -4756,7 +4756,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-08-14 10:30:00";"North by Northwest";Adventure;"Alfred Hitchcock";1959;136;0;7.50
 "2022-08-13 18:30:00";"Raging Bull";Biography;"Martin Scorsese";1980;129;12;8.50
 "2022-08-13 15:30:00";"Tôkyô monogatari";Drama;"Yasujirô Ozu";1953;136;0;8.50
-"2022-08-13 13:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
+"2022-08-13 13:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
 "2022-08-13 10:30:00";"Scarface: The Shame of the Nation";Action;"Howard Hawks";1932;93;6;7.00
 "2022-08-12 16:00:00";"Kramer vs. Kramer";Drama;"Robert Benton";1979;105;12;7.50
 "2022-08-12 13:30:00";"To Be or Not to Be";Comedy;"Ernst Lubitsch";1942;99;12;8.00
@@ -4813,7 +4813,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-07-20 17:00:00";"Evil Dead II";Action;"Sam Raimi";1987;84;12;6.50
 "2022-07-20 13:00:00";"Fiddler on the Roof";Drama;"Norman Jewison";1971;181;0;8.50
 "2022-07-20 10:30:00";"Barton Fink";Comedy;"Joel Coen";1991;116;0;7.50
-"2022-07-19 16:30:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;7.00
+"2022-07-19 16:30:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;7.00
 "2022-07-19 13:00:00";"The Pianist";Biography;"Roman Polanski";2002;150;16;8.00
 "2022-07-19 10:00:00";"Barton Fink";Comedy;"Joel Coen";1991;116;0;8.50
 "2022-07-18 12:00:00";"The Lady Vanishes";Mystery;"Alfred Hitchcock";1938;96;12;8.00
@@ -5040,7 +5040,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-04-23 16:30:00";"Carlito's Way";Crime;"Brian De Palma";1993;144;12;7.00
 "2022-04-23 14:00:00";Repulsion;Drama;"Roman Polanski";1965;105;12;8.00
 "2022-04-23 10:00:00";"Dil Chahta Hai";Comedy;"Farhan Akhtar";2001;183;12;6.50
-"2022-04-22 12:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2022-04-22 12:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
 "2022-04-22 10:00:00";"Le samouraï";Crime;"Jean-Pierre Melville";1967;105;12;7.50
 "2022-04-21 10:00:00";"The Lost Weekend";Drama;"Billy Wilder";1945;101;12;8.50
 "2022-04-20 12:30:00";"Le samouraï";Crime;"Jean-Pierre Melville";1967;105;12;8.00
@@ -5063,7 +5063,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-04-13 10:30:00";"Harry Potter and the Sorcerer's Stone";Adventure;"Chris Columbus";2001;152;0;8.50
 "2022-04-12 10:00:00";"Dom za vesanje";Comedy;"Emir Kusturica";1988;142;16;7.50
 "2022-04-11 10:30:00";"Harry Potter and the Sorcerer's Stone";Adventure;"Chris Columbus";2001;152;0;6.50
-"2022-04-10 20:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;10.00
+"2022-04-10 20:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;10.00
 "2022-04-10 16:00:00";"The Godfather";Crime;"Francis Ford Coppola";1972;175;12;7.50
 "2022-04-10 13:30:00";Kumonosu-jô;Drama;"Akira Kurosawa";1957;110;12;8.50
 "2022-04-10 10:30:00";Tombstone;Action;"George P. Cosmatos";1993;130;16;7.00
@@ -5092,8 +5092,8 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-03-31 10:30:00";Tombstone;Action;"George P. Cosmatos";1993;130;16;8.50
 "2022-03-30 13:00:00";Alien;Horror;"Ridley Scott";1979;117;16;7.50
 "2022-03-30 10:30:00";Smultronstället;Drama;"Ingmar Bergman";1957;91;0;7.00
-"2022-03-29 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
-"2022-03-28 17:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2022-03-29 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2022-03-28 17:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
 "2022-03-28 14:00:00";Tombstone;Action;"George P. Cosmatos";1993;130;16;7.00
 "2022-03-28 10:30:00";"The Shining";Drama;"Stanley Kubrick";1980;146;12;8.50
 "2022-03-27 19:00:00";"M - Eine Stadt sucht einen Mörder";Crime;"Fritz Lang";1931;117;12;9.00
@@ -5269,7 +5269,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-01-18 10:00:00";"E.T. the Extra-Terrestrial";Family;"Steven Spielberg";1982;115;0;7.50
 "2022-01-17 14:30:00";"The Great Dictator";Comedy;"Charles Chaplin";1940;125;12;8.00
 "2022-01-17 12:30:00";"The Nightmare Before Christmas";Animation;"Henry Selick";1993;76;0;8.00
-"2022-01-17 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2022-01-17 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2022-01-16 18:00:00";Freaks;Drama;"Tod Browning";1932;64;12;9.50
 "2022-01-16 15:30:00";"The Usual Suspects";Crime;"Bryan Singer";1995;106;12;6.50
 "2022-01-16 12:30:00";"The Great Dictator";Comedy;"Charles Chaplin";1940;125;12;6.50
@@ -5277,7 +5277,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-01-15 20:00:00";"The Muppet Christmas Carol";Comedy;"Brian Henson";1992;85;0;10.00
 "2022-01-15 17:00:00";"The Great Dictator";Comedy;"Charles Chaplin";1940;125;12;8.50
 "2022-01-15 13:00:00";"Schindler's List";Biography;"Steven Spielberg";1993;195;12;7.00
-"2022-01-15 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2022-01-15 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2022-01-14 13:00:00";Sleuth;Mystery;"Joseph L. Mankiewicz";1972;138;6;8.00
 "2022-01-14 10:30:00";Clerks;Comedy;"Kevin Smith";1994;92;16;6.50
 "2022-01-13 15:30:00";Druk;Comedy;"Thomas Vinterberg";2020;117;12;8.50
@@ -5294,7 +5294,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-01-09 18:30:00";"Rosemary's Baby";Drama;"Roman Polanski";1968;137;12;10.00
 "2022-01-09 15:30:00";"The Great Dictator";Comedy;"Charles Chaplin";1940;125;12;8.00
 "2022-01-09 13:00:00";"The Royal Tenenbaums";Comedy;"Wes Anderson";2001;110;12;6.50
-"2022-01-09 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
+"2022-01-09 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
 "2022-01-08 17:30:00";Hamlet;Drama;"Kenneth Branagh";1996;242;12;7.00
 "2022-01-08 15:30:00";Freaks;Drama;"Tod Browning";1932;64;12;8.50
 "2022-01-08 13:00:00";"E.T. the Extra-Terrestrial";Family;"Steven Spielberg";1982;115;0;7.00
@@ -5313,8 +5313,8 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2022-01-02 19:30:00";"Boksuneun naui geot";Crime;"Chan-wook Park";2002;129;16;9.50
 "2022-01-02 16:30:00";"Boksuneun naui geot";Crime;"Chan-wook Park";2002;129;16;8.50
 "2022-01-02 13:30:00";"Cowboy Bebop: Tengoku no tobira";Animation;"Shin'ichirô Watanabe";2001;115;0;8.00
-"2022-01-02 10:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
-"2022-01-01 18:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2022-01-02 10:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2022-01-01 18:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2022-01-01 15:00:00";"Boksuneun naui geot";Crime;"Chan-wook Park";2002;129;16;8.50
 "2022-01-01 12:30:00";Aladdin;Animation;"Ron Clements";1992;90;0;7.50
 "2022-01-01 10:30:00";"The Nightmare Before Christmas";Animation;"Henry Selick";1993;76;0;8.00
@@ -5344,7 +5344,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-12-23 14:30:00";Platoon;Drama;"Oliver Stone";1986;120;12;6.50
 "2021-12-23 10:30:00";"Schindler's List";Biography;"Steven Spielberg";1993;195;12;8.00
 "2021-12-22 12:30:00";"Il postino";Biography;"Michael Radford";1994;108;0;8.00
-"2021-12-22 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2021-12-22 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2021-12-21 15:30:00";Aladdin;Animation;"Ron Clements";1992;90;0;7.00
 "2021-12-21 12:30:00";"True Romance";Crime;"Tony Scott";1993;119;16;6.50
 "2021-12-21 10:00:00";"The Muppet Christmas Carol";Comedy;"Brian Henson";1992;85;0;7.00
@@ -5358,7 +5358,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-12-18 13:30:00";"The Straight Story";Biography;"David Lynch";1999;112;0;8.50
 "2021-12-18 10:30:00";"Full Metal Jacket";Drama;"Stanley Kubrick";1987;116;12;8.00
 "2021-12-17 16:00:00";"Mississippi Burning";Crime;"Alan Parker";1988;128;12;7.50
-"2021-12-17 12:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.50
+"2021-12-17 12:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.50
 "2021-12-17 10:00:00";Klaus;Animation;"Sergio Pablos";2019;96;6;8.00
 "2021-12-16 16:00:00";"Star Trek II: The Wrath of Khan";Action;"Nicholas Meyer";1982;113;0;8.00
 "2021-12-16 13:00:00";"Kakushi-toride no san-akunin";Adventure;"Akira Kurosawa";1958;139;12;7.00
@@ -5417,17 +5417,17 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-11-27 10:00:00";Klaus;Animation;"Sergio Pablos";2019;96;6;8.00
 "2021-11-26 16:30:00";Ghostbusters;Action;"Ivan Reitman";1984;105;12;8.00
 "2021-11-26 14:00:00";Predator;Action;"John McTiernan";1987;107;12;7.00
-"2021-11-26 10:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.50
+"2021-11-26 10:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.50
 "2021-11-25 18:30:00";"Planet of the Apes";Adventure;"Franklin J. Schaffner";1968;112;0;8.50
 "2021-11-25 14:00:00";"Lagaan: Once Upon a Time in India";Adventure;"Ashutosh Gowariker";2001;224;0;7.00
-"2021-11-25 10:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;6.50
+"2021-11-25 10:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;6.50
 "2021-11-24 15:00:00";"The Shawshank Redemption";Drama;"Frank Darabont";1994;142;12;7.00
 "2021-11-24 12:30:00";"12 Angry Men";Crime;"Sidney Lumet";1957;96;0;7.00
 "2021-11-24 10:00:00";Blowup;Drama;"Michelangelo Antonioni";1966;111;12;7.50
-"2021-11-23 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2021-11-23 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2021-11-22 16:30:00";"Ferris Bueller's Day Off";Comedy;"John Hughes";1986;103;0;8.50
 "2021-11-22 14:00:00";Predator;Action;"John McTiernan";1987;107;12;8.00
-"2021-11-22 10:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2021-11-22 10:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2021-11-21 21:00:00";Patton;Biography;"Franklin J. Schaffner";1970;172;0;10.00
 "2021-11-21 18:00:00";"The Lion in Winter";Biography;"Anthony Harvey";1968;134;6;8.50
 "2021-11-21 15:30:00";"Crimes and Misdemeanors";Comedy;"Woody Allen";1989;104;12;6.50
@@ -5436,10 +5436,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-11-20 13:00:00";"The Lion in Winter";Biography;"Anthony Harvey";1968;134;6;7.50
 "2021-11-20 10:30:00";"Reservoir Dogs";Crime;"Quentin Tarantino";1992;99;16;8.00
 "2021-11-19 10:00:00";"Das Boot";Adventure;"Wolfgang Petersen";1981;149;16;7.50
-"2021-11-18 12:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.50
-"2021-11-18 10:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;7.00
+"2021-11-18 12:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.50
+"2021-11-18 10:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;7.00
 "2021-11-17 10:00:00";Höstsonaten;Drama;"Ingmar Bergman";1978;99;0;8.00
-"2021-11-16 15:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2021-11-16 15:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2021-11-16 12:30:00";Blowup;Drama;"Michelangelo Antonioni";1966;111;12;8.00
 "2021-11-16 10:00:00";Klaus;Animation;"Sergio Pablos";2019;96;6;7.00
 "2021-11-15 10:30:00";"The Lion in Winter";Biography;"Anthony Harvey";1968;134;6;8.00
@@ -5455,7 +5455,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-11-11 10:30:00";"Andrei Rublev";Biography;"Andrei Tarkovsky";1966;205;16;8.00
 "2021-11-10 12:30:00";"Mississippi Burning";Crime;"Alan Parker";1988;128;12;8.50
 "2021-11-10 10:00:00";Höstsonaten;Drama;"Ingmar Bergman";1978;99;0;7.00
-"2021-11-09 13:30:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;8.00
+"2021-11-09 13:30:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;8.00
 "2021-11-09 10:00:00";"Mulholland Dr.";Drama;"David Lynch";2001;147;16;7.00
 "2021-11-08 16:00:00";"The Insider";Biography;"Michael Mann";1999;157;12;6.50
 "2021-11-08 13:30:00";Höstsonaten;Drama;"Ingmar Bergman";1978;99;0;7.00
@@ -5516,7 +5516,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-10-14 10:00:00";"Just Mercy";Biography;"Destin Daniel Cretton";2019;137;12;7.00
 "2021-10-13 15:30:00";"The Purple Rose of Cairo";Comedy;"Woody Allen";1985;82;0;7.50
 "2021-10-13 12:30:00";"Just Mercy";Biography;"Destin Daniel Cretton";2019;137;12;8.00
-"2021-10-13 10:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;7.50
+"2021-10-13 10:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;7.50
 "2021-10-12 10:30:00";"Barton Fink";Comedy;"Joel Coen";1991;116;0;7.00
 "2021-10-11 16:00:00";"The Thing";Horror;"John Carpenter";1982;109;12;7.50
 "2021-10-11 13:30:00";"À bout de souffle";Crime;"Jean-Luc Godard";1960;90;0;7.50
@@ -5528,7 +5528,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-10-09 21:00:00";"Kaze no tani no Naushika";Animation;"Hayao Miyazaki";1984;117;0;10.00
 "2021-10-09 18:00:00";"Barton Fink";Comedy;"Joel Coen";1991;116;0;9.50
 "2021-10-09 13:00:00";Hamlet;Drama;"Kenneth Branagh";1996;242;12;7.00
-"2021-10-09 10:30:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;6.50
+"2021-10-09 10:30:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;6.50
 "2021-10-08 13:30:00";Shine;Biography;"Scott Hicks";1996;105;0;7.50
 "2021-10-08 10:30:00";"Jojo Rabbit";Comedy;"Taika Waititi";2019;108;12;7.00
 "2021-10-07 10:00:00";"Bride of Frankenstein";Drama;"James Whale";1935;75;12;8.50
@@ -5543,7 +5543,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-10-03 18:30:00";"The Boondock Saints";Action;"Troy Duffy";1999;108;16;9.50
 "2021-10-03 15:30:00";"The Verdict";Drama;"Sidney Lumet";1982;129;0;6.50
 "2021-10-03 12:30:00";"Das Experiment";Drama;"Oliver Hirschbiegel";2001;120;16;7.50
-"2021-10-03 10:00:00";"Monsters; Inc.";Animation;"Pete Docter";2001;92;0;6.50
+"2021-10-03 10:00:00";"Monsters, Inc.";Animation;"Pete Docter";2001;92;0;6.50
 "2021-10-02 17:30:00";Platoon;Drama;"Oliver Stone";1986;120;12;8.00
 "2021-10-02 15:00:00";"Billy Elliot";Drama;"Stephen Daldry";2000;110;16;6.50
 "2021-10-02 10:30:00";"Andrei Rublev";Biography;"Andrei Tarkovsky";1966;205;16;6.50
@@ -5646,7 +5646,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-08-23 10:30:00";"Nuovo Cinema Paradiso";Drama;"Giuseppe Tornatore";1988;155;0;8.50
 "2021-08-22 18:30:00";"Toy Story 2";Animation;"John Lasseter";1999;92;0;8.50
 "2021-08-22 16:00:00";"The Truman Show";Comedy;"Peter Weir";1998;103;0;8.00
-"2021-08-22 12:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;8.50
+"2021-08-22 12:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;8.50
 "2021-08-22 10:00:00";"Toy Story 2";Animation;"John Lasseter";1999;92;0;6.50
 "2021-08-21 19:00:00";"Toy Story 2";Animation;"John Lasseter";1999;92;0;9.50
 "2021-08-21 16:30:00";"Harold and Maude";Comedy;"Hal Ashby";1971;91;6;6.50
@@ -5682,7 +5682,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-08-07 16:00:00";"Crimes and Misdemeanors";Comedy;"Woody Allen";1989;104;12;6.50
 "2021-08-07 13:30:00";"Billy Elliot";Drama;"Stephen Daldry";2000;110;16;8.00
 "2021-08-07 10:30:00";"I Am Sam";Drama;"Jessie Nelson";2001;132;12;7.00
-"2021-08-06 13:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
+"2021-08-06 13:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
 "2021-08-06 10:30:00";"Dà hóng denglong gaogao guà";Drama;"Yimou Zhang";1991;125;6;7.50
 "2021-08-05 10:00:00";"I Am Sam";Drama;"Jessie Nelson";2001;132;12;8.00
 "2021-08-04 15:30:00";Sabrina;Comedy;"Billy Wilder";1954;113;12;8.00
@@ -5692,7 +5692,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-08-03 13:30:00";"It's a Wonderful Life";Drama;"Frank Capra";1946;130;6;8.00
 "2021-08-03 10:30:00";"Dà hóng denglong gaogao guà";Drama;"Yimou Zhang";1991;125;6;8.50
 "2021-08-02 10:30:00";"The Third Man";Film-Noir;"Carol Reed";1949;104;12;8.50
-"2021-08-01 15:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;7.00
+"2021-08-01 15:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;7.00
 "2021-08-01 12:30:00";"Indiana Jones and the Last Crusade";Action;"Steven Spielberg";1989;127;0;6.50
 "2021-08-01 10:00:00";"The Day the Earth Stood Still";Drama;"Robert Wise";1951;92;0;8.00
 "2021-07-31 17:00:00";"Indiana Jones and the Last Crusade";Action;"Steven Spielberg";1989;127;0;7.00
@@ -5703,11 +5703,11 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-07-30 10:00:00";"I Am Sam";Drama;"Jessie Nelson";2001;132;12;8.00
 "2021-07-29 10:00:00";"This Is Spinal Tap";Comedy;"Rob Reiner";1984;82;16;8.00
 "2021-07-28 15:30:00";"Crimes and Misdemeanors";Comedy;"Woody Allen";1989;104;12;7.00
-"2021-07-28 13:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
+"2021-07-28 13:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
 "2021-07-28 10:30:00";"Vampire Hunter D: Bloodlust";Animation;"Yoshiaki Kawajiri";2000;103;0;8.00
 "2021-07-27 13:30:00";"Arsenic and Old Lace";Comedy;"Frank Capra";1942;118;12;7.00
 "2021-07-27 10:00:00";"La leggenda del pianista sull'oceano";Drama;"Giuseppe Tornatore";1998;169;0;7.50
-"2021-07-26 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
+"2021-07-26 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
 "2021-07-25 16:30:00";"Crimes and Misdemeanors";Comedy;"Woody Allen";1989;104;12;6.50
 "2021-07-25 13:30:00";"Dawn of the Dead";Action;"George A. Romero";1978;127;12;8.50
 "2021-07-25 10:30:00";"I Am Sam";Drama;"Jessie Nelson";2001;132;12;6.50
@@ -5723,10 +5723,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-07-21 10:30:00";"Andrei Rublev";Biography;"Andrei Tarkovsky";1966;205;16;7.50
 "2021-07-20 13:00:00";"Soorarai Pottru";Drama;"Sudha Kongara";2020;153;0;7.00
 "2021-07-20 10:30:00";"The Day the Earth Stood Still";Drama;"Robert Wise";1951;92;0;8.00
-"2021-07-19 10:00:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;8.00
+"2021-07-19 10:00:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;8.00
 "2021-07-18 16:00:00";"Fried Green Tomatoes";Drama;"Jon Avnet";1991;130;12;8.00
 "2021-07-18 13:30:00";"This Is Spinal Tap";Comedy;"Rob Reiner";1984;82;16;8.50
-"2021-07-18 10:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;6.50
+"2021-07-18 10:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;6.50
 "2021-07-17 19:00:00";"No Man's Land";Comedy;"Danis Tanovic";2001;98;16;9.50
 "2021-07-17 16:00:00";"Fried Green Tomatoes";Drama;"Jon Avnet";1991;130;12;7.00
 "2021-07-17 13:00:00";8½;Drama;"Federico Fellini";1963;138;12;8.00
@@ -5735,7 +5735,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-07-15 14:00:00";"Soorarai Pottru";Drama;"Sudha Kongara";2020;153;0;7.00
 "2021-07-15 10:00:00";Sholay;Action;"Ramesh Sippy";1975;204;0;8.00
 "2021-07-14 14:00:00";"Where Eagles Dare";Action;"Brian G. Hutton";1968;158;0;7.50
-"2021-07-14 10:30:00";"Paris; Texas";Drama;"Wim Wenders";1984;145;0;6.50
+"2021-07-14 10:30:00";"Paris, Texas";Drama;"Wim Wenders";1984;145;0;6.50
 "2021-07-13 10:00:00";"Where Eagles Dare";Action;"Brian G. Hutton";1968;158;0;6.50
 "2021-07-12 16:00:00";"Vampire Hunter D: Bloodlust";Animation;"Yoshiaki Kawajiri";2000;103;0;8.00
 "2021-07-12 13:30:00";Sabrina;Comedy;"Billy Wilder";1954;113;12;7.00
@@ -5764,12 +5764,12 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-07-02 13:00:00";"Ford v Ferrari";Action;"James Mangold";2019;152;12;8.00
 "2021-07-02 10:30:00";"Vampire Hunter D: Bloodlust";Animation;"Yoshiaki Kawajiri";2000;103;0;7.00
 "2021-07-01 13:00:00";"The Gold Rush";Adventure;"Charles Chaplin";1925;95;12;6.50
-"2021-07-01 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
-"2021-06-30 15:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
+"2021-07-01 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
+"2021-06-30 15:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
 "2021-06-30 13:00:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;8.00
 "2021-06-30 10:30:00";"Vampire Hunter D: Bloodlust";Animation;"Yoshiaki Kawajiri";2000;103;0;8.00
 "2021-06-29 10:00:00";"Brief Encounter";Drama;"David Lean";1945;86;0;8.00
-"2021-06-28 16:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;6.50
+"2021-06-28 16:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;6.50
 "2021-06-28 13:30:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;7.50
 "2021-06-28 10:30:00";Jaws;Adventure;"Steven Spielberg";1975;124;12;6.50
 "2021-06-27 19:30:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;9.50
@@ -5780,7 +5780,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-06-26 16:00:00";"Harold and Maude";Comedy;"Hal Ashby";1971;91;6;8.00
 "2021-06-26 13:30:00";Sabrina;Comedy;"Billy Wilder";1954;113;12;7.00
 "2021-06-26 10:30:00";"Omohide poro poro";Animation;"Isao Takahata";1991;118;0;8.50
-"2021-06-25 12:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.50
+"2021-06-25 12:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.50
 "2021-06-25 10:00:00";Alien;Horror;"Ridley Scott";1979;117;16;8.00
 "2021-06-24 13:00:00";"Scarface: The Shame of the Nation";Action;"Howard Hawks";1932;93;6;7.00
 "2021-06-24 10:00:00";"Primal Fear";Crime;"Gregory Hoblit";1996;129;12;8.50
@@ -5793,7 +5793,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-06-21 10:30:00";8½;Drama;"Federico Fellini";1963;138;12;8.50
 "2021-06-20 19:00:00";"Where Eagles Dare";Action;"Brian G. Hutton";1968;158;0;9.00
 "2021-06-20 15:30:00";"Nuovo Cinema Paradiso";Drama;"Giuseppe Tornatore";1988;155;0;6.50
-"2021-06-20 12:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2021-06-20 12:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2021-06-20 10:00:00";"Vampire Hunter D: Bloodlust";Animation;"Yoshiaki Kawajiri";2000;103;0;7.00
 "2021-06-19 15:00:00";"Y tu mamá también";Drama;"Alfonso Cuarón";2001;106;12;8.50
 "2021-06-19 12:30:00";"Scarface: The Shame of the Nation";Action;"Howard Hawks";1932;93;6;8.50
@@ -5801,7 +5801,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-06-18 10:00:00";"Harold and Maude";Comedy;"Hal Ashby";1971;91;6;8.00
 "2021-06-17 15:30:00";"Trois couleurs: Rouge";Drama;"Krzysztof Kieslowski";1994;99;0;7.00
 "2021-06-17 13:00:00";"Dazed and Confused";Comedy;"Richard Linklater";1993;102;0;6.50
-"2021-06-17 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2021-06-17 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2021-06-16 12:00:00";"Brief Encounter";Drama;"David Lean";1945;86;0;7.00
 "2021-06-16 10:00:00";"Brief Encounter";Drama;"David Lean";1945;86;0;7.50
 "2021-06-15 12:30:00";"Gully Boy";Drama;"Zoya Akhtar";2019;154;12;8.50
@@ -5853,10 +5853,10 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-05-28 16:00:00";"Todo sobre mi madre";Drama;"Pedro Almodóvar";1999;101;16;7.00
 "2021-05-28 13:00:00";"True Romance";Crime;"Tony Scott";1993;119;16;6.50
 "2021-05-28 10:30:00";"The Boondock Saints";Action;"Troy Duffy";1999;108;16;7.50
-"2021-05-27 15:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;6.50
+"2021-05-27 15:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;6.50
 "2021-05-27 12:30:00";Jaws;Adventure;"Steven Spielberg";1975;124;12;8.50
-"2021-05-27 10:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
-"2021-05-26 16:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
+"2021-05-27 10:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
+"2021-05-26 16:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
 "2021-05-26 13:00:00";"Pulp Fiction";Crime;"Quentin Tarantino";1994;154;12;8.00
 "2021-05-26 10:30:00";"The Truman Show";Comedy;"Peter Weir";1998;103;0;8.50
 "2021-05-25 10:00:00";"High Noon";Drama;"Fred Zinnemann";1952;85;6;7.00
@@ -6058,7 +6058,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-03-07 10:00:00";"Lat sau san taam";Action;"John Woo";1992;128;16;8.50
 "2021-03-06 17:00:00";"Toy Story 4";Animation;"Josh Cooley";2019;100;0;7.50
 "2021-03-06 15:00:00";Persona;Drama;"Ingmar Bergman";1966;85;12;8.50
-"2021-03-06 12:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
+"2021-03-06 12:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
 "2021-03-06 10:00:00";"The Last of the Mohicans";Action;"Michael Mann";1992;112;12;7.00
 "2021-03-05 13:00:00";"Jûbê ninpûchô";Animation;"Yoshiaki Kawajiri";1993;94;12;7.50
 "2021-03-05 10:00:00";Rebecca;Drama;"Alfred Hitchcock";1940;130;12;8.00
@@ -6071,7 +6071,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-03-02 12:30:00";8½;Drama;"Federico Fellini";1963;138;12;8.50
 "2021-03-02 10:00:00";"Jûbê ninpûchô";Animation;"Yoshiaki Kawajiri";1993;94;12;7.50
 "2021-03-01 13:00:00";Rebecca;Drama;"Alfred Hitchcock";1940;130;12;8.50
-"2021-03-01 10:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
+"2021-03-01 10:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.00
 "2021-02-28 20:00:00";"Stalag 17";Comedy;"Billy Wilder";1953;120;12;8.50
 "2021-02-28 17:00:00";Rebecca;Drama;"Alfred Hitchcock";1940;130;12;8.50
 "2021-02-28 13:30:00";"Harry Potter and the Sorcerer's Stone";Adventure;"Chris Columbus";2001;152;0;7.00
@@ -6102,7 +6102,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-02-18 13:30:00";Seppuku;Action;"Masaki Kobayashi";1962;133;12;8.00
 "2021-02-18 10:30:00";"Tôkyô monogatari";Drama;"Yasujirô Ozu";1953;136;0;8.50
 "2021-02-17 15:30:00";Rope;Crime;"Alfred Hitchcock";1948;80;12;8.50
-"2021-02-17 13:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2021-02-17 13:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2021-02-17 10:00:00";"What Ever Happened to Baby Jane?";Drama;"Robert Aldrich";1962;134;12;8.00
 "2021-02-16 16:00:00";Persona;Drama;"Ingmar Bergman";1966;85;12;6.50
 "2021-02-16 13:30:00";"October Sky";Biography;"Joe Johnston";1999;108;6;7.00
@@ -6117,7 +6117,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-02-13 18:00:00";"La dolce vita";Comedy;"Federico Fellini";1960;174;12;9.50
 "2021-02-13 15:00:00";"In the Heat of the Night";Crime;"Norman Jewison";1967;110;0;6.50
 "2021-02-13 12:30:00";"October Sky";Biography;"Joe Johnston";1999;108;6;7.00
-"2021-02-13 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
+"2021-02-13 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.50
 "2021-02-12 12:30:00";"In the Heat of the Night";Crime;"Norman Jewison";1967;110;0;8.50
 "2021-02-12 10:00:00";Rope;Crime;"Alfred Hitchcock";1948;80;12;7.50
 "2021-02-11 15:30:00";"It's a Wonderful Life";Drama;"Frank Capra";1946;130;6;6.50
@@ -6127,7 +6127,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-02-10 10:30:00";"Saving Private Ryan";Drama;"Steven Spielberg";1998;169;16;6.50
 "2021-02-09 15:30:00";"Office Space";Comedy;"Mike Judge";1999;89;16;7.00
 "2021-02-09 12:30:00";Seppuku;Action;"Masaki Kobayashi";1962;133;12;8.00
-"2021-02-09 10:00:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
+"2021-02-09 10:00:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;7.00
 "2021-02-08 12:30:00";Seppuku;Action;"Masaki Kobayashi";1962;133;12;7.00
 "2021-02-08 10:00:00";"In the Heat of the Night";Crime;"Norman Jewison";1967;110;0;7.00
 "2021-02-07 19:30:00";"Boyz n the Hood";Crime;"John Singleton";1991;112;12;9.00
@@ -6144,7 +6144,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2021-02-03 10:30:00";"The Jungle Book";Animation;"Wolfgang Reitherman";1967;78;0;7.50
 "2021-02-02 15:30:00";"Paper Moon";Comedy;"Peter Bogdanovich";1973;102;0;7.50
 "2021-02-02 13:00:00";"Central do Brasil";Drama;"Walter Salles";1998;110;16;7.00
-"2021-02-02 10:30:00";"Aguirre; der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
+"2021-02-02 10:30:00";"Aguirre, der Zorn Gottes";Action;"Werner Herzog";1972;95;12;8.50
 "2021-02-01 10:30:00";Cabaret;Drama;"Bob Fosse";1972;124;12;8.00
 "2021-01-31 17:30:00";"Sunrise: A Song of Two Humans";Drama;"F.W. Murnau";1927;94;12;7.50
 "2021-01-31 13:00:00";"The Ten Commandments";Adventure;"Cecil B. DeMille";1956;220;0;8.50
@@ -6387,21 +6387,21 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-10-23 10:00:00";"The Last of the Mohicans";Action;"Michael Mann";1992;112;12;8.50
 "2020-10-22 14:00:00";"Per un pugno di dollari";Action;"Sergio Leone";1964;99;12;6.50
 "2020-10-22 10:30:00";Scarface;Crime;"Brian De Palma";1983;170;12;6.50
-"2020-10-21 13:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
-"2020-10-21 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.50
+"2020-10-21 13:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2020-10-21 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.50
 "2020-10-20 10:30:00";"In the Name of the Father";Biography;"Jim Sheridan";1993;133;12;7.00
 "2020-10-19 14:00:00";"Star Wars: Episode VI - Return of the Jedi";Action;"Richard Marquand";1983;131;0;6.50
 "2020-10-19 10:30:00";"The Insider";Biography;"Michael Mann";1999;157;12;8.50
 "2020-10-18 16:00:00";"The Muppet Movie";Adventure;"James Frawley";1979;95;0;8.50
 "2020-10-18 13:30:00";"Kramer vs. Kramer";Drama;"Robert Benton";1979;105;12;6.50
-"2020-10-18 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.50
+"2020-10-18 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.50
 "2020-10-17 16:30:00";"Marriage Story";Comedy;"Noah Baumbach";2019;137;0;8.00
 "2020-10-17 13:30:00";Glory;Biography;"Edward Zwick";1989;122;16;8.50
 "2020-10-17 10:30:00";Goodfellas;Biography;"Martin Scorsese";1990;146;12;7.00
 "2020-10-16 13:30:00";Rushmore;Comedy;"Wes Anderson";1998;93;12;8.50
 "2020-10-16 10:00:00";"The Insider";Biography;"Michael Mann";1999;157;12;6.50
 "2020-10-15 13:30:00";"Fanny och Alexander";Drama;"Ingmar Bergman";1982;188;12;7.00
-"2020-10-15 10:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;7.50
+"2020-10-15 10:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;7.50
 "2020-10-14 10:00:00";"The Last of the Mohicans";Action;"Michael Mann";1992;112;12;7.50
 "2020-10-13 14:00:00";Gandhi;Biography;"Richard Attenborough";1982;191;0;7.00
 "2020-10-13 10:00:00";"Fanny och Alexander";Drama;"Ingmar Bergman";1982;188;12;8.00
@@ -6431,7 +6431,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-10-03 16:30:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;7.50
 "2020-10-03 14:30:00";"The Nightmare Before Christmas";Animation;"Henry Selick";1993;76;0;6.50
 "2020-10-03 12:00:00";"The Muppet Movie";Adventure;"James Frawley";1979;95;0;7.00
-"2020-10-03 10:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
+"2020-10-03 10:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
 "2020-10-02 10:00:00";"Blue Velvet";Drama;"David Lynch";1986;120;12;6.50
 "2020-10-01 10:30:00";"Reservoir Dogs";Crime;"Quentin Tarantino";1992;99;16;7.50
 "2020-09-30 10:30:00";"The Graduate";Comedy;"Mike Nichols";1967;106;12;8.00
@@ -6439,7 +6439,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-09-28 10:00:00";"In the Name of the Father";Biography;"Jim Sheridan";1993;133;12;6.50
 "2020-09-27 14:30:00";Fargo;Crime;"Joel Coen";1996;98;12;7.50
 "2020-09-27 12:00:00";"The Graduate";Comedy;"Mike Nichols";1967;106;12;7.50
-"2020-09-27 10:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
+"2020-09-27 10:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
 "2020-09-26 15:30:00";"The Last of the Mohicans";Action;"Michael Mann";1992;112;12;6.50
 "2020-09-26 13:00:00";"The Muppet Movie";Adventure;"James Frawley";1979;95;0;8.50
 "2020-09-26 10:30:00";"Trois couleurs: Bleu";Drama;"Krzysztof Kieslowski";1993;94;0;6.50
@@ -6462,7 +6462,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-09-19 10:00:00";"The Last of the Mohicans";Action;"Michael Mann";1992;112;12;7.50
 "2020-09-18 10:30:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;6.50
 "2020-09-17 12:30:00";"The Graduate";Comedy;"Mike Nichols";1967;106;12;7.50
-"2020-09-17 10:30:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;7.50
+"2020-09-17 10:30:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;7.50
 "2020-09-16 10:00:00";"The Graduate";Comedy;"Mike Nichols";1967;106;12;7.00
 "2020-09-15 16:30:00";Rashômon;Crime;"Akira Kurosawa";1950;88;12;6.50
 "2020-09-15 14:30:00";"The General";Action;"Clyde Bruckman";1926;67;12;8.50
@@ -6501,7 +6501,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-09-02 13:00:00";"The Naked Gun: From the Files of Police Squad!";Comedy;"David Zucker";1988;85;0;8.00
 "2020-09-02 10:30:00";"Breakfast at Tiffany's";Comedy;"Blake Edwards";1961;115;12;8.00
 "2020-09-01 10:30:00";"A Few Good Men";Drama;"Rob Reiner";1992;138;0;8.00
-"2020-08-31 15:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
+"2020-08-31 15:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
 "2020-08-31 13:00:00";"The Naked Gun: From the Files of Police Squad!";Comedy;"David Zucker";1988;85;0;7.50
 "2020-08-31 10:00:00";"Sense and Sensibility";Drama;"Ang Lee";1995;136;0;7.00
 "2020-08-30 18:30:00";"Uri: The Surgical Strike";Action;"Aditya Dhar";2018;138;12;9.50
@@ -6548,8 +6548,8 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-08-13 12:30:00";"Sense and Sensibility";Drama;"Ang Lee";1995;136;0;8.50
 "2020-08-13 10:00:00";"Taxi Driver";Crime;"Martin Scorsese";1976;114;12;7.50
 "2020-08-12 13:30:00";"Knives Out";Comedy;"Rian Johnson";2019;130;12;6.50
-"2020-08-12 10:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
-"2020-08-11 16:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
+"2020-08-12 10:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
+"2020-08-11 16:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.50
 "2020-08-11 13:00:00";"The Long Goodbye";Comedy;"Robert Altman";1973;112;12;7.50
 "2020-08-11 10:00:00";"Bohemian Rhapsody";Biography;"Bryan Singer";2018;134;12;8.50
 "2020-08-10 16:30:00";"Kaze no tani no Naushika";Animation;"Hayao Miyazaki";1984;117;0;8.50
@@ -6586,7 +6586,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-07-29 10:00:00";"Bohemian Rhapsody";Biography;"Bryan Singer";2018;134;12;7.50
 "2020-07-28 10:30:00";"A Few Good Men";Drama;"Rob Reiner";1992;138;0;7.00
 "2020-07-27 10:00:00";"Scarface: The Shame of the Nation";Action;"Howard Hawks";1932;93;6;7.00
-"2020-07-26 19:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;10.00
+"2020-07-26 19:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;10.00
 "2020-07-26 16:00:00";"Tôkyô monogatari";Drama;"Yasujirô Ozu";1953;136;0;8.50
 "2020-07-26 13:00:00";"Tôkyô monogatari";Drama;"Yasujirô Ozu";1953;136;0;6.50
 "2020-07-26 10:30:00";"Kaze no tani no Naushika";Animation;"Hayao Miyazaki";1984;117;0;8.00
@@ -6723,9 +6723,9 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-06-02 10:00:00";"Inherit the Wind";Biography;"Stanley Kramer";1960;128;12;6.50
 "2020-06-01 13:00:00";"Hera Pheri";Action;Priyadarshan;2000;156;0;7.00
 "2020-06-01 10:00:00";"Ed Wood";Biography;"Tim Burton";1994;127;0;6.50
-"2020-05-31 16:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
+"2020-05-31 16:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.00
 "2020-05-31 13:00:00";"The Matrix";Action;"Lana Wachowski";1999;136;12;6.50
-"2020-05-31 10:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
+"2020-05-31 10:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
 "2020-05-30 17:00:00";"Who Framed Roger Rabbit";Animation;"Robert Zemeckis";1988;104;0;7.50
 "2020-05-30 13:30:00";"The Thin Red Line";Drama;"Terrence Malick";1998;170;12;7.50
 "2020-05-30 10:30:00";Andhadhun;Crime;"Sriram Raghavan";2018;139;12;7.00
@@ -6794,8 +6794,8 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-05-03 13:00:00";"Rupan sansei: Kariosutoro no shiro";Animation;"Hayao Miyazaki";1979;100;0;8.50
 "2020-05-03 10:30:00";"Annie Hall";Comedy;"Woody Allen";1977;93;12;6.50
 "2020-05-02 15:30:00";"Home Alone";Comedy;"Chris Columbus";1990;103;0;8.50
-"2020-05-02 12:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
-"2020-05-02 10:00:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
+"2020-05-02 12:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
+"2020-05-02 10:00:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;7.50
 "2020-05-01 15:00:00";"La double vie de Véronique";Drama;"Krzysztof Kieslowski";1991;98;16;8.00
 "2020-05-01 13:00:00";Freaks;Drama;"Tod Browning";1932;64;12;8.00
 "2020-05-01 10:30:00";"Double Indemnity";Crime;"Billy Wilder";1944;107;12;8.50
@@ -6809,7 +6809,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-04-26 15:30:00";"Breaking the Waves";Drama;"Lars von Trier";1996;159;16;7.00
 "2020-04-26 12:30:00";"The Man Who Shot Liberty Valance";Drama;"John Ford";1962;123;12;6.50
 "2020-04-26 10:00:00";"Home Alone";Comedy;"Chris Columbus";1990;103;0;8.00
-"2020-04-25 17:30:00";"O Brother; Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
+"2020-04-25 17:30:00";"O Brother, Where Art Thou?";Adventure;"Joel Coen";2000;107;0;8.50
 "2020-04-25 14:30:00";"The Manchurian Candidate";Drama;"John Frankenheimer";1962;126;12;6.50
 "2020-04-25 12:00:00";"Toy Story";Animation;"John Lasseter";1995;81;0;7.00
 "2020-04-25 10:00:00";Freaks;Drama;"Tod Browning";1932;64;12;8.50
@@ -6982,7 +6982,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-02-19 10:30:00";"The Godfather: Part II";Crime;"Francis Ford Coppola";1974;202;12;8.00
 "2020-02-18 13:00:00";"Les quatre cents coups";Crime;"François Truffaut";1959;99;12;8.00
 "2020-02-18 10:00:00";"Il conformista";Drama;"Bernardo Bertolucci";1970;113;12;7.50
-"2020-02-17 16:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.00
+"2020-02-17 16:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.00
 "2020-02-17 13:00:00";"A Bronx Tale";Crime;"Robert De Niro";1993;121;16;8.00
 "2020-02-17 10:30:00";"Sweet Smell of Success";Drama;"Alexander Mackendrick";1957;96;12;7.50
 "2020-02-16 16:30:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;7.00
@@ -7004,7 +7004,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-02-10 10:00:00";"The Game";Action;"David Fincher";1997;129;12;7.50
 "2020-02-09 17:30:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;8.50
 "2020-02-09 13:00:00";"Lawrence of Arabia";Adventure;"David Lean";1962;228;0;7.00
-"2020-02-09 10:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
+"2020-02-09 10:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
 "2020-02-08 17:00:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;8.50
 "2020-02-08 13:30:00";"Once Upon a Time... in Hollywood";Comedy;"Quentin Tarantino";2019;161;12;6.50
 "2020-02-08 10:30:00";"The Matrix";Action;"Lana Wachowski";1999;136;12;6.50
@@ -7015,17 +7015,17 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-02-06 10:00:00";"Green Book";Biography;"Peter Farrelly";2018;130;12;7.50
 "2020-02-05 13:30:00";"A Clockwork Orange";Crime;"Stanley Kubrick";1971;136;12;7.50
 "2020-02-05 10:00:00";"La dolce vita";Comedy;"Federico Fellini";1960;174;12;8.00
-"2020-02-04 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
+"2020-02-04 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.00
 "2020-02-03 17:30:00";"The Matrix";Action;"Lana Wachowski";1999;136;12;6.50
 "2020-02-03 13:00:00";"Lawrence of Arabia";Adventure;"David Lean";1962;228;0;8.00
-"2020-02-03 10:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
+"2020-02-03 10:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.50
 "2020-02-02 19:30:00";"Il conformista";Drama;"Bernardo Bertolucci";1970;113;12;9.50
 "2020-02-02 15:00:00";"Lawrence of Arabia";Adventure;"David Lean";1962;228;0;7.00
 "2020-02-02 12:30:00";"Kurenai no buta";Animation;"Hayao Miyazaki";1992;94;0;7.00
 "2020-02-02 10:00:00";"Bringing Up Baby";Comedy;"Howard Hawks";1938;102;12;8.50
 "2020-02-01 15:00:00";"The Matrix";Action;"Lana Wachowski";1999;136;12;6.50
 "2020-02-01 12:30:00";"Bonnie and Clyde";Action;"Arthur Penn";1967;111;12;8.00
-"2020-02-01 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.50
+"2020-02-01 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;7.50
 "2020-01-31 13:00:00";"Bonnie and Clyde";Action;"Arthur Penn";1967;111;12;7.50
 "2020-01-31 10:00:00";"Dom za vesanje";Comedy;"Emir Kusturica";1988;142;16;6.50
 "2020-01-30 14:30:00";"Les quatre cents coups";Crime;"François Truffaut";1959;99;12;7.50
@@ -7051,7 +7051,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-01-22 10:00:00";"Mad Max 2";Action;"George Miller";1981;96;12;8.50
 "2020-01-21 14:30:00";"The Little Mermaid";Animation;"Ron Clements";1989;83;0;7.50
 "2020-01-21 12:30:00";"The Little Mermaid";Animation;"Ron Clements";1989;83;0;6.50
-"2020-01-21 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
+"2020-01-21 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
 "2020-01-20 10:00:00";"A Few Good Men";Drama;"Rob Reiner";1992;138;0;7.50
 "2020-01-19 16:00:00";"To Kill a Mockingbird";Crime;"Robert Mulligan";1962;129;0;7.00
 "2020-01-19 13:00:00";"Green Book";Biography;"Peter Farrelly";2018;130;12;8.00
@@ -7068,7 +7068,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2020-01-14 13:00:00";"Home Alone";Comedy;"Chris Columbus";1990;103;0;8.00
 "2020-01-14 10:30:00";"Mad Max 2";Action;"George Miller";1981;96;12;7.00
 "2020-01-13 17:00:00";"Secrets & Lies";Comedy;"Mike Leigh";1996;136;0;8.50
-"2020-01-13 14:30:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.00
+"2020-01-13 14:30:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;8.00
 "2020-01-13 10:30:00";"The Longest Day";Action;"Ken Annakin";1962;178;0;6.50
 "2020-01-12 17:30:00";"The Nightmare Before Christmas";Animation;"Henry Selick";1993;76;0;8.00
 "2020-01-12 14:00:00";"Ford v Ferrari";Action;"James Mangold";2019;152;12;8.50
@@ -7532,7 +7532,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-07-08 10:30:00";"Once Upon a Time in America";Crime;"Sergio Leone";1984;229;12;7.50
 "2019-07-07 19:00:00";"Singin' in the Rain";Comedy;"Stanley Donen";1952;103;0;9.50
 "2019-07-07 16:30:00";"Wind River";Crime;"Taylor Sheridan";2017;107;16;8.00
-"2019-07-07 14:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
+"2019-07-07 14:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
 "2019-07-07 10:00:00";Sholay;Action;"Ramesh Sippy";1975;204;0;7.00
 "2019-07-06 20:30:00";"The Quiet Man";Comedy;"John Ford";1952;129;12;10.00
 "2019-07-06 16:00:00";"Malcolm X";Biography;"Spike Lee";1992;202;0;7.50
@@ -7545,7 +7545,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-07-04 10:00:00";Titanic;Drama;"James Cameron";1997;194;12;6.50
 "2019-07-03 15:00:00";"Malcolm X";Biography;"Spike Lee";1992;202;0;7.50
 "2019-07-03 12:30:00";"Trois couleurs: Blanc";Comedy;"Krzysztof Kieslowski";1994;92;0;8.50
-"2019-07-03 10:00:00";"Lock; Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
+"2019-07-03 10:00:00";"Lock, Stock and Two Smoking Barrels";Action;"Guy Ritchie";1998;107;12;6.50
 "2019-07-02 16:00:00";"The Philadelphia Story";Comedy;"George Cukor";1940;112;12;8.50
 "2019-07-02 12:30:00";"The Dirty Dozen";Action;"Robert Aldrich";1967;150;12;8.50
 "2019-07-02 10:00:00";"Dirty Harry";Action;"Don Siegel";1971;102;12;8.00
@@ -7611,7 +7611,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-06-09 13:00:00";"Les diaboliques";Crime;"Henri-Georges Clouzot";1955;117;12;8.50
 "2019-06-09 10:00:00";"Raging Bull";Biography;"Martin Scorsese";1980;129;12;6.50
 "2019-06-08 18:30:00";"The Dirty Dozen";Action;"Robert Aldrich";1967;150;12;8.50
-"2019-06-08 16:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
+"2019-06-08 16:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.50
 "2019-06-08 13:00:00";"The Blues Brothers";Action;"John Landis";1980;133;0;7.50
 "2019-06-08 10:30:00";"Trois couleurs: Rouge";Drama;"Krzysztof Kieslowski";1994;99;0;7.00
 "2019-06-07 12:30:00";"Dirty Harry";Action;"Don Siegel";1971;102;12;8.50
@@ -7634,7 +7634,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-05-30 10:00:00";"The Wizard of Oz";Adventure;"Victor Fleming";1939;102;0;7.50
 "2019-05-29 12:30:00";"Les diaboliques";Crime;"Henri-Georges Clouzot";1955;117;12;8.50
 "2019-05-29 10:00:00";"The Wizard of Oz";Adventure;"Victor Fleming";1939;102;0;7.00
-"2019-05-28 15:30:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
+"2019-05-28 15:30:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;8.00
 "2019-05-28 12:30:00";"Raging Bull";Biography;"Martin Scorsese";1980;129;12;7.50
 "2019-05-28 10:00:00";"Le samouraï";Crime;"Jean-Pierre Melville";1967;105;12;6.50
 "2019-05-27 13:30:00";"Les diaboliques";Crime;"Henri-Georges Clouzot";1955;117;12;6.50
@@ -7644,7 +7644,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-05-26 10:00:00";Se7en;Crime;"David Fincher";1995;127;12;7.50
 "2019-05-25 15:30:00";"Stalag 17";Comedy;"Billy Wilder";1953;120;12;8.50
 "2019-05-25 12:30:00";"The Sting";Comedy;"George Roy Hill";1973;129;0;8.00
-"2019-05-25 10:00:00";"South Park: Bigger; Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
+"2019-05-25 10:00:00";"South Park: Bigger, Longer & Uncut";Animation;"Trey Parker";1999;81;12;6.50
 "2019-05-24 15:30:00";"Dazed and Confused";Comedy;"Richard Linklater";1993;102;0;7.00
 "2019-05-24 12:30:00";"Stalag 17";Comedy;"Billy Wilder";1953;120;12;6.50
 "2019-05-24 10:00:00";"Viskningar och rop";Drama;"Ingmar Bergman";1972;91;12;8.50
@@ -7763,7 +7763,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-04-08 10:00:00";Rushmore;Comedy;"Wes Anderson";1998;93;12;7.50
 "2019-04-07 16:00:00";"The Kid";Comedy;"Charles Chaplin";1921;68;12;8.50
 "2019-04-07 13:30:00";"Les quatre cents coups";Crime;"François Truffaut";1959;99;12;7.00
-"2019-04-07 10:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.00
+"2019-04-07 10:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.00
 "2019-04-06 18:30:00";"American History X";Drama;"Tony Kaye";1998;119;16;8.50
 "2019-04-06 16:30:00";"The Kid";Comedy;"Charles Chaplin";1921;68;12;8.00
 "2019-04-06 13:00:00";Scarface;Crime;"Brian De Palma";1983;170;12;7.50
@@ -7772,7 +7772,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-04-04 16:00:00";"Todo sobre mi madre";Drama;"Pedro Almodóvar";1999;101;16;7.00
 "2019-04-04 13:30:00";"Paper Moon";Comedy;"Peter Bogdanovich";1973;102;0;8.00
 "2019-04-04 10:30:00";"American History X";Drama;"Tony Kaye";1998;119;16;8.00
-"2019-04-03 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
+"2019-04-03 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;8.00
 "2019-04-02 15:00:00";"K.G.F: Chapter 1";Action;"Prashanth Neel";2018;156;12;7.00
 "2019-04-02 12:30:00";Nosferatu;Fantasy;"F.W. Murnau";1922;94;12;8.50
 "2019-04-02 10:00:00";"The Long Goodbye";Comedy;"Robert Altman";1973;112;12;8.50
@@ -7795,7 +7795,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-03-26 14:00:00";"Miracle on 34th Street";Comedy;"George Seaton";1947;96;12;7.00
 "2019-03-26 10:30:00";"K.G.F: Chapter 1";Action;"Prashanth Neel";2018;156;12;8.50
 "2019-03-25 15:30:00";"Cool Hand Luke";Crime;"Stuart Rosenberg";1967;127;12;7.50
-"2019-03-25 12:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;6.50
+"2019-03-25 12:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;6.50
 "2019-03-25 10:00:00";Nosferatu;Fantasy;"F.W. Murnau";1922;94;12;8.50
 "2019-03-24 17:30:00";Rushmore;Comedy;"Wes Anderson";1998;93;12;6.50
 "2019-03-24 15:30:00";"The Killing";Crime;"Stanley Kubrick";1956;84;12;7.50
@@ -7822,18 +7822,18 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-03-16 10:00:00";"Uri: The Surgical Strike";Action;"Aditya Dhar";2018;138;12;7.50
 "2019-03-15 16:00:00";"The Sandlot";Comedy;"David Mickey Evans";1993;101;0;8.50
 "2019-03-15 13:00:00";Eskiya;Crime;"Yavuz Turgul";1996;128;12;7.50
-"2019-03-15 10:00:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;6.50
+"2019-03-15 10:00:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;6.50
 "2019-03-14 13:30:00";"Citizen Kane";Drama;"Orson Welles";1941;119;12;7.50
-"2019-03-14 10:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.00
+"2019-03-14 10:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.00
 "2019-03-13 16:00:00";"La Strada";Drama;"Federico Fellini";1954;108;12;6.50
 "2019-03-13 13:30:00";"Rear Window";Mystery;"Alfred Hitchcock";1954;112;0;8.50
 "2019-03-13 10:30:00";"Raging Bull";Biography;"Martin Scorsese";1980;129;12;7.50
 "2019-03-12 12:30:00";"On Golden Pond";Drama;"Mark Rydell";1981;109;12;8.50
 "2019-03-12 10:00:00";"On Golden Pond";Drama;"Mark Rydell";1981;109;12;6.50
-"2019-03-11 10:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
+"2019-03-11 10:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
 "2019-03-10 20:00:00";Rushmore;Comedy;"Wes Anderson";1998;93;12;10.00
 "2019-03-10 16:30:00";"Uri: The Surgical Strike";Action;"Aditya Dhar";2018;138;12;8.00
-"2019-03-10 13:30:00";"Crna macka; beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
+"2019-03-10 13:30:00";"Crna macka, beli macor";Comedy;"Emir Kusturica";1998;127;16;7.50
 "2019-03-10 10:30:00";"Die Hard: With a Vengeance";Action;"John McTiernan";1995;128;12;8.00
 "2019-03-09 18:30:00";"A Star Is Born";Drama;"Bradley Cooper";2018;136;12;9.00
 "2019-03-09 15:30:00";"Terminator 2: Judgment Day";Action;"James Cameron";1991;137;0;8.00
@@ -7873,7 +7873,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-02-21 14:30:00";"Todo sobre mi madre";Drama;"Pedro Almodóvar";1999;101;16;6.50
 "2019-02-21 12:30:00";"Bronenosets Potemkin";Drama;"Sergei M. Eisenstein";1925;75;12;7.50
 "2019-02-21 10:00:00";"Beauty and the Beast";Animation;"Gary Trousdale";1991;84;0;6.50
-"2019-02-20 13:00:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;8.00
+"2019-02-20 13:00:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;8.00
 "2019-02-20 10:30:00";"American History X";Drama;"Tony Kaye";1998;119;16;8.00
 "2019-02-19 13:30:00";Eskiya;Crime;"Yavuz Turgul";1996;128;12;6.50
 "2019-02-19 10:30:00";"All About Eve";Drama;"Joseph L. Mankiewicz";1950;138;12;7.50
@@ -7889,7 +7889,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-02-15 14:00:00";"Shadow of a Doubt";Film-Noir;"Alfred Hitchcock";1943;108;6;6.50
 "2019-02-15 10:00:00";Titanic;Drama;"James Cameron";1997;194;12;7.50
 "2019-02-14 10:00:00";"Bronenosets Potemkin";Drama;"Sergei M. Eisenstein";1925;75;12;7.50
-"2019-02-13 15:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;6.50
+"2019-02-13 15:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;6.50
 "2019-02-13 12:30:00";"The Grapes of Wrath";Drama;"John Ford";1940;129;12;7.50
 "2019-02-13 10:00:00";"The Adventures of Robin Hood";Action;"Michael Curtiz";1938;102;6;6.50
 "2019-02-12 16:00:00";"Dead Poets Society";Comedy;"Peter Weir";1989;128;0;7.50
@@ -7965,7 +7965,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2019-01-15 10:00:00";"Bronenosets Potemkin";Drama;"Sergei M. Eisenstein";1925;75;12;7.00
 "2019-01-14 13:00:00";"The Grapes of Wrath";Drama;"John Ford";1940;129;12;8.00
 "2019-01-14 10:30:00";Shine;Biography;"Scott Hicks";1996;105;0;7.00
-"2019-01-13 18:30:00";"Il buono; il brutto; il cattivo";Western;"Sergio Leone";1966;161;12;10.00
+"2019-01-13 18:30:00";"Il buono, il brutto, il cattivo";Western;"Sergio Leone";1966;161;12;10.00
 "2019-01-13 16:00:00";"Boyz n the Hood";Crime;"John Singleton";1991;112;12;7.50
 "2019-01-13 13:30:00";"In the Heat of the Night";Crime;"Norman Jewison";1967;110;0;7.50
 "2019-01-13 10:00:00";"Apocalypse Now";Drama;"Francis Ford Coppola";1979;147;16;7.50
@@ -8076,14 +8076,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-11-30 10:00:00";"In a Lonely Place";Drama;"Nicholas Ray";1950;94;12;7.00
 "2018-11-29 12:30:00";"Modern Times";Comedy;"Charles Chaplin";1936;87;0;7.50
 "2018-11-29 10:00:00";Hana-bi;Crime;"Takeshi Kitano";1997;103;12;8.50
-"2018-11-28 15:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2018-11-28 15:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
 "2018-11-28 12:30:00";Hana-bi;Crime;"Takeshi Kitano";1997;103;12;6.50
 "2018-11-28 10:00:00";"Knockin' on Heaven's Door";Action;"Thomas Jahn";1997;87;12;6.50
-"2018-11-27 15:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
+"2018-11-27 15:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
 "2018-11-27 13:00:00";"God's Own Country";Drama;"Francis Lee";2017;104;12;7.50
 "2018-11-27 10:30:00";"In a Lonely Place";Drama;"Nicholas Ray";1950;94;12;7.00
 "2018-11-26 16:30:00";"Sing Street";Comedy;"John Carney";2016;106;12;8.50
-"2018-11-26 14:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
+"2018-11-26 14:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.50
 "2018-11-26 10:30:00";"Boogie Nights";Drama;"Paul Thomas Anderson";1997;155;16;8.50
 "2018-11-25 19:00:00";"Paths of Glory";Drama;"Stanley Kubrick";1957;88;12;10.00
 "2018-11-25 16:00:00";"From Here to Eternity";Drama;"Fred Zinnemann";1953;118;12;8.50
@@ -8122,17 +8122,17 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-11-13 13:00:00";Amarcord;Comedy;"Federico Fellini";1973;123;16;7.00
 "2018-11-13 10:30:00";Moana;Animation;"Ron Clements";2016;107;0;6.50
 "2018-11-12 12:30:00";Amarcord;Comedy;"Federico Fellini";1973;123;16;8.00
-"2018-11-12 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
+"2018-11-12 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
 "2018-11-11 16:00:00";"Le salaire de la peur";Adventure;"Henri-Georges Clouzot";1953;131;0;7.00
 "2018-11-11 13:30:00";"Mad Max 2";Action;"George Miller";1981;96;12;7.00
 "2018-11-11 10:00:00";"Boogie Nights";Drama;"Paul Thomas Anderson";1997;155;16;7.50
-"2018-11-10 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
+"2018-11-10 16:30:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
 "2018-11-10 13:30:00";"The Untouchables";Crime;"Brian De Palma";1987;119;12;8.50
 "2018-11-10 10:30:00";"The Untouchables";Crime;"Brian De Palma";1987;119;12;7.00
-"2018-11-09 13:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
+"2018-11-09 13:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;7.00
 "2018-11-09 10:30:00";"Modern Times";Comedy;"Charles Chaplin";1936;87;0;6.50
 "2018-11-08 12:30:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;8.00
-"2018-11-08 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
+"2018-11-08 10:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.00
 "2018-11-07 10:30:00";"Dog Day Afternoon";Biography;"Sidney Lumet";1975;125;0;8.00
 "2018-11-06 13:00:00";"Le salaire de la peur";Adventure;"Henri-Georges Clouzot";1953;131;0;6.50
 "2018-11-06 10:00:00";"Rebel Without a Cause";Drama;"Nicholas Ray";1955;111;12;7.50
@@ -8141,7 +8141,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-11-04 13:30:00";Zulu;Drama;"Cy Endfield";1964;138;0;6.50
 "2018-11-04 10:30:00";"Dog Day Afternoon";Biography;"Sidney Lumet";1975;125;0;7.50
 "2018-11-03 15:00:00";"Sing Street";Comedy;"John Carney";2016;106;12;8.00
-"2018-11-03 13:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo; kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
+"2018-11-03 13:00:00";"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni";Animation;"Hideaki Anno";1997;87;12;8.50
 "2018-11-03 10:30:00";"Sing Street";Comedy;"John Carney";2016;106;12;8.50
 "2018-11-02 15:00:00";"The Princess Bride";Adventure;"Rob Reiner";1987;98;0;7.00
 "2018-11-02 12:30:00";"Modern Times";Comedy;"Charles Chaplin";1936;87;0;8.00
@@ -8367,7 +8367,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-08-01 10:30:00";"Bringing Up Baby";Comedy;"Howard Hawks";1938;102;12;8.00
 "2018-07-31 15:30:00";"The Truman Show";Comedy;"Peter Weir";1998;103;0;7.00
 "2018-07-31 13:00:00";"Kimi no na wa.";Animation;"Makoto Shinkai";2016;106;0;8.50
-"2018-07-31 10:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
+"2018-07-31 10:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
 "2018-07-30 13:00:00";"Judgment at Nuremberg";Drama;"Stanley Kramer";1961;179;12;8.00
 "2018-07-30 10:30:00";"Hell or High Water";Action;"David Mackenzie";2016;102;16;7.00
 "2018-07-29 15:00:00";"This Is Spinal Tap";Comedy;"Rob Reiner";1984;82;16;7.50
@@ -8392,7 +8392,7 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-07-21 16:30:00";"Die Hard: With a Vengeance";Action;"John McTiernan";1995;128;12;7.50
 "2018-07-21 13:30:00";"Dà hóng denglong gaogao guà";Drama;"Yimou Zhang";1991;125;6;8.00
 "2018-07-21 10:30:00";"The Outlaw Josey Wales";Western;"Clint Eastwood";1976;135;12;8.00
-"2018-07-20 15:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
+"2018-07-20 15:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
 "2018-07-20 13:00:00";"On the Waterfront";Crime;"Elia Kazan";1954;108;12;6.50
 "2018-07-20 10:00:00";"Abre los ojos";Drama;"Alejandro Amenábar";1997;119;0;8.00
 "2018-07-19 10:30:00";"Hell or High Water";Action;"David Mackenzie";2016;102;16;8.00
@@ -8426,14 +8426,14 @@ data_ora_proiezione;titolo_film;genere;regista;anno;durata_minuti;eta_minima;pre
 "2018-07-07 15:30:00";Patton;Biography;"Franklin J. Schaffner";1970;172;0;6.50
 "2018-07-07 13:00:00";"Rebel Without a Cause";Drama;"Nicholas Ray";1955;111;12;8.50
 "2018-07-07 10:30:00";"Lola rennt";Crime;"Tom Tykwer";1998;81;12;7.50
-"2018-07-06 16:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
+"2018-07-06 16:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;7.50
 "2018-07-06 12:30:00";"Nuovo Cinema Paradiso";Drama;"Giuseppe Tornatore";1988;155;0;8.00
 "2018-07-06 10:00:00";Smultronstället;Drama;"Ingmar Bergman";1957;91;0;6.50
 "2018-07-05 15:30:00";"Lethal Weapon";Action;"Richard Donner";1987;109;12;6.50
-"2018-07-05 13:00:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
+"2018-07-05 13:00:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
 "2018-07-05 10:00:00";"The Verdict";Drama;"Sidney Lumet";1982;129;0;8.50
 "2018-07-04 10:30:00";"When Harry Met Sally...";Comedy;"Rob Reiner";1989;95;12;8.00
-"2018-07-03 10:30:00";"Planes; Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
+"2018-07-03 10:30:00";"Planes, Trains & Automobiles";Comedy;"John Hughes";1987;93;0;8.00
 "2018-07-02 10:00:00";"Star Wars: Episode V - The Empire Strikes Back";Action;"Irvin Kershner";1980;124;12;7.00
 "2018-07-01 15:30:00";"Indiana Jones and the Last Crusade";Action;"Steven Spielberg";1989;127;0;7.00
 "2018-07-01 12:30:00";"Star Wars: Episode V - The Empire Strikes Back";Action;"Irvin Kershner";1980;124;12;6.50
