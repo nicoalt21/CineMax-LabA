@@ -382,4 +382,11 @@ public class GestoreDati {
         }
         return risultati;
     }
+
+    public Prenotazione ottieniPrenotazione(String codiceUnivoco){
+        for (Prenotazione p : listaPrenotazioni) {
+            if(p.getCodiceUnivoco().equalsIgnoreCase(codiceUnivoco)){return p;}
+        }
+        return null;
+    }
 }

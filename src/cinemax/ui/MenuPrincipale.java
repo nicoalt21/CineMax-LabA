@@ -2,6 +2,7 @@ package cinemax.ui;
 
 import cinemax.controller.Cifrario;
 import cinemax.controller.GestoreDati;
+import cinemax.objects.Prenotazione;
 import cinemax.objects.Proiezione;
 import cinemax.objects.Ruolo;
 import cinemax.objects.Utente;
@@ -9,6 +10,7 @@ import cinemax.objects.Utente;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.util.List;
 
 public class MenuPrincipale {
     private GestoreDati gestore;
@@ -175,15 +177,40 @@ public class MenuPrincipale {
                 case "4":
                     System.out.print("Inserire costo Minimo o Invio per saltare: ");
                     String inputMin = leggiInput();
-                    prezzoMin = inputMin.isEmpty() ? null : Double.parseDouble(inputMin);
+                    if(inputMin.isEmpty()){
+                        prezzoMin = null;
+                        break;
+                    }
+                    try {
+                        prezzoMin = Double.parseDouble(inputMin);
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Errore: formato non valido. Inserisci un numero (es. 10.5) o premi Invio per saltare.");
+                    }
 
-                    System.out.print("Inserire costo Massimo o Invio per saltare: ");
-                    String inputMax = leggiInput();
-                    prezzoMax = inputMax.isEmpty() ? null : Double.parseDouble(inputMax);
+                    while (true) {
+                        System.out.print("Inserire costo Massimo o Invio per saltare: ");
+                        String inputMax = leggiInput();
+                        if (inputMax.isEmpty()) {
+                            prezzoMax = null;
+                            break;
+                        }
+                        try {
+                            prezzoMax = Double.parseDouble(inputMax);
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Errore: formato non valido. Inserisci un numero (es. 10.5) o premi Invio per saltare.");
+                        }
+                    }
                     break;
                 case "5":
                     System.out.println("\nEsecuzione ricerca in corso...\n");
-                    gestore.cercaProiezione(titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
+                    List<Proiezione> risultatoRicerca = gestore.cercaProiezione(titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
+                    System.out.println("\nRisultati Ottenuti:");
+                    if(risultatoRicerca == null) {System.out.println("- Nessun risultato affine ai filtri impostati.");}
+                    for ( Proiezione p : risultatoRicerca){
+                        System.out.println("- " + p.getTitolo() + " " + p.getDataOra());
+                    }
                     break;
                 case "6":
                     titolo = null; genere = null; dataInizio = null; dataFine = null; prezzoMin = null; prezzoMax = null;
@@ -192,7 +219,7 @@ public class MenuPrincipale {
                 case "7":
                     System.out.print("Inserisci la data e ora della proiezione da visualizzare (es. 2026-05-20 21:00:00): ");
                     String dataOraProiezione = leggiInput();
-                    visualizzaDettagli(dataOraProiezione);
+                    visualizzaDettagliProiezione(dataOraProiezione);
                     break;
 
                 case "0":
@@ -204,7 +231,7 @@ public class MenuPrincipale {
         } while (!scelta.equals("0"));
     }
 
-    private void visualizzaDettagli(String dataOra) {
+    private void visualizzaDettagliProiezione(String dataOra) {
         System.out.println("\nRicerca dettagli in corso per: " + dataOra + "...");
 
         try {
@@ -226,6 +253,29 @@ public class MenuPrincipale {
                 System.out.println("=================================\n");
             } else {
                 System.out.println("\nNessuna proiezione trovata per la data: " + dataOra);
+            }
+        } catch (Exception e) {
+            System.out.println("\nSi è verificato un errore durante la ricerca: " + e.getMessage());
+        }
+    }
+
+
+    private void visualizzaDettagliPrenotazione(String codiceUnivoco) {
+        try {
+            Prenotazione p = gestore.ottieniPrenotazione(codiceUnivoco);
+            if (p != null) {
+                System.out.println("\n=================================");
+                System.out.println("      DETTAGLI PRENOTAZIONE        ");
+                System.out.println("=================================");
+                System.out.println("Titolo Film     : " + p.getProiezione().getTitolo());
+                System.out.println("Codice Univoco  : " + p.getCodiceUnivoco());
+                System.out.println("Username        : " + p.getCliente().getUsername());
+                System.out.println("Nome e cognome  : " + p.getCliente().getNome() + " " +  p.getCliente().getCognome());
+                System.out.println("Numero Posti    : " + p.getNumeroPosti());
+                System.out.println("Costo Totale    :%.2f € " + p.getCostoTotale());
+                System.out.println("=================================\n");
+            } else {
+                System.out.println("\nNessuna prenotazione trovata con il codice: " + codiceUnivoco);
             }
         } catch (Exception e) {
             System.out.println("\nSi è verificato un errore durante la ricerca: " + e.getMessage());
@@ -308,7 +358,11 @@ public class MenuPrincipale {
                                 Integer.parseInt(anno), Integer.parseInt(durata),
                                 Integer.parseInt(etaMinima), Double.parseDouble(costo.replace(",", "."))
                         );
-                        // gestore.aggiungiProiezione(p);
+                        if(gestore.aggiungiProiezione(p)){
+                            System.out.println("Proiezione aggiunta con successo.");
+                        } else  {
+                            System.out.println("Proiezione non aggiunta.");
+                        }
                     } catch (NumberFormatException e) {
                         System.out.println("Errore: Assicurati di inserire valori numerici validi per anno, durata, età e costo.");
                     }
@@ -322,17 +376,24 @@ public class MenuPrincipale {
                     String nuovaDataOra = leggiInput();
 
                     System.out.println("Verifica prenotazioni e modifica in corso...");
-                    // gestore.modificaProiezione(dataOraAttuale, nuovaDataOra);
+                    if(gestore.modificaProiezione(dataOraAttuale, nuovaDataOra)){
+                        System.out.println("Proiezione modifica con successo.");
+                    } else {
+                        System.out.println("Modifica a Proiezione non riuscita, controlla che Proiezione sia valida.");
+                    }
                     break;
                 case "3":
                     System.out.println("\n--- Eliminazione Proiezione ---");
-                    System.out.print("Inserisci la data/ora della proiezione da eliminare: ");
+                    System.out.print("Inserisci la data/ora della proiezione da eliminare (YYYY-MM-DD HH:MM:SS) : ");
                     String idElimina = leggiInput();
 
                     System.out.println("Eliminazione in corso...");
-                    // gestore.eliminaProiezione(idElimina);
+                    if(gestore.eliminaProiezione(idElimina)){
+                        System.out.println("Proiezione elimina con successo.");
+                    } else {
+                        System.out.println("Eliminazione non riuscita.");
+                    }
                     break;
-
                 case "0":
                     System.out.println("Logout effettuato.");
                     break;
@@ -359,6 +420,14 @@ public class MenuPrincipale {
                 case "1":
                     System.out.println("\n--- Prenotazioni Odierne ---");
                     System.out.println("Recupero dati in corso...");
+                    List<Prenotazione> prenotazioniOutput = gestore.ottieniPrenotazioniOggi();
+                    if(prenotazioniOutput.isEmpty()){
+                        System.out.println("Nessuna prenotazione prevista per oggi.");
+                    } else {
+                        for(Prenotazione p : prenotazioniOutput) {
+                            System.out.println("- " + p.getCodiceUnivoco() + " | " + p.getCliente().getNome() + " " + p.getCliente().getCognome());
+                        }
+                    }
                     break;
                 case "2":
                     System.out.println("\n--- Ricerca Prenotazione ---");
@@ -371,7 +440,6 @@ public class MenuPrincipale {
 
                     String criterio = leggiInput();
 
-                    // Dichiarazione variabili fuori dallo switch per renderle visibili al metodo di ricerca successivo
                     String codice = null;
                     String nomeCliente = null;
                     String cognomeCliente = null;
@@ -410,6 +478,7 @@ public class MenuPrincipale {
                         System.out.print("Inserisci il codice della prenotazione da visualizzare: ");
                         String codPrenotazione = leggiInput();
                         System.out.println("Caricamento dettagli completi...");
+                        visualizzaDettagliPrenotazione(codPrenotazione);
                     }
                     break;
                 case "0":
