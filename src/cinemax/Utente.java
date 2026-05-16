@@ -1,12 +1,8 @@
 package cinemax;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 /**
  * Rappresenta un utente registrato nel sistema CineMax.
- * Gestisce le informazioni anagrafiche, il ruolo e la sicurezza della password
- * tramite l'algoritmo di hashing SHA-256.
+ * Gestisce le informazioni anagrafiche, il ruolo e la sicurezza della password.
  *
  * @author Alt Niccolò Jacopo, 762605, VA
  * @author Soldo Mateo, 760762, VA
@@ -24,20 +20,20 @@ public class Utente {
 
 	/**
 	 * Crea un nuovo utente.
-	 * * @param nome Nome dell'utente.
+	 *
+	 * @param nome Nome dell'utente.
 	 * @param cognome Cognome dell'utente.
 	 * @param username Identificativo univoco per il login.
-	 * @param passwordCifrata Hash della password già calcolato tramite la classe Cifrario.
+	 * @param passwordCifrata Hash della password calcolato tramite Cifrario.
 	 * @param dataNascita Data di nascita dell'utente.
 	 * @param domicilio Indirizzo o città di residenza.
-	 * @param ruolo Livello di accesso (CLIENTE, BIGLIETTAIO, PROIEZIONISTA).
-	 * Se false, viene salvata direttamente (uso per lettura da file).
+	 * @param ruolo Livello di accesso.
 	 */
 	public Utente(String nome, String cognome, String username, String passwordCifrata, String dataNascita, String domicilio, Ruolo ruolo) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.username = username;
-        this.passwordCifrata = passwordCifrata;
+		this.passwordCifrata = passwordCifrata;
 		this.dataNascita = dataNascita;
 		this.domicilio = domicilio;
 		this.ruolo = ruolo;
@@ -53,11 +49,11 @@ public class Utente {
 
 	/**
 	 * Verifica se una password fornita in input corrisponde a quella salvata.
-	 * * @param password : la password inserita nel form di login.
-	 * @return true : se l'hash dell'input coincide con l'hash memorizzato, : false altrimenti.
+	 *
+	 * @param password La password in chiaro inserita nel form di login.
+	 * @return true se l'hash dell'input coincide con l'hash memorizzato, false altrimenti.
 	 */
-    public boolean verificaPassword(String password) {
-        return this.passwordCifrata.equals(Cifrario.cifraPassword(password));
-    }
-
+	public boolean verificaPassword(String password) {
+		return this.passwordCifrata.equals(Cifrario.cifraPassword(password));
+	}
 }

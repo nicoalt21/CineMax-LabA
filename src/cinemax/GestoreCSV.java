@@ -2,14 +2,17 @@ package cinemax;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Classe dedicata all'I/O sui file CSV.
+ * Garantisce la compatibilità multipiattaforma tramite java.nio.file.
  *
  * @author Alt Niccolò Jacopo, 762605, VA
  * @author Soldo Mateo, 760762, VA
@@ -17,13 +20,16 @@ import java.util.Map;
  */
 public class GestoreCSV {
 
-    private static final String PERCORSO_UTENTI = "data/utenti.csv";
-    private static final String PERCORSO_PROIEZIONI = "data/proiezioni.csv";
-    private static final String PERCORSO_PRENOTAZIONI = "data/prenotazioni.csv";
+    private static final Path PERCORSO_UTENTI = Paths.get("data", "utenti.csv");
+    private static final Path PERCORSO_PROIEZIONI = Paths.get("data", "proiezioni.csv");
+    private static final Path PERCORSO_PRENOTAZIONI = Paths.get("data", "prenotazioni.csv");
 
-    // Carica i dati
+    // --- CARICAMENTO DATI ---
+
     public static void caricaUtenti(Map<String, Utente> mappaUtenti) {
-        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_UTENTI))) {
+        if (!Files.exists(PERCORSO_UTENTI)) return;
+
+        try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_UTENTI, StandardCharsets.UTF_8)) {
             String riga;
             boolean isIntestazione = true;
 
@@ -35,15 +41,7 @@ public class GestoreCSV {
 
                 String[] campi = riga.split(",");
                 if (campi.length >= 7) {
-                    String nome = campi[0];
-                    String cognome = campi[1];
-                    String username = campi[2];
-                    String passwordCifrata = campi[3];
-                    String dataNascita = campi[4];
-                    String domicilio = campi[5];
-                    Ruolo ruolo = Ruolo.valueOf(campi[6].toUpperCase());
-
-                    Utente u = new Utente(nome, cognome, username, passwordCifrata, dataNascita, domicilio, ruolo);
+                    Utente u = new Utente(campi[0], campi[1], campi[2], campi[3], campi[4], campi[5], Ruolo.valueOf(campi[6].toUpperCase()));
                     mappaUtenti.put(u.getUsername(), u);
                 }
             }
@@ -51,8 +49,11 @@ public class GestoreCSV {
             System.out.println("Errore I/O in caricaUtenti: " + e.getMessage());
         }
     }
+
     public static void caricaProiezioni(Map<String, Proiezione> mappaProiezioni) {
-        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_PROIEZIONI))) {
+        if (!Files.exists(PERCORSO_PROIEZIONI)) return;
+
+        try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_PROIEZIONI, StandardCharsets.UTF_8)) {
             String riga;
             boolean isIntestazione = true;
 
@@ -75,7 +76,9 @@ public class GestoreCSV {
     }
 
     public static void caricaPrenotazioni(List<Prenotazione> listaPrenotazioni, Map<String, Utente> mappaUtenti, Map<String, Proiezione> mappaProiezioni) {
-        try (BufferedReader lettore = new BufferedReader(new FileReader(PERCORSO_PRENOTAZIONI))) {
+        if (!Files.exists(PERCORSO_PRENOTAZIONI)) return;
+
+        try (BufferedReader lettore = Files.newBufferedReader(PERCORSO_PRENOTAZIONI, StandardCharsets.UTF_8)) {
             String riga;
             boolean isIntestazione = true;
 
@@ -106,15 +109,21 @@ public class GestoreCSV {
         }
     }
 
-    // Salva i dati
+    // --- SALVATAGGIO DATI ---
+
     public static void salvaUtenti(Map<String, Utente> mappaUtenti) {
-        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_UTENTI))) {
-            scrittore.write("nome,cognome,username,password,data_nascita,domicilio,ruolo\n");
-            for (Utente u : mappaUtenti.values()) {
-                String riga = u.getNome() + "," + u.getCognome() + "," + u.getUsername() + "," +
-                        u.getPasswordCifrata() + "," + u.getDataNascita() + "," +
-                        u.getDomicilio() + "," + u.getRuolo().name();
-                scrittore.write(riga + "\n");
+        try {
+            Files.createDirectories(PERCORSO_UTENTI.getParent());
+            try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_UTENTI, StandardCharsets.UTF_8)) {
+                scrittore.write("nome,cognome,username,password,data_nascita,domicilio,ruolo");
+                scrittore.newLine();
+                for (Utente u : mappaUtenti.values()) {
+                    String riga = u.getNome() + "," + u.getCognome() + "," + u.getUsername() + "," +
+                            u.getPasswordCifrata() + "," + u.getDataNascita() + "," +
+                            u.getDomicilio() + "," + u.getRuolo().name();
+                    scrittore.write(riga);
+                    scrittore.newLine();
+                }
             }
         } catch (IOException e) {
             System.out.println("Errore I/O in salvaUtenti: " + e.getMessage());
@@ -122,13 +131,18 @@ public class GestoreCSV {
     }
 
     public static void salvaProiezioni(Map<String, Proiezione> mappaProiezioni) {
-        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_PROIEZIONI))) {
-            scrittore.write("data_ora,titolo,genere,regista,anno,durata,eta_minima,prezzo\n");
-            for (Proiezione p : mappaProiezioni.values()) {
-                String riga = p.getDataOra() + "," + p.getTitolo() + "," + p.getGenere() + "," +
-                        p.getRegista() + "," + p.getAnno() + "," + p.getDurata() + "," +
-                        p.getEtaMinima() + "," + p.getPrezzo();
-                scrittore.write(riga + "\n");
+        try {
+            Files.createDirectories(PERCORSO_PROIEZIONI.getParent());
+            try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_PROIEZIONI, StandardCharsets.UTF_8)) {
+                scrittore.write("data_ora,titolo,genere,regista,anno,durata,eta_minima,prezzo");
+                scrittore.newLine();
+                for (Proiezione p : mappaProiezioni.values()) {
+                    String riga = p.getDataOra() + "," + p.getTitolo() + "," + p.getGenere() + "," +
+                            p.getRegista() + "," + p.getAnno() + "," + p.getDurata() + "," +
+                            p.getEtaMinima() + "," + p.getPrezzo();
+                    scrittore.write(riga);
+                    scrittore.newLine();
+                }
             }
         } catch (IOException e) {
             System.out.println("Errore I/O in salvaProiezioni: " + e.getMessage());
@@ -136,12 +150,17 @@ public class GestoreCSV {
     }
 
     public static void salvaPrenotazioni(List<Prenotazione> listaPrenotazioni) {
-        try (BufferedWriter scrittore = new BufferedWriter(new FileWriter(PERCORSO_PRENOTAZIONI))) {
-            scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti\n");
-            for (Prenotazione p : listaPrenotazioni) {
-                String riga = p.getCodiceUnivoco() + "," + p.getCliente().getUsername() + "," +
-                        p.getProiezione().getDataOra() + "," + p.getNumeroPosti();
-                scrittore.write(riga + "\n");
+        try {
+            Files.createDirectories(PERCORSO_PRENOTAZIONI.getParent());
+            try (BufferedWriter scrittore = Files.newBufferedWriter(PERCORSO_PRENOTAZIONI, StandardCharsets.UTF_8)) {
+                scrittore.write("codice_univoco,username_cliente,data_ora_proiezione,numero_posti");
+                scrittore.newLine();
+                for (Prenotazione p : listaPrenotazioni) {
+                    String riga = p.getCodiceUnivoco() + "," + p.getCliente().getUsername() + "," +
+                            p.getProiezione().getDataOra() + "," + p.getNumeroPosti();
+                    scrittore.write(riga);
+                    scrittore.newLine();
+                }
             }
         } catch (IOException e) {
             System.out.println("Errore I/O in salvaPrenotazioni: " + e.getMessage());

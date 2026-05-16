@@ -6,15 +6,18 @@ import java.util.Base64;
 
 /**
  * Classe di utilità per la gestione della crittografia.
+ *
+ * @author Alt Niccolò Jacopo, 762605, VA
+ * @author Soldo Mateo, 760762, VA
+ * @author Vignati Davide, 761134, VA
  */
 public class Cifrario {
 
     /**
      * Riceve una password in chiaro e restituisce il digest cifrato in SHA-256 (codificato in Base64).
      *
-     * @author Alt Niccolò Jacopo, 762605, VA
-     * @author Soldo Mateo, 760762, VA
-     * @author Vignati Davide, 761134, VA
+     * @param password La password in chiaro da cifrare.
+     * @return La stringa cifrata.
      */
     public static String cifraPassword(String password) {
         try {
