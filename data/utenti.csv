@@ -1,4 +1,5 @@
 nome;cognome;username;password;data_nascita;domicilio;ruolo
+testnome;testcognome;test;n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=;2000-03-21;varese;CLIENTE
 Luca;Marrone;bigliettaio4;A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=;2006-06-06;Bologna;BIGLIETTAIO
 Luigi;Verdi;proiezionista2;A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=;2002-02-02;Roma;PROIEZIONISTA
 Giulia;Gialli;bigliettaio3;A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=;2005-05-05;Firenze;BIGLIETTAIO

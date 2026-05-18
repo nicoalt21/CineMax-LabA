@@ -27,6 +27,13 @@ public class MenuPrincipale {
     private GestoreDati gestore;
     private BufferedReader in;
 
+    private String filtroTitolo     = null;
+    private String filtroGenere     = null;
+    private String filtroDataInizio = null;
+    private String filtroDataFine   = null;
+    private Double filtroPrezzMin   = null;
+    private Double filtroPrezzMax   = null;
+
     private static final String SEP       = "=========================================";
     private static final String SEP_CORTO = "-----------------------------------------";
 
@@ -42,7 +49,7 @@ public class MenuPrincipale {
 
     /**
      * Legge una riga di input da stdin.
-     * In caso di errore I/O restituisce stringa vuota per evitare NullPointerException a monte.
+     * In caso di errore I/O o EOF restituisce stringa vuota.
      *
      * @return La stringa inserita dall'utente o "" in caso di errore.
      */
@@ -56,13 +63,19 @@ public class MenuPrincipale {
         }
     }
 
-    private void ok(String msg)      { System.out.println(Colori.VERDE_GRASSETTO + msg + Colori.RESET); }
-    private void errore(String msg)  { System.out.println(Colori.ROSSO_GRASSETTO + msg + Colori.RESET); }
-    private void titolo(String msg)  { System.out.println(Colori.GRASSETTO + msg + Colori.RESET); }
-    private void voce(String msg)    { System.out.println(Colori.GIALLO + msg + Colori.RESET); }
-    private void prompt(String msg)  { System.out.print(Colori.GIALLO + msg + Colori.RESET); }
+    private void ok(String msg)     { System.out.println(Colori.VERDE_GRASSETTO + msg + Colori.RESET); }
+    private void errore(String msg) { System.out.println(Colori.ROSSO_GRASSETTO + msg + Colori.RESET); }
+    private void titolo(String msg) { System.out.println(Colori.GRASSETTO + msg + Colori.RESET); }
+    private void voce(String msg)   { System.out.println(Colori.GIALLO + msg + Colori.RESET); }
+    private void prompt(String msg) { System.out.print(Colori.GIALLO + msg + Colori.RESET); }
     private void campo(String etichetta, String valore) {
         System.out.println(Colori.GRIGIO + etichetta + Colori.RESET + valore);
+    }
+
+    private void azzeraFiltri() {
+        filtroTitolo = null; filtroGenere = null;
+        filtroDataInizio = null; filtroDataFine = null;
+        filtroPrezzMin = null; filtroPrezzMax = null;
     }
 
     /**
@@ -118,6 +131,7 @@ public class MenuPrincipale {
             Utente utenteAutenticato = gestore.autenticaUtente(username, password);
 
             if (utenteAutenticato != null) {
+                azzeraFiltri();
                 ok("\nAccesso effettuato. Benvenuto/a, " + utenteAutenticato.getNome() + ".");
                 switch (utenteAutenticato.getRuolo()) {
                     case CLIENTE:       menuCliente(utenteAutenticato); break;
@@ -202,8 +216,8 @@ public class MenuPrincipale {
 
     /**
      * Ingresso guest come da specifica: chiede prima un nome di film (anche parziale).
-     * Se il titolo è fornito, mostra le proiezioni corrispondenti.
-     * In ogni caso prosegue verso il menu di ricerca completo.
+     * Se il titolo è fornito, lo imposta come filtro attivo e mostra le proiezioni corrispondenti.
+     * Prosegue verso il menu di ricerca completo.
      */
     private void ingressoGuest() {
         System.out.println("\n" + SEP);
@@ -214,8 +228,9 @@ public class MenuPrincipale {
         String titoloIniziale = leggiInput();
 
         if (!titoloIniziale.isEmpty()) {
+            filtroTitolo = titoloIniziale;
             try {
-                List<Proiezione> trovate = gestore.cercaProiezione(titoloIniziale, null, null, null, null, null);
+                List<Proiezione> trovate = gestore.cercaProiezione(filtroTitolo, null, null, null, null, null);
                 stampaListaProiezioni(trovate);
             } catch (DateTimeParseException e) {
                 errore("Errore nella ricerca: " + e.getMessage());
@@ -226,27 +241,24 @@ public class MenuPrincipale {
 
     /**
      * Espone le funzionalità di ricerca proiezioni accessibili senza autenticazione.
-     * Mantiene i filtri attivi tra una ricerca e l'altra fino all'azzeramento esplicito.
+     * I filtri persistono tra una ricerca e l'altra fino all'azzeramento esplicito
+     * o al login, grazie ai campi di istanza della classe.
      */
     private void menuGuest() {
         String scelta;
-        String titolo = null, genere = null;
-        String dataInizio = null, dataFine = null;
-        Double prezzoMin = null, prezzoMax = null;
-
         do {
             System.out.println("\n" + SEP);
             titolo("  RICERCA PROIEZIONI");
             System.out.println(SEP);
             System.out.println(Colori.GRIGIO + "Filtri attivi:" + Colori.RESET);
-            campo("  Titolo : ", titolo  != null ? titolo  : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
-            campo("  Genere : ", genere  != null ? genere  : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
-            campo("  Da     : ", dataInizio != null ? dataInizio : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
-            campo("  A      : ", dataFine   != null ? dataFine   : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
+            campo("  Titolo : ", filtroTitolo    != null ? filtroTitolo    : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
+            campo("  Genere : ", filtroGenere    != null ? filtroGenere    : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
+            campo("  Da     : ", filtroDataInizio != null ? filtroDataInizio : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
+            campo("  A      : ", filtroDataFine  != null ? filtroDataFine  : Colori.GRIGIO + "qualsiasi" + Colori.RESET);
             campo("  Prezzo : ",
-                    (prezzoMin != null ? prezzoMin + " €" : Colori.GRIGIO + "qualsiasi" + Colori.RESET) +
+                    (filtroPrezzMin != null ? filtroPrezzMin + " €" : Colori.GRIGIO + "qualsiasi" + Colori.RESET) +
                             Colori.GRIGIO + "  ->  " + Colori.RESET +
-                            (prezzoMax != null ? prezzoMax + " €" : Colori.GRIGIO + "qualsiasi" + Colori.RESET));
+                            (filtroPrezzMax != null ? filtroPrezzMax + " €" : Colori.GRIGIO + "qualsiasi" + Colori.RESET));
             System.out.println(SEP_CORTO);
             voce("  1.  Imposta titolo");
             voce("  2.  Imposta genere");
@@ -264,50 +276,49 @@ public class MenuPrincipale {
                 case "1":
                     prompt("Titolo (Invio per rimuovere): ");
                     String t = leggiInput();
-                    titolo = t.isEmpty() ? null : t;
+                    filtroTitolo = t.isEmpty() ? null : t;
                     break;
                 case "2":
                     prompt("Genere (Invio per rimuovere): ");
                     String g = leggiInput();
-                    genere = g.isEmpty() ? null : g;
+                    filtroGenere = g.isEmpty() ? null : g;
                     break;
                 case "3":
                     prompt("Data inizio (yyyy-MM-dd, Invio per saltare): ");
                     String di = leggiInput();
-                    dataInizio = di.isEmpty() ? null : di;
+                    filtroDataInizio = di.isEmpty() ? null : di;
                     prompt("Data fine   (yyyy-MM-dd, Invio per saltare): ");
                     String df = leggiInput();
-                    dataFine = df.isEmpty() ? null : df;
+                    filtroDataFine = df.isEmpty() ? null : df;
                     break;
                 case "4":
                     while (true) {
                         prompt("Prezzo minimo (Invio per saltare): ");
                         String pMin = leggiInput();
-                        if (pMin.isEmpty()) { prezzoMin = null; break; }
-                        try { prezzoMin = Double.parseDouble(pMin.replace(",", ".")); break; }
+                        if (pMin.isEmpty()) { filtroPrezzMin = null; break; }
+                        try { filtroPrezzMin = Double.parseDouble(pMin.replace(",", ".")); break; }
                         catch (NumberFormatException e) { errore("Valore non valido."); }
                     }
                     while (true) {
                         prompt("Prezzo massimo (Invio per saltare): ");
                         String pMax = leggiInput();
-                        if (pMax.isEmpty()) { prezzoMax = null; break; }
-                        try { prezzoMax = Double.parseDouble(pMax.replace(",", ".")); break; }
+                        if (pMax.isEmpty()) { filtroPrezzMax = null; break; }
+                        try { filtroPrezzMax = Double.parseDouble(pMax.replace(",", ".")); break; }
                         catch (NumberFormatException e) { errore("Valore non valido."); }
                     }
                     break;
                 case "5":
                     try {
                         List<Proiezione> risultati = gestore.cercaProiezione(
-                                titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
+                                filtroTitolo, filtroGenere, filtroDataInizio, filtroDataFine,
+                                filtroPrezzMin, filtroPrezzMax);
                         stampaListaProiezioni(risultati);
                     } catch (DateTimeParseException e) {
                         errore("Formato data non valido. Usare yyyy-MM-dd.");
                     }
                     break;
                 case "6":
-                    titolo = null; genere = null;
-                    dataInizio = null; dataFine = null;
-                    prezzoMin = null; prezzoMax = null;
+                    azzeraFiltri();
                     ok("Filtri azzerati.");
                     break;
                 case "7":
@@ -336,13 +347,14 @@ public class MenuPrincipale {
         titolo("Trovate " + lista.size() + " proiezioni:");
         System.out.println(SEP_CORTO);
         for (Proiezione p : lista) {
-            System.out.printf("  [%s]  %s  %s%s%s  %.2f €  %sposti liberi: %s%d%n",
+            System.out.printf("  [%s]  %s  %s%s%s  %.2f €  %sposti liberi: %d%s%n",
                     p.getDataOra(),
                     p.getTitolo(),
                     Colori.GRIGIO, p.getGenere(), Colori.RESET,
                     p.getPrezzo(),
-                    Colori.GRIGIO, Colori.RESET,
-                    gestore.calcolaPostiLiberi(p.getDataOra()));
+                    Colori.GRIGIO,
+                    gestore.calcolaPostiLiberi(p.getDataOra()),
+                    Colori.RESET);
         }
         System.out.println(SEP_CORTO);
     }
@@ -484,7 +496,7 @@ public class MenuPrincipale {
     }
 
     /**
-     * Mostra tutte le prenotazioni attive del cliente autenticato.
+     * Mostra tutte le prenotazioni del cliente autenticato.
      *
      * @param cliente L'utente di cui visualizzare le prenotazioni.
      */
@@ -579,21 +591,21 @@ public class MenuPrincipale {
         System.out.println("\n" + SEP);
         titolo("  NUOVA PROIEZIONE");
         System.out.println(SEP);
-        prompt("Titolo: ");          String titolo = leggiInput();
-        prompt("Genere: ");          String genere = leggiInput();
-        prompt("Regista: ");         String regista = leggiInput();
-        prompt("Anno: ");            String anno = leggiInput();
-        prompt("Durata (min): ");    String durata = leggiInput();
-        prompt("Età minima: ");      String etaMinima = leggiInput();
-        prompt("Data e ora (yyyy-MM-dd HH:mm:ss): "); String dataOra = leggiInput();
-        prompt("Prezzo (€): ");      String costo = leggiInput();
+        prompt("Titolo: ");                              String titolo   = leggiInput();
+        prompt("Genere: ");                              String genere   = leggiInput();
+        prompt("Regista: ");                             String regista  = leggiInput();
+        prompt("Anno: ");                                String anno     = leggiInput();
+        prompt("Durata (min): ");                        String durata   = leggiInput();
+        prompt("Età minima: ");                          String etaMin   = leggiInput();
+        prompt("Data e ora (yyyy-MM-dd HH:mm:ss): ");   String dataOra  = leggiInput();
+        prompt("Prezzo (€): ");                          String costo    = leggiInput();
 
         try {
             Proiezione p = new Proiezione(
                     dataOra, titolo, genere, regista,
                     Integer.parseInt(anno),
                     Integer.parseInt(durata),
-                    Integer.parseInt(etaMinima),
+                    Integer.parseInt(etaMin),
                     Double.parseDouble(costo.replace(",", "."))
             );
             if (gestore.aggiungiProiezione(p)) {
