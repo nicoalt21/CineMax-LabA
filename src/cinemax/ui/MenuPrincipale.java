@@ -10,6 +10,7 @@ import cinemax.objects.Utente;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 /**
@@ -47,64 +48,19 @@ public class MenuPrincipale {
      */
     private String leggiInput() {
         try {
-            return in.readLine();
+            String s = in.readLine();
+            return (s == null) ? "" : s;
         } catch (IOException e) {
             errore("Errore di lettura dell'input. Riprova.");
             return "";
         }
     }
 
-    /**
-     * Stampa un messaggio di successo evidenziato in verde grassetto.
-     *
-     * @param msg Il messaggio da stampare.
-     */
-    private void ok(String msg) {
-        System.out.println(Colori.VERDE_GRASSETTO + msg + Colori.RESET);
-    }
-
-    /**
-     * Stampa un messaggio di errore evidenziato in rosso grassetto.
-     *
-     * @param msg Il messaggio da stampare.
-     */
-    private void errore(String msg) {
-        System.out.println(Colori.ROSSO_GRASSETTO + msg + Colori.RESET);
-    }
-
-    /**
-     * Stampa un titolo di sezione in grassetto.
-     *
-     * @param msg Il testo del titolo.
-     */
-    private void titolo(String msg) {
-        System.out.println(Colori.GRASSETTO + msg + Colori.RESET);
-    }
-
-    /**
-     * Stampa una voce numerata di menu in giallo.
-     *
-     * @param msg La voce da stampare.
-     */
-    private void voce(String msg) {
-        System.out.println(Colori.GIALLO + msg + Colori.RESET);
-    }
-
-    /**
-     * Stampa un prompt di richiesta input in giallo, senza newline finale.
-     *
-     * @param msg Il prompt da stampare.
-     */
-    private void prompt(String msg) {
-        System.out.print(Colori.GIALLO + msg + Colori.RESET);
-    }
-
-    /**
-     * Stampa una riga di dati nel formato etichetta/valore con etichetta in grigio.
-     *
-     * @param etichetta La label del campo, con eventuale padding e separatore.
-     * @param valore    Il valore da mostrare.
-     */
+    private void ok(String msg)      { System.out.println(Colori.VERDE_GRASSETTO + msg + Colori.RESET); }
+    private void errore(String msg)  { System.out.println(Colori.ROSSO_GRASSETTO + msg + Colori.RESET); }
+    private void titolo(String msg)  { System.out.println(Colori.GRASSETTO + msg + Colori.RESET); }
+    private void voce(String msg)    { System.out.println(Colori.GIALLO + msg + Colori.RESET); }
+    private void prompt(String msg)  { System.out.print(Colori.GIALLO + msg + Colori.RESET); }
     private void campo(String etichetta, String valore) {
         System.out.println(Colori.GRIGIO + etichetta + Colori.RESET + valore);
     }
@@ -130,7 +86,7 @@ public class MenuPrincipale {
             switch (scelta) {
                 case "1": login(); break;
                 case "2": registraCliente(); break;
-                case "3": menuGuest(); break;
+                case "3": ingressoGuest(); break;
                 case "0": ok("Chiusura in corso."); break;
                 default:  errore("Opzione non valida.");
             }
@@ -245,6 +201,30 @@ public class MenuPrincipale {
     // ============================================================
 
     /**
+     * Ingresso guest come da specifica: chiede prima un nome di film (anche parziale).
+     * Se il titolo è fornito, mostra le proiezioni corrispondenti.
+     * In ogni caso prosegue verso il menu di ricerca completo.
+     */
+    private void ingressoGuest() {
+        System.out.println("\n" + SEP);
+        titolo("  ACCESSO GUEST");
+        System.out.println(SEP);
+        System.out.println(Colori.GRIGIO + "Inserisci il nome (anche parziale) di un film, o Invio per saltare." + Colori.RESET);
+        prompt("\nTitolo: ");
+        String titoloIniziale = leggiInput();
+
+        if (!titoloIniziale.isEmpty()) {
+            try {
+                List<Proiezione> trovate = gestore.cercaProiezione(titoloIniziale, null, null, null, null, null);
+                stampaListaProiezioni(trovate);
+            } catch (DateTimeParseException e) {
+                errore("Errore nella ricerca: " + e.getMessage());
+            }
+        }
+        menuGuest();
+    }
+
+    /**
      * Espone le funzionalità di ricerca proiezioni accessibili senza autenticazione.
      * Mantiene i filtri attivi tra una ricerca e l'altra fino all'azzeramento esplicito.
      */
@@ -275,7 +255,7 @@ public class MenuPrincipale {
             voce("  5.  Esegui ricerca");
             voce("  6.  Azzera filtri");
             voce("  7.  Visualizza dettagli proiezione");
-            voce("  0.  Torna al menu principale");
+            voce("  0.  Torna indietro");
             prompt("\nSeleziona un'opzione: ");
 
             scelta = leggiInput();
@@ -316,9 +296,13 @@ public class MenuPrincipale {
                     }
                     break;
                 case "5":
-                    List<Proiezione> risultati = gestore.cercaProiezione(
-                            titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
-                    stampaListaProiezioni(risultati);
+                    try {
+                        List<Proiezione> risultati = gestore.cercaProiezione(
+                                titolo, genere, dataInizio, dataFine, prezzoMin, prezzoMax);
+                        stampaListaProiezioni(risultati);
+                    } catch (DateTimeParseException e) {
+                        errore("Formato data non valido. Usare yyyy-MM-dd.");
+                    }
                     break;
                 case "6":
                     titolo = null; genere = null;
@@ -345,7 +329,7 @@ public class MenuPrincipale {
      */
     private void stampaListaProiezioni(List<Proiezione> lista) {
         System.out.println();
-        if (lista.isEmpty()) {
+        if (lista == null || lista.isEmpty()) {
             errore("Nessuna proiezione trovata.");
             return;
         }
@@ -484,10 +468,14 @@ public class MenuPrincipale {
             errore("Numero non valido.");
             return;
         }
+        if (posti <= 0) {
+            errore("Il numero di posti deve essere positivo.");
+            return;
+        }
 
         String codice = gestore.creaPrenotazione(cliente, p, posti);
         if (codice == null) {
-            errore("Prenotazione fallita: posti insufficienti o età minima non rispettata.");
+            errore("Prenotazione fallita: posti insufficienti, proiezione già passata o età minima non rispettata.");
         } else {
             ok("\nPrenotazione confermata.");
             campo("  Codice     : ", codice);
@@ -530,7 +518,7 @@ public class MenuPrincipale {
         if (gestore.modificaPrenotazione(codice, nuovaDataOra)) {
             ok("Prenotazione modificata con successo.");
         } else {
-            errore("Modifica fallita: codice errato, date non future o posti insufficienti.");
+            errore("Modifica fallita: codice errato, date non future, proiezione inesistente o posti insufficienti.");
         }
     }
 
@@ -611,7 +599,7 @@ public class MenuPrincipale {
             if (gestore.aggiungiProiezione(p)) {
                 ok("Proiezione aggiunta con successo.");
             } else {
-                errore("Esiste già una proiezione per quella data e ora.");
+                errore("Inserimento fallito: orario già occupato o sovrapposizione con altra proiezione in sala.");
             }
         } catch (NumberFormatException e) {
             errore("Valori numerici non validi per anno, durata, età o prezzo.");
@@ -635,7 +623,7 @@ public class MenuPrincipale {
         if (gestore.modificaProiezione(dataOraAttuale, nuovaDataOra)) {
             ok("Proiezione modificata con successo.");
         } else {
-            errore("Modifica fallita: proiezione inesistente, data già occupata o prenotazioni attive.");
+            errore("Modifica fallita: proiezione inesistente, orario occupato, sovrapposizione o prenotazioni attive.");
         }
     }
 
@@ -751,7 +739,14 @@ public class MenuPrincipale {
                 return;
         }
 
-        List<Prenotazione> risultati = gestore.cercaPrenotazione(codice, nomeCompleto, titolo, dataInizio, dataFine);
+        List<Prenotazione> risultati;
+        try {
+            risultati = gestore.cercaPrenotazione(codice, nomeCompleto, titolo, dataInizio, dataFine);
+        } catch (DateTimeParseException e) {
+            errore("Formato data non valido. Usare yyyy-MM-dd.");
+            return;
+        }
+
         if (risultati.isEmpty()) {
             errore("Nessuna prenotazione trovata.");
             return;

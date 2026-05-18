@@ -30,7 +30,7 @@ public class GestoreDati {
     private List<Prenotazione> listaPrenotazioni;
 
     private static final int CAPIENZA_MASSIMA = 200;
-    static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
      * Inizializza le strutture dati in memoria per utenti, proiezioni e prenotazioni.
@@ -103,20 +103,60 @@ public class GestoreDati {
     }
 
     /**
+     * Verifica se due intervalli temporali si sovrappongono nella sala.
+     * Due proiezioni si sovrappongono se l'inizio di una cade prima della fine dell'altra
+     * e viceversa.
+     *
+     * @param inizioA Inizio della proiezione A.
+     * @param durataA Durata in minuti della proiezione A.
+     * @param inizioB Inizio della proiezione B.
+     * @param durataB Durata in minuti della proiezione B.
+     * @return true se le due proiezioni si sovrappongono.
+     */
+    private boolean siSovrappongono(LocalDateTime inizioA, int durataA, LocalDateTime inizioB, int durataB) {
+        LocalDateTime fineA = inizioA.plusMinutes(durataA);
+        LocalDateTime fineB = inizioB.plusMinutes(durataB);
+        return inizioA.isBefore(fineB) && inizioB.isBefore(fineA);
+    }
+
+    /**
      * Inserisce una nuova proiezione nel palinsesto.
+     * Verifica che non vi siano sovrapposizioni temporali con altre proiezioni
+     * esistenti, considerando la durata di entrambe.
      *
      * @param p L'oggetto Proiezione da aggiungere.
-     * @return true se l'inserimento ha successo, false se esiste già una proiezione per quella data e ora.
+     * @return true se l'inserimento ha successo, false se la chiave esiste già o
+     *         se la proiezione si sovrappone temporalmente con un'altra in sala.
      */
     public boolean aggiungiProiezione(Proiezione p) {
         if (mappaProiezioni.containsKey(p.getDataOra())) return false;
+
+        LocalDateTime inizioNuova;
+        try {
+            inizioNuova = LocalDateTime.parse(p.getDataOra(), FORMATO_DATA);
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+
+        for (Proiezione esistente : mappaProiezioni.values()) {
+            try {
+                LocalDateTime inizioEsistente = LocalDateTime.parse(esistente.getDataOra(), FORMATO_DATA);
+                if (siSovrappongono(inizioNuova, p.getDurata(), inizioEsistente, esistente.getDurata())) {
+                    return false;
+                }
+            } catch (DateTimeParseException e) {
+                System.err.println("dataOra non valida in mappaProiezioni: " + esistente.getDataOra());
+            }
+        }
+
         mappaProiezioni.put(p.getDataOra(), p);
         return true;
     }
 
     /**
      * Modifica la data e l'ora di una proiezione esistente.
-     * La modifica è consentita solo se non ci sono prenotazioni attive per quella proiezione.
+     * La modifica è consentita solo se non ci sono prenotazioni attive per quella proiezione
+     * e se il nuovo orario non si sovrappone con altre proiezioni esistenti.
      *
      * @param dataOraAttuale La chiave di ricerca attuale.
      * @param nuovaDataOra   La nuova stringa data e ora da assegnare.
@@ -130,9 +170,30 @@ public class GestoreDati {
             if (p.getProiezione().getDataOra().equals(dataOraAttuale)) return false;
         }
 
-        Proiezione p = mappaProiezioni.remove(dataOraAttuale);
-        p.setDataOra(nuovaDataOra);
-        mappaProiezioni.put(nuovaDataOra, p);
+        Proiezione proiezione = mappaProiezioni.get(dataOraAttuale);
+
+        LocalDateTime inizioNuovo;
+        try {
+            inizioNuovo = LocalDateTime.parse(nuovaDataOra, FORMATO_DATA);
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+
+        for (Proiezione altra : mappaProiezioni.values()) {
+            if (altra.getDataOra().equals(dataOraAttuale)) continue;
+            try {
+                LocalDateTime inizioAltra = LocalDateTime.parse(altra.getDataOra(), FORMATO_DATA);
+                if (siSovrappongono(inizioNuovo, proiezione.getDurata(), inizioAltra, altra.getDurata())) {
+                    return false;
+                }
+            } catch (DateTimeParseException e) {
+                System.err.println("dataOra non valida in mappaProiezioni: " + altra.getDataOra());
+            }
+        }
+
+        mappaProiezioni.remove(dataOraAttuale);
+        proiezione.setDataOra(nuovaDataOra);
+        mappaProiezioni.put(nuovaDataOra, proiezione);
         return true;
     }
 
@@ -163,21 +224,14 @@ public class GestoreDati {
      * @param prezzoMin  Costo minimo del biglietto.
      * @param prezzoMax  Costo massimo del biglietto.
      * @return Lista delle proiezioni che soddisfano i criteri, mai null.
+     * @throws DateTimeParseException Se dataInizio o dataFine non sono nel formato yyyy-MM-dd.
      */
     public List<Proiezione> cercaProiezione(String titolo, String genere, String dataInizio,
                                             String dataFine, Double prezzoMin, Double prezzoMax) {
         List<Proiezione> risultati = new ArrayList<>();
 
-        LocalDateTime inizio = null;
-        LocalDateTime fine = null;
-
-        try {
-            if (dataInizio != null) inizio = LocalDate.parse(dataInizio).atStartOfDay();
-            if (dataFine != null) fine = LocalDate.parse(dataFine).atTime(23, 59, 59);
-        } catch (DateTimeParseException e) {
-            System.err.println("Formato data non valido: " + e.getMessage());
-            return risultati;
-        }
+        LocalDateTime inizio = (dataInizio != null) ? LocalDate.parse(dataInizio).atStartOfDay() : null;
+        LocalDateTime fine = (dataFine != null) ? LocalDate.parse(dataFine).atTime(23, 59, 59) : null;
 
         for (Proiezione p : mappaProiezioni.values()) {
             boolean corrisponde = true;
@@ -229,15 +283,23 @@ public class GestoreDati {
 
     /**
      * Registra una nuova prenotazione scalando i posti disponibili.
+     * La prenotazione è consentita solo se la proiezione è futura, il numero di posti
+     * è positivo e non supera la disponibilità, e il cliente soddisfa l'età minima.
      *
      * @param u     L'utente acquirente.
      * @param p     La proiezione selezionata.
      * @param posti Il numero di posti da riservare.
-     * @return Il codice alfanumerico della prenotazione o null se i posti sono insufficienti,
-     *         il numero non è valido o il cliente non soddisfa l'età minima richiesta.
+     * @return Il codice alfanumerico della prenotazione o null se la prenotazione non è ammissibile.
      */
     public String creaPrenotazione(Utente u, Proiezione p, int posti) {
         if (posti <= 0 || calcolaPostiLiberi(p.getDataOra()) < posti) return null;
+
+        try {
+            LocalDateTime dataProiezione = LocalDateTime.parse(p.getDataOra(), FORMATO_DATA);
+            if (!dataProiezione.isAfter(LocalDateTime.now())) return null;
+        } catch (DateTimeParseException e) {
+            return null;
+        }
 
         int eta = u.calcolaEta();
         if (eta != -1 && eta < p.getEtaMinima()) return null;
@@ -263,7 +325,8 @@ public class GestoreDati {
 
     /**
      * Sposta una prenotazione su una diversa proiezione.
-     * La modifica è consentita solo se sia la vecchia che la nuova data sono successive a oggi.
+     * La modifica è consentita solo se sia la vecchia che la nuova data sono successive a oggi
+     * e se sulla nuova proiezione ci sono abbastanza posti liberi.
      *
      * @param codice       Il codice univoco della prenotazione.
      * @param nuovaDataOra L'orario della nuova proiezione.
@@ -280,16 +343,17 @@ public class GestoreDati {
             LocalDateTime ora = LocalDateTime.now();
             LocalDateTime dataVecchia = LocalDateTime.parse(daModificare.getProiezione().getDataOra(), FORMATO_DATA);
             LocalDateTime dataNuova = LocalDateTime.parse(nuovaDataOra, FORMATO_DATA);
-
             if (!dataVecchia.isAfter(ora) || !dataNuova.isAfter(ora)) return false;
         } catch (DateTimeParseException e) {
-            System.err.println("Formato data non valido in modificaPrenotazione: " + e.getMessage());
             return false;
         }
 
         Proiezione nuovaProiezione = mappaProiezioni.get(nuovaDataOra);
-        if (nuovaProiezione == null || calcolaPostiLiberi(nuovaDataOra) < daModificare.getNumeroPosti())
-            return false;
+        if (nuovaProiezione == null) return false;
+
+        int postiLiberi = calcolaPostiLiberi(nuovaDataOra);
+        if (daModificare.getProiezione().getDataOra().equals(nuovaDataOra)) return false;
+        if (postiLiberi < daModificare.getNumeroPosti()) return false;
 
         daModificare.setProiezione(nuovaProiezione);
         return true;
@@ -298,6 +362,8 @@ public class GestoreDati {
     /**
      * Cancella una prenotazione dal sistema.
      * La cancellazione è consentita solo se la data di proiezione è successiva a oggi.
+     * (Interpretazione coerente con modificaPrenotazione, in luogo del refuso "precedente"
+     * presente nelle specifiche originali; vedi manuale tecnico.)
      *
      * @param codice Il codice della prenotazione da eliminare.
      * @return true se l'eliminazione va a buon fine, false altrimenti.
@@ -311,7 +377,6 @@ public class GestoreDati {
                     LocalDateTime dataProiezione = LocalDateTime.parse(p.getProiezione().getDataOra(), FORMATO_DATA);
                     if (!dataProiezione.isAfter(ora)) return false;
                 } catch (DateTimeParseException e) {
-                    System.err.println("Formato data non valido in eliminaPrenotazione: " + e.getMessage());
                     return false;
                 }
                 listaPrenotazioni.remove(i);
@@ -331,21 +396,14 @@ public class GestoreDati {
      * @param dataInizio  Limite temporale inferiore (formato yyyy-MM-dd).
      * @param dataFine    Limite temporale superiore (formato yyyy-MM-dd).
      * @return Lista delle prenotazioni che soddisfano i criteri, mai null.
+     * @throws DateTimeParseException Se dataInizio o dataFine non sono nel formato yyyy-MM-dd.
      */
     public List<Prenotazione> cercaPrenotazione(String codice, String nomeCliente,
                                                 String titoloFilm, String dataInizio, String dataFine) {
         List<Prenotazione> risultati = new ArrayList<>();
 
-        LocalDateTime inizio = null;
-        LocalDateTime fine = null;
-
-        try {
-            if (dataInizio != null) inizio = LocalDate.parse(dataInizio).atStartOfDay();
-            if (dataFine != null) fine = LocalDate.parse(dataFine).atTime(23, 59, 59);
-        } catch (DateTimeParseException e) {
-            System.err.println("Formato data non valido in cercaPrenotazione: " + e.getMessage());
-            return risultati;
-        }
+        LocalDateTime inizio = (dataInizio != null) ? LocalDate.parse(dataInizio).atStartOfDay() : null;
+        LocalDateTime fine = (dataFine != null) ? LocalDate.parse(dataFine).atTime(23, 59, 59) : null;
 
         for (Prenotazione p : listaPrenotazioni) {
             boolean corrisponde = true;
