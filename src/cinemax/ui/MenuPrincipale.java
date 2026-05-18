@@ -162,7 +162,7 @@ public class MenuPrincipale {
             Utente utenteAutenticato = gestore.autenticaUtente(username, password);
 
             if (utenteAutenticato != null) {
-                ok("\nAccesso effettuato. Benvenuto, " + utenteAutenticato.getNome() + ".");
+                ok("\nAccesso effettuato. Benvenuto/a, " + utenteAutenticato.getNome() + ".");
                 switch (utenteAutenticato.getRuolo()) {
                     case CLIENTE:       menuCliente(utenteAutenticato); break;
                     case BIGLIETTAIO:   menuBigliettaio(username); break;
